@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
+import environ
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -124,6 +126,10 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+
+SENDGRID_API_KEY = env("SNDGGRID_API_KEY")
 # settings.py
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.sendgrid.net"
@@ -131,9 +137,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "apikey"
 
-EMAIL_HOST_PASSWORD = (
-    "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"
-)
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 
 DEFAULT_FROM_EMAIL = "parunchai.tim@dome.tu.ac.th"
 DOMAIN = "http://127.0.0.1:8000/"  # ใช้ลิงก์ตามโดเมนจริงของคุณ
