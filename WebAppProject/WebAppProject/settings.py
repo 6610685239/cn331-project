@@ -132,7 +132,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "apikey"
 
 EMAIL_HOST_PASSWORD = (
-    "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"
+    "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"
 )
 
 DEFAULT_FROM_EMAIL = "parunchai.tim@dome.tu.ac.th"
