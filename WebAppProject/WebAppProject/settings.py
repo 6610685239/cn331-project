@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-6_c&)bsb_n6ft+h0ikl509b1zrf4l9xjqib=mry3v&d^#ho4+s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["tutalk.pythonanywhere.com"]
 
 
 # Application definition
@@ -81,6 +81,10 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
+        "USER": "tutalk",  # ชื่อผู้ใช้ MySQL ของคุณ (เช่น 'yourusername')
+        "PASSWORD": "!Pp0629945540",  # รหัสผ่านของ MySQL ที่คุณตั้ง
+        "HOST": "tutalk.mysql.pythonanywhere-services.com",  # Hostname ของ MySQL ใน PythonAnywhere
+        "PORT": "3306",
     }
 }
 
