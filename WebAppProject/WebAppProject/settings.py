@@ -144,7 +144,7 @@ EMAIL_HOST_USER = "apikey"
 
 EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 
-DEFAULT_FROM_EMAIL = "parunchai.tim@dome.tu.ac.th"
+DEFAULT_FROM_EMAIL = "tutalkofficial@gmail.com"
 DOMAIN = "https://tutalk.pythonanywhere.com/"  # ใช้ลิงก์ตามโดเมนจริงของคุณ
 
 LOGIN_REDIRECT_URL = "/accounts/user-home/"
