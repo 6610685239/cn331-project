@@ -99,3 +99,6 @@ def confirm_email(request, username):
 def user_logout(request):
     logout(request)
     return redirect("login")
+
+def about(request):
+    return render(request, 'about/about.html')
