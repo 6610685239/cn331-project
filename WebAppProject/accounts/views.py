@@ -6,6 +6,8 @@ from .forms import SignupForm, LoginForm
 from django.conf import settings
 from django.contrib.auth import login, authenticate, logout
 from django.urls import reverse
+import sendgrid
+from sendgrid.helpers.mail import Mail, Email, To, Content
 
 
 def home(request):
@@ -14,6 +16,26 @@ def home(request):
 
 def user_home(request):
     return render(request, "user_home.html")
+
+
+def send_sendgrid_email(to_email, subject, text_content):
+    # Set up SendGrid API client
+    sg = sendgrid.SendGridAPIClient(api_key=settings.SENDGRID_API_KEY)
+
+    # Create the email message
+    from_email = Email("parunchai.tim@dome.tu.ac.th")
+    to_email = To(to_email)
+    content = Content("text/plain", text_content)
+
+    # Create the email and send it
+    mail = Mail(from_email, to_email, subject, content)
+
+    # Send the email
+    response = sg.send(mail)
+
+    # Print the response for debugging
+    print(f"SendGrid Response: {response.status_code}, {response.body}")
+    return response
 
 
 def login_views(request):
@@ -56,13 +78,13 @@ def send_confirmation_email(user):
     confirmation_url = (
         f"{settings.DOMAIN}{reverse('confirm_email', args=[user.username])}"
     )
-    send_mail(
-        "ยืนยันการสมัครสมาชิก",
-        f"โปรดคลิกลิงก์ต่อไปนี้เพื่อยืนยันการสมัครสมาชิกเว็บ TU talk ไม่โกงแน่นอน: {confirmation_url}",
-        settings.DEFAULT_FROM_EMAIL,
-        [user.email],
-        fail_silently=False,
+    subject = "ยืนยันการสมัครสมาชิก"
+    message = (
+        f"โปรดคลิกลิงก์ต่อไปนี้เพื่อยืนยันการสมัครสมาชิกเว็บ TU talk ไม่โกงแน่นอน: {confirmation_url}"
     )
+
+    # Send confirmation email using SendGrid
+    send_sendgrid_email(user.email, subject, message)
 
 
 def confirm_email(request, username):
