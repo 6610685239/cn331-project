@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #14171A;
+    /* พื้นหลังสีดำเหมือนโหมดมืดของทวิตเตอร์ */
+    color: #E1E8ED;
+    /* สีข้อความเป็นสีขาวอ่อน */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #1D2327;
+    /* พื้นหลังสีเทาเข้มในกล่องเนื้อหา */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    /* จัดข้อความในหัวข้อให้ตรงกลาง */
+    color: #E1E8ED;
+    /* สีข้อความในกล่องเป็นขาวอ่อน */
+}
+
+header h1,
+h2 {
+    font-family: Georgia, serif;
+    font-size: 1.6rem;
+    color: #E1E8ED;
+    /* สีข้อความในหัวข้อเป็นขาวอ่อน */
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-align: center;
+    /* จัดข้อความในหัวข้อให้ตรงกลาง */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    /* จัดข้อความในฟอร์มให้ทางซ้าย */
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #444;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #2C353D;
+    /* พื้นหลังของ input เป็นสีเทาเข้ม */
+    color: #E1E8ED;
+    /* ข้อความใน input เป็นขาวอ่อน */
+    box-sizing: border-box;
+}
+
+form input::placeholder {
+    color: #AAB8C2;
+    font-size: 0.9rem;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1DA1F2;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #1991db;
+}
+
+a {
+    color: #1DA1F2;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.messages {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.alert {
+    padding: 10px;
+    background-color: #3A4A57;
+    color: #1DA1F2;
+    border: 1px solid #2A3A45;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}

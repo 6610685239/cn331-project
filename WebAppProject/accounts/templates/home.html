@@ -1,15 +1,35 @@
-<!-- templates/registration/home.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เข้าสู่ระบบ</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TU Talk</h1>
+        </header>
 
-<h2>เข้าสู่ระบบ</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">เข้าสู่ระบบ</button>
-</form>
-<p>ยังไม่มีบัญชี? <a href="{% url 'register' %}">สมัครสมาชิก</a></p>
+        <section class="login-form-section">
+            <h2>เข้าสู่ระบบ</h2>
+            <form method="post" class="login-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">เข้าสู่ระบบ</button>
+            </form>
+            <p>ยังไม่มีบัญชี? <a href="{% url 'register' %}">สมัครสมาชิก</a></p>
+        </section>
 
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert {{ message.tags }}">{{ message }}</div>
-    {% endfor %}
-{% endif %}
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
