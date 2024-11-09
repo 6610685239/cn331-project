@@ -23,7 +23,7 @@ def send_sendgrid_email(to_email, subject, text_content):
     sg = sendgrid.SendGridAPIClient(api_key=settings.SENDGRID_API_KEY)
 
     # Create the email message
-    from_email = Email("tutalkofficial@dome.tu.ac.th")
+    from_email = Email("tutalkofficial@gmail.com")
     to_email = To(to_email)
     content = Content("text/plain", text_content)
 
