@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["tutalk.pythonanywhere.com", "localhost", "127.0.0.1"]
 
-
+CSRF_TRUSTED_ORIGINS = ["https://tutalk.pythonanywhere.com"]
 # Application definition
 
 INSTALLED_APPS = [
@@ -125,7 +125,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATIC_ROOT = "/home/cn331-project/WebAppProject/static/"
+STATIC_ROOT = "/home/tutalk/WebAppProject/static/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -136,7 +136,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 SENDGRID_API_KEY = env("SENDGRID_API_KEY")
 # settings.py
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

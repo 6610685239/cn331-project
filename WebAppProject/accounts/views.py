@@ -23,7 +23,7 @@ def send_sendgrid_email(to_email, subject, text_content):
     sg = sendgrid.SendGridAPIClient(api_key=settings.SENDGRID_API_KEY)
 
     # Create the email message
-    from_email = Email("parunchai.tim@dome.tu.ac.th")
+    from_email = Email("tutalkofficial@dome.tu.ac.th")
     to_email = To(to_email)
     content = Content("text/plain", text_content)
 
@@ -100,5 +100,6 @@ def user_logout(request):
     logout(request)
     return redirect("login")
 
+
 def about(request):
-    return render(request, 'about.html')
+    return render(request, "about.html")
