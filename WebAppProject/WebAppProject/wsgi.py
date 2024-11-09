@@ -11,7 +11,7 @@ import os
 import sys
 
 sys.path.append("/home/tutalk/cn331-project")
-sys.path.append("/home/tutalk/cn331-project/WepAppProject")
+sys.path.append("/home/tutalk/cn331-project/WebAppProject")
 
 from django.core.wsgi import get_wsgi_application
 
