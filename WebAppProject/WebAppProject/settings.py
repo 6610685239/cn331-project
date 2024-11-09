@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-6_c&)bsb_n6ft+h0ikl509b1zrf4l9xjqib=mry3v&d^#ho4+s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["tutalk.pythonanywhere.com"]
+ALLOWED_HOSTS = ["tutalk.pythonanywhere.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
