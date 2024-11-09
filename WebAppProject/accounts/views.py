@@ -101,4 +101,4 @@ def user_logout(request):
     return redirect("login")
 
 def about(request):
-    return render(request, 'about/about.html')
+    return render(request, 'about.html')
