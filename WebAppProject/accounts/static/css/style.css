@@ -1,131 +1,154 @@
-/* การตั้งค่าสไตล์พื้นฐาน */
-body {
-    font-family: Arial, sans-serif;
+/* ตั้งค่าเบื้องต้น */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #14171A;
-    color: #E1E8ED;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; /* พื้นหลังสีเข้ม */
+    color: #e0e0e0; /* สีข้อความให้ดูสบายตา */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #14171A 0%, #1D2327 100%);
 }
 
+/* คอนเทนเนอร์หลัก */
 .container {
-    background-color: #1D2327;
-    padding: 30px;
+    background-color: #2a2a2a; /* พื้นหลังสีเข้มของกรอบ */
+    padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 400px;
+    max-width: 360px;
     text-align: center;
-    color: #E1E8ED;
 }
 
-header h1, h2 {
-    font-family: Georgia, serif;
-    font-size: 1.8rem;
-    color: #E1E8ED;
-    margin-bottom: 15px;
-    font-weight: bold;
+/* สไตล์สำหรับ header */
+header h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: #eab308; /* สีเหลืองธรรมศาสตร์ */
+    margin-bottom: 5px;
 }
 
-/* สไตล์สำหรับ input-group */
+header h2 {
+    font-size: 1.4rem;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+/* ฟอร์มสไตล์ */
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* สไตล์ input fields */
 .input-group {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
+.input-group input[type="text"],
+.input-group input[type="password"],
+.input-group input[type="email"] {
+    width: 100%;
+    padding: 12px 40px 12px 40px;
+    border: 1px solid #444444; /* ขอบสีเทาเข้ม */
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #e0e0e0;
+    background-color: #333333;
+    outline: none;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder {
+    color: #a0a0a0;
+}
+
+/* ไอคอนสำหรับ input fields */
 .input-group .icon {
     position: absolute;
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 1.2rem;
-    color: #AAB8C2;
+    color: #eab308; /* สีเหลืองธรรมศาสตร์ */
 }
 
-.input-group input {
-    width: 100%;
-    padding: 10px 40px 10px 35px; /* เพิ่มช่องว่างเพื่อรองรับไอคอน */
-    margin: 5px 0;
-    border: 1px solid #444;
-    border-radius: 6px;
-    font-size: 1rem;
-    background-color: #2C353D;
-    color: #E1E8ED;
-    box-sizing: border-box;
-}
-
-.input-group input::placeholder {
-    color: #AAB8C2;
-}
-
-.input-group .toggle-password {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #AAB8C2;
-}
-
-/* สไตล์สำหรับปุ่ม */
-button {
+/* สไตล์ปุ่ม login และ register */
+button[type="submit"] {
     width: 100%;
     padding: 10px;
     border: none;
-    border-radius: 6px;
-    background-color: #FF6B6B;
+    border-radius: 4px;
+    background-color: #d32f2f; /* สีแดงธรรมศาสตร์ */
     color: white;
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
 }
 
-button:hover {
-    background-color: #FF4E4E;
-    transform: scale(1.05);
+button[type="submit"]:hover {
+    background-color: #b71c1c;
 }
 
-/* สไตล์สำหรับลิงก์ */
-a {
-    color: #FF6B6B;
+/* สไตล์ปุ่มแสดงรหัสผ่าน */
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #888888;
+    cursor: pointer;
+}
+
+/* Remember me */
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+/* ลิงก์เพิ่มเติม (ใช้ได้ทั้งหน้า Login และ Register) */
+.link-text {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin-top: 15px;
+}
+
+.link-text a {
+    color: #eab308; /* สีเหลืองธรรมศาสตร์ */
     text-decoration: none;
-    font-size: 0.95rem;
 }
 
-a:hover {
+.link-text a:hover {
     text-decoration: underline;
 }
 
-/* สไตล์สำหรับข้อความแจ้งเตือน */
+/* ข้อความแจ้งเตือน */
 .messages {
-    margin-top: 15px;
+    margin-top: 20px;
     font-size: 0.9rem;
 }
 
 .alert {
     padding: 10px;
-    background-color: #3A4A57;
-    color: #FF6B6B;
-    border: 1px solid #2A3A45;
-    border-radius: 8px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 4px;
     margin-bottom: 10px;
-}
-
-/* สไตล์สำหรับ Remember me */
-.remember-me {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-
-.remember-me input[type="checkbox"] {
-    margin: 0;
+    text-align: left;
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สมัครสมาชิก</title>
+    <title>Register</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
@@ -15,45 +15,39 @@
         </header>
 
         <section class="register-form-section">
-            <form method="post" class="register-form" onsubmit="return validatePasswords()">
+            <form method="post" class="register-form">
                 {% csrf_token %}
                 
-                <!-- ช่อง Username พร้อมไอคอน -->
+                <!-- ฟิลด์ Username -->
                 <div class="input-group">
                     <span class="icon">👤</span>
                     <input type="text" name="username" placeholder="Username (Student ID)" required>
                 </div>
-                
-                <!-- ช่อง Password พร้อมไอคอนและปุ่มแสดงรหัสผ่าน -->
+
+                <!-- ฟิลด์ Password -->
                 <div class="input-group">
                     <span class="icon">🔒</span>
-                    <input type="password" name="password" placeholder="Password" required id="password-field">
-                    <span class="toggle-password" onclick="togglePassword('password-field')">👁️</span>
+                    <input type="password" name="password1" placeholder="Password" required>
+                    <span class="toggle-password">👁️</span>
                 </div>
 
-                <!-- ช่อง Confirm Password พร้อมไอคอนและปุ่มแสดงรหัสผ่าน -->
+                <!-- ฟิลด์ Confirm Password -->
                 <div class="input-group">
                     <span class="icon">🔒</span>
-                    <input type="password" name="confirm_password" placeholder="Confirm Password" required id="confirm-password-field">
-                    <span class="toggle-password" onclick="togglePassword('confirm-password-field')">👁️</span>
+                    <input type="password" name="password2" placeholder="Confirm Password" required>
+                    <span class="toggle-password">👁️</span>
                 </div>
-                
-                <!-- แสดงข้อความแจ้งเตือนหากรหัสผ่านไม่ตรงกัน -->
-                <p id="password-error" style="color: #FF6B6B; display: none; font-size: 0.9rem;">Passwords do not match.</p>
-                <!-- แสดงข้อความแจ้งเตือนหากรหัสผ่านไม่มีทั้งตัวเลขและตัวอักษร -->
-                <p id="password-requirements-error" style="color: #FF6B6B; display: none; font-size: 0.9rem;">Password must contain both letters and numbers.</p>
 
-                <!-- ช่อง Email พร้อมไอคอน -->
+                <!-- ฟิลด์ Email -->
                 <div class="input-group">
-                    <span class="icon">✉️</span>
+                    <span class="icon">📧</span>
                     <input type="email" name="email" placeholder="Email (University Email)" required>
                 </div>
                 
-                <!-- ปุ่ม SignUp -->
-                <button type="submit">SignUp</button>
+                <button type="submit" class="register-button">Sign Up</button>
             </form>
-            
-            <p>Already have an account? <a href="{% url 'home' %}">Login</a></p>
+
+            <p class="login-link">Already have an account? <a href="{% url 'home' %}">Login</a></p>
         </section>
 
         {% if messages %}
@@ -64,41 +58,5 @@
             </div>
         {% endif %}
     </div>
-
-    <script>
-        function togglePassword(fieldId) {
-            const field = document.getElementById(fieldId);
-            field.type = field.type === "password" ? "text" : "password";
-        }
-
-        function validatePasswords() {
-            const password = document.getElementById("password-field").value;
-            const confirmPassword = document.getElementById("confirm-password-field").value;
-            const passwordError = document.getElementById("password-error");
-            const requirementsError = document.getElementById("password-requirements-error");
-
-            // ตรวจสอบว่ารหัสผ่านตรงกันหรือไม่
-            if (password !== confirmPassword) {
-                passwordError.style.display = "block";
-                requirementsError.style.display = "none";
-                return false;
-            } else {
-                passwordError.style.display = "none";
-            }
-
-            // ตรวจสอบว่ารหัสผ่านมีทั้งตัวอักษรและตัวเลขหรือไม่
-            const hasLetter = /[a-zA-Z]/.test(password);
-            const hasNumber = /[0-9]/.test(password);
-
-            if (!hasLetter || !hasNumber) {
-                requirementsError.style.display = "block";
-                return false;
-            } else {
-                requirementsError.style.display = "none";
-            }
-
-            return true; // ผ่านการตรวจสอบทั้งหมด อนุญาตให้ส่งฟอร์ม
-        }
-    </script>
 </body>
 </html>

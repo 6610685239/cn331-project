@@ -1,10 +1,10 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เข้าสู่ระบบ</title>
+    <title>เข้าสู่ระบบ - TU Talk</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
@@ -14,53 +14,48 @@
         </header>
 
         <section class="login-form-section">
-            <h2>Login</h2>
+            <h2></h2>
             <form method="post" class="login-form">
                 {% csrf_token %}
-                
+
                 <!-- ช่อง Student ID พร้อมไอคอน -->
                 <div class="input-group">
                     <span class="icon">👤</span>
-                    <input type="text" name="student_id" placeholder="Student ID" required>
+                    {{ form.username }}
                 </div>
-                
+
                 <!-- ช่อง Password พร้อมไอคอนและปุ่มแสดงรหัสผ่าน -->
                 <div class="input-group">
                     <span class="icon">🔒</span>
-                    <input type="password" name="password" placeholder="Password" required id="password-field">
+                    {{ form.password }}
                     <span class="toggle-password" onclick="togglePassword()">👁️</span>
                 </div>
-                
-                <!-- กล่อง Remember me ในบรรทัดเดียวกัน -->
+
+                <!-- Remember me -->
                 <div class="remember-me">
                     <input type="checkbox" name="remember_me" id="remember-me">
                     <label for="remember-me">Remember me</label>
                 </div>
                 
                 <!-- ปุ่ม Login -->
-                <button type="submit">Login</button>
+                <button type="submit" class="login-button">Login</button>
             </form>
-            
-            <p>Don't have an account? <a href="{% url 'register' %}">Signup</a></p>
+            <p class="register-link">Don’t have an account? <a href="{% url 'register' %}">Signup</a></p>
         </section>
 
         {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                    <div class="alert {{ message.tags }}">{{ message }}</div>
-                {% endfor %}
-            </div>
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
         {% endif %}
     </div>
 
     <script>
         function togglePassword() {
             const passwordField = document.getElementById("password-field");
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-            } else {
-                passwordField.type = "password";
-            }
+            passwordField.type = passwordField.type === "password" ? "text" : "password";
         }
     </script>
 </body>
