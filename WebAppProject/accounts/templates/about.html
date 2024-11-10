@@ -4,34 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About us</title>
-    <link rel="stylesheet" href="{% static 'css/style_2.css' %}">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'css/style_about.css' %}">
 </head>
 <body>
-    <header>
-        <h1>About</h1>
+    <!-- ส่วนแถบเมนู -->
+    <header class="navbar">
+        <h1 class="logo">TUTALK</h1>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="#">Alert</a></li>
+            <li><a href="#">Review</a></li>
+            <li><a href="#">Party</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+        </ul>
     </header>
 
-    <section>
-        <h2>รายชื่อสมาชิก</h2>
-        <ol>
-            <li>นายกันตพงศ์ วิชชุเกรียงไกร 6610625045</li>
-            <li>นายชนม์ชนันทร์ จิตระวัง 6610685056</li>
-            <li>นายชยวัฒน์ กาญจนะแก้ว 6610685122</li>
-            <li>นาย นนทพัทธ์ บุญประสิทธิ์ 6610625205</li>
-            <li>นาย ปรัญชัย ติ้มขลิบ 6610625239</li>
-        </ol>
+    <!-- ส่วนเกี่ยวกับเรา -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>ยินดีต้อนรับสู่ TUTALK แพลตฟอร์มที่สร้างสรรค์เพื่อแบ่งปันข้อมูล ข่าวสาร และบทความที่เป็นประโยชน์แก่ชาวมธ. ด้วยทีมงานที่มุ่งมั่นและมีความสามารถ เพื่อให้คุณได้รับข้อมูลที่มีคุณภาพและน่าเชื่อถือ</p>
+        </div>
     </section>
 
-    <section>
-        <a href="https://trello.com/b/JjbKkQVw/tu-talk" target="_blank">Link Tracker</a>
-        <a href="https://github.com/6610685239/cn331-project" target="_blank">Link GitHub Repo</a>
-        <a href="https://www.youtube.com/@TuTalkOfficial" target="_blank">Link youtube</a>
+    <!-- ส่วนรายชื่อสมาชิก -->
+    <section class="team-section">
+        <h2>Meet Our Team</h2>
+        <div class="team-members">
+            <div class="member-card">
+                <h3>กันตพงศ์ วิชชุเกรียงไกร</h3>
+                <p>ID: 6610625045</p>
+            </div>
+            <div class="member-card">
+                <h3>ชนม์ชนันทร์ จิตระวัง</h3>
+                <p>ID: 6610685056</p>
+            </div>
+            <div class="member-card">
+                <h3>ชยวัฒน์ กาญจนะแก้ว</h3>
+                <p>ID: 6610685122</p>
+            </div>
+            <div class="member-card">
+                <h3>นนทพัทธ์ บุญประสิทธิ์</h3>
+                <p>ID: 6610625205</p>
+            </div>
+            <div class="member-card">
+                <h3>ปรัญชัย ติ้มขลิบ</h3>
+                <p>ID: 6610625239</p>
+            </div>
+        </div>
     </section>
 
+    <!-- ส่วนลิงก์เพิ่มเติม -->
+<section class="links-section">
+    <div class="links-left">
+        <h2>Follow Us</h2>
+        <div class="links">
+            <a href="https://trello.com/b/JjbKkQVw/tu-talk" target="_blank">Trello Tracker</a>
+            <a href="https://github.com/6610685056/cn331-project" target="_blank">GitHub Repo</a>
+            <a href="https://www.youtube.com/@TuTalkOfficial" target="_blank">YouTube Channel</a>
+        </div>
+    </div>
+    <div class="contact-right">
+        <h2>Contact Us</h2>
+        <a href="mailto:tutalkofficial@gmail.com">tutalkofficial@gmail.com</a>
+    </div>
+</section>
 
 
-
-    
 </body>
 </html>

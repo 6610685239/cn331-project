@@ -1,0 +1,200 @@
+/* ตั้งค่าเบื้องต้น */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #1c1c1c; /* สีดำเข้มสไตล์แอป X */
+    color: #e0e0e0; /* สีเทาสว่าง */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* แถบเมนู */
+.navbar {
+    width: 100%;
+    background: linear-gradient(90deg, #eab308, #d32f2f); /* ไล่เฉดสีเหลืองธรรมศาสตร์ไปยังสีแดง */
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: #000000; /* สีดำสไตล์แอป X */
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #d32f2f; /* สีแดงธรรมศาสตร์ */
+}
+
+/* ส่วนเกี่ยวกับเรา */
+.about-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #2b2b2b; /* สีเทาเข้ม */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 80%;
+    margin-top: 30px;
+    border-left: 5px solid #eab308; /* แถบสีเหลืองด้านซ้าย */
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    color: #eab308; /* สีเหลืองธรรมศาสตร์ */
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    color: #b0b0b0; /* สีเทาอ่อนสำหรับข้อความ */
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* ส่วนรายชื่อสมาชิก */
+.team-section {
+    width: 80%;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.team-section h2 {
+    font-size: 2rem;
+    color: #eab308;
+    margin-bottom: 20px;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.member-card {
+    width: 45%;
+    background: linear-gradient(135deg, #333333, #4b4b4b); /* ไล่สีเทาเข้มสไตล์แอป X */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+    transform: scale(1.05); /* เอฟเฟกต์ขยายเมื่อชี้เมาส์ */
+}
+
+.member-card h3 {
+    font-size: 1.3rem;
+    color: #eab308; /* สีเหลืองธรรมศาสตร์ */
+    margin-bottom: 10px;
+}
+
+.member-card p {
+    color: #999;
+    font-size: 1rem;
+}
+
+/* ส่วนลิงก์เพิ่มเติม */
+.links-section {
+    width: 80%;
+    padding: 30px 20px;
+    margin-top: 30px;
+    background-color: #2b2b2b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border-right: 5px solid #d32f2f; /* แถบสีแดงธรรมศาสตร์ด้านขวา */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links-left {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.links-left h2 {
+    font-size: 1.5rem;
+    color: #eab308;
+    margin-bottom: 10px;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.links a {
+    color: #d32f2f; /* สีแดงธรรมศาสตร์ */
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border: 2px solid #d32f2f;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.links a:hover {
+    background-color: #d32f2f; /* สีแดงธรรมศาสตร์เมื่อชี้เมาส์ */
+    color: #fff; /* สีตัวอักษรขาวเมื่อชี้เมาส์ */
+}
+
+/* ปุ่ม Contact Us */
+.contact-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.contact-right h2 {
+    font-size: 1.5rem;
+    color: #eab308;
+    margin-bottom: 10px;
+}
+
+.contact-right a {
+    color: #d32f2f; /* สีแดงธรรมศาสตร์ */
+    font-size: 1.1rem;
+    text-decoration: none;
+    border: 2px solid #d32f2f;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 5px;
+}
+
+.contact-right a:hover {
+    background-color: #d32f2f; /* สีแดงธรรมศาสตร์เมื่อชี้เมาส์ */
+    color: #fff; /* สีตัวอักษรขาวเมื่อชี้เมาส์ */
+}

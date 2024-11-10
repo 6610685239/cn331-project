@@ -136,7 +136,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 SENDGRID_API_KEY = env("SENDGRID_API_KEY")
 # settings.py
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
