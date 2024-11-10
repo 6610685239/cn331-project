@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #14171A;
+    /* พื้นหลังสีดำเหมือนโหมดมืดของทวิตเตอร์ */
+    color: #ffffff;
+    /* สีข้อความเป็นสีขาวอ่อน */
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #1D2327;
+    /* พื้นหลังสีเทาเข้มในกล่องเนื้อหา */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    color: #E1E8ED;
+    /* สีข้อความในกล่องเป็นขาวอ่อน */
+}
+
+header h1,
+h2 {
+    font-family: Georgia, serif;
+    font-size: 1.6rem;
+    color: #E1E8ED;
+    /* สีข้อความในหัวข้อเป็นขาวอ่อน */
+    margin-bottom: 15px;
+    font-weight: normal;
+    /* จัดข้อความในหัวข้อให้ตรงกลาง */
+}
+
