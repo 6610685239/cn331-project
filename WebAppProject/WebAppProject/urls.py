@@ -5,6 +5,6 @@ from accounts import views as accounts_views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("accounts.urls")),  # รวม URLs ของ accounts
-    path("", accounts_views.about, name="home"),
+    path("", accounts_views.user_home, name="home"),
     path("", include("django.contrib.auth.urls")),  # รวม URL ของ Django auth
 ]

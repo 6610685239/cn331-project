@@ -1,8 +1,288 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="th">
 
-<h1>Welcome to User Home</h1>
-<p>This page will display user-specific content in the future.</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TU Talk - สมัครสมาชิก</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<div class="actions">
-    <a href="{% url 'about' %}">About us</a>
-    <a href="{% url 'home' %}">Log Out</a>
-</div>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #f4f5f7;
+            display: flex;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #D32F2F;
+            /* สีแดง */
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #fff;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            margin-right: auto;
+        }
+
+        .navbar .post-form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .navbar .post-form input[type="text"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+        }
+
+        .navbar .post-form input[type="file"] {
+            display: none;
+            /* ซ่อนช่องเลือกไฟล์จริง */
+        }
+
+        .navbar .post-form label {
+            background-color: #D32F2F;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .post-form label:hover {
+            background-color: #B71C1C;
+        }
+
+        .navbar .post-form button {
+            padding: 8px 16px;
+            background-color: #D32F2F;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .post-form button:hover {
+            background-color: #B71C1C;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-left: auto;
+        }
+
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #ddd;
+        }
+
+        /* Left Menu */
+        .left-menu {
+            width: 200px;
+            padding: 20px;
+            background-color: #ffffff;
+            height: calc(100vh - 60px);
+            position: fixed;
+            top: 60px;
+            left: 0;
+            color: #030303;
+            font-family: 'Roboto', sans-serif;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-menu .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .left-menu a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .left-menu a:hover {
+            background-color: #D32F2F;
+            color: #ffffff;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 100px;
+            padding: 20px;
+            flex: 1;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .post {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .post img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .post h3 {
+            margin-bottom: 5px;
+            color: #1f2937;
+        }
+
+        .post p {
+            color: #6b7280;
+        }
+
+        /* Right Menu */
+        .right-menu {
+            width: 250px;
+            padding: 20px;
+            background-color: #ffffff;
+            height: calc(100vh - 60px);
+            position: fixed;
+            top: 60px;
+            right: 0;
+            color: #030303;
+            font-family: 'Roboto', sans-serif;
+            box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .right-menu h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #D32F2F;
+        }
+
+        .right-menu .post {
+            background-color: #ffffff;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar with Post Form in Center -->
+    <nav class="navbar">
+        <a href="{% url 'home' %}" class="logo">TUTalk</a>
+        <div class="post-form">
+            <input type="text" placeholder="What's on your mind?">
+            <label for="file-upload">Attach Image</label>
+            <input type="file" id="file-upload" accept="image/*">
+            <button type="submit">Post</button>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">My account</a>
+            <a href="{% url 'home' %}">Log Out</a>
+        </div>
+    </nav>
+
+    <!-- Left Menu with Search Bar -->
+    <div class="left-menu">
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <a href="{% url 'home' %}">TU Alert</a>
+        <a href="{% url 'home' %}">TU Review</a>
+        <a href="{% url 'home' %}">TU Party</a>
+        <a href="{% url 'about' %}">About Us</a>
+    </div>
+
+    <!-- Main Content Centered -->
+    <div class="main-content">
+        <!-- Regular Posts -->
+        <div class="post">
+            <img src="https://s.isanook.com/ca/0/ud/277/1388245/tushirt.jpg?ip/resize/w728/q80/jpg" alt="Post Image">
+            <h3>Mr. Test</h3>
+            <p>เปิดวาร์ป TU Ambassador</p>
+            <p>ส้มโอ: อะไรกันจ๊ะ</p>
+        </div>
+
+        <div class="post">
+            <img src="https://today-obs.line-scdn.net/0hiswXR52lNlxKISaBryBJC3J3Oi15RyxVaE5wbjwoP2xuDSQMfkdlP2opOnBvQnheahJ-aTp1P2xhQXQMcw/w1200"
+                alt="Post Image">
+            <h3>Mr. Example</h3>
+            <p>Enjoying the day!</p>
+            <p>Mr. user: สนุกมากเลย</p>
+        </div>
+    </div>
+
+    <!-- Right Menu with Trending Posts -->
+    <div class="right-menu">
+        <h2>🔥 Trending</h2>
+        <div class="post">
+            <img src="https://today-obs.line-scdn.net/0hiswXR52lNlxKISaBryBJC3J3Oi15RyxVaE5wbjwoP2xuDSQMfkdlP2opOnBvQnheahJ-aTp1P2xhQXQMcw/w1200"
+                alt="Trending Post Image">
+            <h3>Ms. Popular</h3>
+            <p>Just shared amazing tips for freshmen!</p>
+        </div>
+        <div class="post">
+            <img src="https://s.isanook.com/ca/0/ud/277/1388245/tushirt.jpg?ip/resize/w728/q80/jpg"
+                alt="Trending Post Image">
+            <h3>Mr. Trend</h3>
+            <p>Check out the new TU event!</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
