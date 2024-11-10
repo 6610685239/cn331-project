@@ -9,6 +9,8 @@
 
 # Web Application Name : TUTALK
 
+![image](https://github.com/user-attachments/assets/6f67247d-efd0-4b14-bb27-ebe37c95e5e2)
+
 ## Features หลัก มีดังนี้
 
 ### 1. TU Talk: ระบบพูดคุยที่ให้ผู้ใช้สามารถโพสต์ข้อความ แชร์ความคิดเห็น หรือสร้างการสนทนาในหัวข้อต่างๆ ภายในมหาวิทยาลัย ผู้ใช้สามารถ Like Repost หรือ Comment โพสต์ของคนอื่นได้
