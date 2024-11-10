@@ -14,13 +14,34 @@
         </header>
 
         <section class="login-form-section">
-            <h2>เข้าสู่ระบบ</h2>
+            <h2>Login</h2>
             <form method="post" class="login-form">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">เข้าสู่ระบบ</button>
+                
+                <!-- ช่อง Student ID พร้อมไอคอน -->
+                <div class="input-group">
+                    <span class="icon">👤</span>
+                    <input type="text" name="student_id" placeholder="Student ID" required>
+                </div>
+                
+                <!-- ช่อง Password พร้อมไอคอนและปุ่มแสดงรหัสผ่าน -->
+                <div class="input-group">
+                    <span class="icon">🔒</span>
+                    <input type="password" name="password" placeholder="Password" required id="password-field">
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+                
+                <!-- กล่อง Remember me ในบรรทัดเดียวกัน -->
+                <div class="remember-me">
+                    <input type="checkbox" name="remember_me" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+                
+                <!-- ปุ่ม Login -->
+                <button type="submit">Login</button>
             </form>
-            <p>ยังไม่มีบัญชี? <a href="{% url 'register' %}">สมัครสมาชิก</a></p>
+            
+            <p>Don't have an account? <a href="{% url 'register' %}">Signup</a></p>
         </section>
 
         {% if messages %}
@@ -31,5 +52,16 @@
             </div>
         {% endif %}
     </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById("password-field");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
