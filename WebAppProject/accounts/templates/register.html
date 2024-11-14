@@ -1,53 +1,26 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_register.css' %}">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Welcome to our Family</h1>
-            <h2>Signup</h2>
+            <h1>SIGN UP</h1>
+            <h2>มาร่วมเป็นครอบครัวกับชุมชนของเรา</h2>
         </header>
 
         <section class="register-form-section">
             <form method="post" class="register-form">
                 {% csrf_token %}
-                
-                <!-- ฟิลด์ Username -->
-                <div class="input-group">
-                    <span class="icon">👤</span>
-                    <input type="text" name="username" placeholder="Username (Student ID)" required>
-                </div>
-
-                <!-- ฟิลด์ Password -->
-                <div class="input-group">
-                    <span class="icon">🔒</span>
-                    <input type="password" name="password1" placeholder="Password" required>
-                    <span class="toggle-password">👁️</span>
-                </div>
-
-                <!-- ฟิลด์ Confirm Password -->
-                <div class="input-group">
-                    <span class="icon">🔒</span>
-                    <input type="password" name="password2" placeholder="Confirm Password" required>
-                    <span class="toggle-password">👁️</span>
-                </div>
-
-                <!-- ฟิลด์ Email -->
-                <div class="input-group">
-                    <span class="icon">📧</span>
-                    <input type="email" name="email" placeholder="Email (University Email)" required>
-                </div>
-                
-                <button type="submit" class="register-button">Sign Up</button>
+                {{ form.as_p }}
+                <button type="submit">Register</button>
             </form>
-
-            <p class="login-link">Already have an account? <a href="{% url 'home' %}">Login</a></p>
+            <p>มีบัญชีอยู่แล้ว? <a href="{% url 'home' %}">เข้าสู่ระบบ</a></p>
         </section>
 
         {% if messages %}
