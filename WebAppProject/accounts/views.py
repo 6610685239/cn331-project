@@ -8,6 +8,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.urls import reverse
 import sendgrid
 from sendgrid.helpers.mail import Mail, Email, To, Content
+from django.views.decorators.http import require_POST
 
 
 def home(request):
