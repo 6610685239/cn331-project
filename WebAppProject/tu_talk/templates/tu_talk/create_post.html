@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create a Post - TU Talk</title>
+</head>
+
+<body>
+
+    <h1>Create a New Post</h1>
+
+    <form action="{% url 'tu_talk:create_post' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label for="content">Write something:</label>
+        <textarea id="content" name="content" rows="4" cols="50"></textarea>
+
+        <label for="image">Upload an image (JPG or PNG only):</label>
+        <input type="file" id="image" name="image">
+        <p style="font-size: 12px; color: red;">Only JPG or PNG files are allowed.</p>
+
+        <button type="submit">Post</button>
+    </form>
+
+    <a href="{% url 'tu_talk:post_list' %}">Back to Post List</a>
+
+</body>
+
+</html>

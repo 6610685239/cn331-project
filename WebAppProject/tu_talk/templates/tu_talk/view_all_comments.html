@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Comments - TU Talk</title>
+</head>
+
+<body>
+    <h1>All Comments for "{{ post.content }}"</h1>
+
+    {% for comment in comments %}
+    <div class="comment">
+        <p><strong>{{ comment.user.username }}:</strong> {{ comment.content }}</p>
+        <p>Posted on: {{ comment.created_at|date:"d M Y, H:i" }}</p>
+    </div>
+    <hr>
+    {% empty %}
+    <p>No comments yet.</p>
+    {% endfor %}
+    <a href="{% url 'tu_talk:add_comment' post.id %}">Add Comment</a>
+    <a href="{% url 'user_home' %}">Back to Home</a>
+</body>
+
+</html>

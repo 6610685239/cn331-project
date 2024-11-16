@@ -8,7 +8,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.urls import reverse
 import sendgrid
 from sendgrid.helpers.mail import Mail, Email, To, Content
-from django.views.decorators.http import require_POST
+from tu_talk.models import Post, Comment
+from django.db.models import Prefetch
 
 
 def home(request):
@@ -16,7 +17,10 @@ def home(request):
 
 
 def user_home(request):
-    return render(request, "user_home.html")
+    posts = Post.objects.prefetch_related(
+        Prefetch("comments", queryset=Comment.objects.order_by("-created_at"))
+    ).order_by("-created_at")
+    return render(request, "user_home.html", {"posts": posts})
 
 
 def send_sendgrid_email(to_email, subject, text_content):

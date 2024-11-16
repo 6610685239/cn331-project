@@ -14,6 +14,7 @@ import os
 import environ
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "accounts",
+    "tu_talk",
 ]
 
 MIDDLEWARE = [
@@ -129,6 +131,9 @@ STATIC_ROOT = "/home/tutalk/WebAppProject/static/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 env = environ.Env()
@@ -136,7 +141,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 SENDGRID_API_KEY = env("SENDGRID_API_KEY")
 # settings.py
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
