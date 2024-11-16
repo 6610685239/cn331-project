@@ -8,6 +8,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.urls import reverse
 import sendgrid
 from sendgrid.helpers.mail import Mail, Email, To, Content
+from tu_talk.models import Post, Comment
+from django.db.models import Prefetch
 
 
 def home(request):
@@ -15,7 +17,10 @@ def home(request):
 
 
 def user_home(request):
-    return render(request, "user_home.html")
+    posts = Post.objects.prefetch_related(
+        Prefetch("comments", queryset=Comment.objects.order_by("-created_at"))
+    ).order_by("-created_at")
+    return render(request, "user_home.html", {"posts": posts})
 
 
 def send_sendgrid_email(to_email, subject, text_content):
@@ -37,21 +42,28 @@ def send_sendgrid_email(to_email, subject, text_content):
     print(f"SendGrid Response: {response.status_code}, {response.body}")
     return response
 
+
 def login_views(request):
     if request.method == "POST":
         form = LoginForm(data=request.POST)
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
-            remember_me = form.cleaned_data.get("remember")  # Get the 'remember me' checkbox value
+            remember_me = form.cleaned_data.get(
+                "remember"
+            )  # Get the 'remember me' checkbox value
 
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
                 if remember_me:  # If remember me is checked
-                    request.session.set_expiry(60*60*24*30)  # Set session to last for 30 days
+                    request.session.set_expiry(
+                        60 * 60 * 24 * 30
+                    )  # Set session to last for 30 days
                 else:
-                    request.session.set_expiry(0)  # Session expires when the browser is closed
+                    request.session.set_expiry(
+                        0
+                    )  # Session expires when the browser is closed
 
                 if user.is_superuser:
                     return redirect("/admin/")
@@ -79,6 +91,7 @@ def register(request):
         form = SignupForm()
 
     return render(request, "register.html", {"form": form, "show_modal": False})
+
 
 def send_confirmation_email(user):
     confirmation_url = (
@@ -110,5 +123,6 @@ def user_logout(request):
 def about(request):
     return render(request, "about.html")
 
+
 def about_no_login(request):
-    return render(request, 'about_no_login.html')
+    return render(request, "about_no_login.html")

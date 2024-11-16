@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Post, Comment, Like
 from .forms import PostForm, CommentForm
 from django.db.models import Prefetch
+from django.http import JsonResponse
 
 
 @login_required

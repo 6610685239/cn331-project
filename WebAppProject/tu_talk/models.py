@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 
 
 def validate_image_extension(value):
-    if not value.name.endswith((".jpg", ".jpeg", ".png")):
+    if not value.name.endswith((".jpg", ".jpeg", ".png", ".JPG")):
         raise ValidationError("Only .jpg and .png files are allowed.")
 
 

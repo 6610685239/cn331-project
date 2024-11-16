@@ -132,6 +132,8 @@ STATIC_ROOT = "/home/tutalk/WebAppProject/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))

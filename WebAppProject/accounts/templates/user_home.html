@@ -4,73 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="{% static 'css/style_about.css' %}">
+    <title>TU Talk - สมัครสมาชิก</title>
+    <link rel="stylesheet" href="{% static 'css/style_user_home.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
 </head>
 <body>
-    <!-- ส่วนแถบเมนู -->
-    <header class="navbar">
-        <h1 class="logo">TUTALK</h1>
-        <ul class="nav-links">
-            <li><a href="{% url 'user_home' %}">Home</a></li>
-            <li><a href="#">Alert</a></li>
-            <li><a href="#">Review</a></li>
-            <li><a href="#">Party</a></li>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-        </ul>
-    </header>
 
-    <!-- ส่วนเกี่ยวกับเรา -->
-    <section class="about-section">
-        <div class="about-content">
-            <h2>About Us</h2>
-            <p>ยินดีต้อนรับสู่ TUTALK แพลตฟอร์มที่สร้างสรรค์เพื่อแบ่งปันข้อมูล ข่าวสาร และบทความที่เป็นประโยชน์แก่ชาวมธ. ด้วยทีมงานที่มุ่งมั่นและมีความสามารถ เพื่อให้คุณได้รับข้อมูลที่มีคุณภาพและน่าเชื่อถือ</p>
+    <!-- Navigation Bar with Post Form in Center -->
+    <nav class="navbar">
+        <a href="{% url 'user_home' %}" class="logo">TUTalk</a>
+        <div class="post-form">
+            <input type="text" placeholder="What's on your mind?">
+            <label for="file-upload">Attach Image</label>
+            <input type="file" id="file-upload" accept="image/*">
+            <button type="submit">Post</button>
         </div>
-    </section>
-
-    <!-- ส่วนรายชื่อสมาชิก -->
-    <section class="team-section">
-        <h2>Meet Our Team</h2>
-        <div class="team-members">
-            <div class="member-card">
-                <h3>กันตพงศ์ วิชชุเกรียงไกร</h3>
-                <p>ID: 6610625045</p>
-            </div>
-            <div class="member-card">
-                <h3>ชนม์ชนันทร์ จิตระวัง</h3>
-                <p>ID: 6610685056</p>
-            </div>
-            <div class="member-card">
-                <h3>ชยวัฒน์ กาญจนะแก้ว</h3>
-                <p>ID: 6610685122</p>
-            </div>
-            <div class="member-card">
-                <h3>นนทพัทธ์ บุญประสิทธิ์</h3>
-                <p>ID: 6610625205</p>
-            </div>
-            <div class="member-card">
-                <h3>ปรัญชัย ติ้มขลิบ</h3>
-                <p>ID: 6610685239</p>
-            </div>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">My account</a>
+            <a href="{% url 'home' %}">Log Out</a>
         </div>
-    </section>
+    </nav>
 
-    <!-- ส่วนลิงก์เพิ่มเติม -->
-<section class="links-section">
-    <div class="links-left">
-        <h2>Follow Us</h2>
-        <div class="links">
-            <a href="https://trello.com/b/JjbKkQVw/tu-talk" target="_blank">Trello Tracker</a>
-            <a href="https://github.com/6610685239/cn331-project" target="_blank">GitHub Repo</a>
-            <a href="https://www.youtube.com/@TuTalkOfficial" target="_blank">YouTube Channel</a>
+    <!-- Left Menu with Search Bar -->
+    <div class="left-menu">
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <a href="{% url 'tu_talk:post_list' %}">TU Talk</a>
+        <a href="{% url 'home' %}">TU Alert</a>
+        <a href="{% url 'home' %}">TU Review</a>
+        <a href="{% url 'home' %}">TU Party</a>
+        <a href="{% url 'about' %}">About Us</a>
+    </div>
+        <!-- Main Content Centered -->
+    <div class="main-content">
+        {% for post in posts %}
+        <div class="post">
+            {% if post.image %}
+            <img src="{{ post.image.url }}" alt="Post Image">
+            {% endif %}
+            <h3>{{ post.user.username }}</h3> <!-- Assuming post.author is a User model -->
+            <p>{{ post.content }}</p>
+            <p>{{ post.created_at|date:"d M Y, H:i" }}</p> <!-- Formatting the date -->
+            
+            <p>Likes: {{ post.likes.count }} | <a href="{% url 'tu_talk:like_post' post.id %}">Like</a></p>
+            <!-- Display 3 newest comments -->
+            <h4>Comments:</h4>
+            {% for comment in post.comments.all %}
+            <p><strong>{{ comment.user.username }}:</strong> {{ comment.content }}</p>
+            {% empty %}
+            <p>No comments yet.</p>
+            {% endfor %}
+            <a href="{% url 'tu_talk:view_all_comments' post.id %}">Show All Comments</a>
+        </div>
+        {% empty %}
+        <p>No posts available yet. Start posting on TU Talk!</p>
+        {% endfor %}
+    </div>
+
+    <!-- Right Menu with Trending Posts -->
+    <div class="right-menu">
+        <h2>🔥 Trending</h2>
+        <div class="post">
+            <img src="https://today-obs.line-scdn.net/0hiswXR52lNlxKISaBryBJC3J3Oi15RyxVaE5wbjwoP2xuDSQMfkdlP2opOnBvQnheahJ-aTp1P2xhQXQMcw/w1200"
+                alt="Trending Post Image">
+            <h3>Ms. Popular</h3>
+            <p>Just shared amazing tips for freshmen!</p>
+        </div>
+        <div class="post">
+            <img src="https://s.isanook.com/ca/0/ud/277/1388245/tushirt.jpg?ip/resize/w728/q80/jpg"
+                alt="Trending Post Image">
+            <h3>Mr. Trend</h3>
+            <p>Check out the new TU event!</p>
         </div>
     </div>
-    <div class="contact-right">
-        <h2>Contact Us</h2>
-        <a href="mailto:tutalkofficial@gmail.com">tutalkofficial@gmail.com</a>
-    </div>
-</section>
-
 
 </body>
 </html>
