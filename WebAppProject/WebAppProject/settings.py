@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "accounts",
+    "tu_talk",
 ]
 
 MIDDLEWARE = [
@@ -131,6 +132,7 @@ STATIC_ROOT = "/home/tutalk/WebAppProject/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
@@ -150,4 +152,4 @@ DOMAIN = "https://tutalk.pythonanywhere.com/"  # ใช้ลิงก์ตา�
 LOGIN_REDIRECT_URL = "/accounts/user-home/"
 
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30  # 30 days
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
