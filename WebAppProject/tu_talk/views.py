@@ -33,7 +33,7 @@ def like_post(request, post_id):
     like, created = Like.objects.get_or_create(post=post, user=request.user)
     if not created:
         like.delete()  # If like exists, it will be removed (unlike)
-    return redirect("user_home")
+    return redirect("tu_talk:post_list")
 
 
 @login_required
