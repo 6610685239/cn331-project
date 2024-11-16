@@ -202,3 +202,19 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
+
+.links a {
+    font-size: 30px;  /* Increase size of the icons */
+    margin-right: 15px; /* Space between icons */
+    color: #d32f2f; /* Red color for icons */
+    text-decoration: none; /* Remove underline */
+}
+
+.links a:hover {
+    color: #fff; /* Change icon color on hover */
+}
+
+.links i {
+    display: inline-block;
+    font-size: 35px; /* Icon size */
+}

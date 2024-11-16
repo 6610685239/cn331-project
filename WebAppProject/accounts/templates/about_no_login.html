@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | TUTALK</title>
+    <link rel="stylesheet" href="{% static 'css/style_home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="navbar">
+        <h1 class="logo">TUTALK</h1>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Sign Up</a></li>
+        </ul>
+        <!-- Add the cat gif in the header -->
+        <img src="{% static 'walking-cat.gif' %}" alt="Walking Cat" class="walking-cat">
+    </header>
+    
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2>เกี่ยวกับเรา</h2>
+            <p>TUTALK คือแพลตฟอร์มที่สร้างขึ้นเพื่อให้บริการแก่ชุมชนชาวมธ. โดยเฉพาะ เรามุ่งมั่นที่จะให้ข้อมูล ข่าวสาร และบทความที่มีคุณภาพสูง เพื่อช่วยพัฒนาความรู้และการแลกเปลี่ยนข้อมูลระหว่างกัน</p>
+            <p>ทีมงานของเราประกอบไปด้วยผู้ที่มีความสามารถในหลากหลายสาขา ไม่ว่าจะเป็นการพัฒนาเทคโนโลยี การออกแบบ และการให้บริการเพื่อให้ผู้ใช้สามารถเข้าถึงข้อมูลได้อย่างรวดเร็วและสะดวกสบาย เราหวังว่า TUTALK จะเป็นแพลตฟอร์มที่คุณสามารถพึ่งพาได้ และเป็นแหล่งข้อมูลที่เชื่อถือได้</p>
+            <p>เรายังมีการพัฒนาอย่างต่อเนื่องเพื่อให้ TUTALK เป็นเครื่องมือที่สามารถตอบสนองความต้องการของผู้ใช้งานได้อย่างครบถ้วน</p>
+        </div>
+    </section>
+
+    <!-- Meet Our Team Section -->
+    <section class="team-section">
+        <h2>Meet Our Team</h2>
+        <div class="team-members">
+            <div class="member-card">
+                <h3>กันตพงศ์ วิชชุเกรียงไกร</h3>
+                <p>ID: 6610625045</p>
+            </div>
+            <div class="member-card">
+                <h3>ชนม์ชนันทร์ จิตระวัง</h3>
+                <p>ID: 6610685056</p>
+            </div>
+            <div class="member-card">
+                <h3>ชยวัฒน์ กาญจนะแก้ว</h3>
+                <p>ID: 6610685122</p>
+            </div>
+            <div class="member-card">
+                <h3>นนทพัทธ์ บุญประสิทธิ์</h3>
+                <p>ID: 6610625205</p>
+            </div>
+            <div class="member-card">
+                <h3>ปรัญชัย ติ้มขลิบ</h3>
+                <p>ID: 6610685239</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Links Section -->
+    <section class="links-section">
+        <div class="links-left">
+            <h2>Follow Us</h2>
+            <div class="links">
+                <a href="https://trello.com/b/JjbKkQVw/tu-talk" target="_blank"><i class="fab fa-trello"></i></a>
+                <a href="https://github.com/6610685239/cn331-project" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.youtube.com/@TuTalkOfficial" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="contact-right">
+            <h2>Contact Us</h2>
+            <a href="mailto:tutalkofficial@gmail.com"><i class="fas fa-envelope"></i> tutalkofficial@gmail.com</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>
+</body>
+</html>

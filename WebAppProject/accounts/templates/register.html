@@ -1,35 +1,126 @@
 {% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="{% static 'css/style_register.css' %}">
+    <title>Sign Up | TUTALK</title>
+    <link rel="stylesheet" href="{% static 'css/style_home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- Header Section -->
+    <header class="navbar">
+        <h1 class="logo">TUTALK</h1>
+        <ul class="nav-links">
+            <li><a href="{% url 'about_no_login' %}">About Us</a></li>
+        </ul>
+        <img src="{% static 'walking-cat.gif' %}" alt="Walking Cat" class="walking-cat">
+    </header>
+
     <div class="container">
-        <header>
-            <h1>SIGN UP</h1>
-            <h2>มาร่วมเป็นครอบครัวกับชุมชนของเรา</h2>
-        </header>
+        <div class="register-box">
+            <header>
+                <h1>SIGN UP</h1>
+                <h2>Welcome to our Community</h2>
+            </header>
 
-        <section class="register-form-section">
-            <form method="post" class="register-form">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Register</button>
-            </form>
-            <p>มีบัญชีอยู่แล้ว? <a href="{% url 'home' %}">เข้าสู่ระบบ</a></p>
-        </section>
+            <section class="register-form-section">
+                <form method="post" class="register-form">
+                    {% csrf_token %}
+                    
+                    <!-- Username Field -->
+                    <div class="field">
+                        <div class="input-area">
+                            <i class="icon fas fa-user"></i>
+                            {{ form.username }}
+                        </div>
+                        {% if form.username.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.username.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
 
-        {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                    <div class="alert {{ message.tags }}">{{ message }}</div>
-                {% endfor %}
-            </div>
-        {% endif %}
+                    <!-- Email Field -->
+                    <div class="field">
+                        <div class="input-area">
+                            <i class="icon fas fa-envelope"></i>
+                            {{ form.email }}
+                        </div>
+                        {% if form.email.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.email.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="field">
+                        <div class="input-area">
+                            <i class="icon fas fa-lock"></i>
+                            {{ form.password1 }}
+                            <i class="toggle-password fas fa-eye-slash"></i>
+                        </div>
+                        {% if form.password1.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.password1.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div class="field">
+                        <div class="input-area">
+                            <i class="icon fas fa-lock"></i>
+                            {{ form.password2 }}
+                            <i class="toggle-password fas fa-eye-slash"></i>
+                        </div>
+                        {% if form.password2.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.password2.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+
+                    <button type="submit">Register</button>
+                </form>
+                <p>Have an account? <a href="{% url 'home' %}">Login</a></p>
+            </section>
+
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="alert {{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
     </div>
+
+    <!-- Modal for Registration Success -->
+    <div id="registrationModal" class="modal" style="display: {% if show_modal %} block {% else %} none {% endif %};">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&#10006;</span>
+            <h2>Registration Successful!</h2>
+            <p>Please verify your email to activate your account.</p>
+            <p class="spam-text">If you don't see the verification email, please check your spam or junk email.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

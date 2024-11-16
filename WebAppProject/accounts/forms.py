@@ -22,12 +22,12 @@ class SignupForm(UserCreationForm):
     username = forms.CharField(
         max_length=10,
         required=True,
-        widget=forms.TextInput(attrs={"placeholder": "Username(รหัสนักศึกษา)"}),
+        widget=forms.TextInput(attrs={"placeholder": "Username (Student ID)"}),
     )
     email = forms.CharField(
         max_length=150,
         required=True,
-        widget=forms.TextInput(attrs={"placeholder": "Email"}),
+        widget=forms.TextInput(attrs={"placeholder": "Email (University Email)"}),
     )
 
     password1 = forms.CharField(
@@ -46,5 +46,10 @@ class SignupForm(UserCreationForm):
         email = self.cleaned_data.get("email")
         # ตรวจสอบรูปแบบ email
         if not re.match(r"^[\w\.-]+@dome\.tu\.ac\.th$", email):
-            raise ValidationError("โปรดใช้ email มหาวิทยาลัยธรรมศาสตร์ ")
+            raise ValidationError("Please use @dome.tu.ac.th email ")
         return email
+
+
+
+    class CustomLoginForm(AuthenticationForm):
+        remember = forms.BooleanField(required=False, label='Remember me')  # Add remember me checkbox

@@ -1,111 +1,735 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+
+/* General Styles */
+* {
     margin: 0;
-    font-family: 'Kanit', sans-serif; /* เปลี่ยนฟอนต์เป็น Kanit */
-    background-color: #fdf5f5;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.container {
-    width: 350px;
-    padding: 20px 25px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 10px;
-    font-family: 'Georgia', serif;
-}
-
-.login-form-section h2 {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 20px;
-    font-weight: normal;
-}
-
-.login-form {
+body {
+    width: 100%;
+    height: 100vh;
+    background: #ffeae7; /* Subtle warm tone for the background */
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 
-.login-form input[type="text"],
-.login-form input[type="password"] {
-    width: 100%;
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #f9f9f9;
-    box-sizing: border-box;
+/* Navbar */
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: #fff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 
-.login-form input[type="text"]::placeholder,
-.login-form input[type="password"]::placeholder {
-    color: #999;
-}
-
-button[type="submit"] {
-    background-color: #555; /* ปุ่มสีเข้ม */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-    background-color: #D32F2F; /* สีแดงเมื่อ hover */
-}
-
-.login-form-section p {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #888;
-}
-
-.login-form-section p a {
-    color: #e74c3c;
-    text-decoration: none;
+.navbar .logo {
+    font-size: 28px;
     font-weight: bold;
+    color: #fff;
 }
 
-.login-form-section p a:hover {
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+.navbar .nav-links li a:hover {
     text-decoration: underline;
 }
 
-.messages {
+
+/* TUTALK Title */
+.tutalk-title {
+    font-size: 60px;
+    font-weight: 400;
+    color: #d32f2f;
+    text-align: center;
+    font-family: 'Londrina Outline', cursive;
+    margin-top: 20px;
+    margin-bottom: -10px;
+}
+
+/* Login Section */
+.login-section {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fly-in Animation */
+@keyframes fly-in {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Login Box */
+.login-box {
+    width: 380px;
+    padding: 40px 30px 50px 30px;
+    background: #fff;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    animation: fly-in 1s ease-out;
+}
+
+/* Remember Me */
+.remember-me {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 14px;
+    color: #555;
+}
+
+.remember-me input {
+    margin-right: 10px;
+    accent-color: #d32f2f;
+}
+
+
+/* Login Title */
+.login-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #d32f2f;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.field {
+    margin-bottom: 20px;
+}
+
+.field .input-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.field .input-area input {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px 0 40px;
+    font-size: 16px;
+    background: #fff;
+    border-radius: 8px;
+    border: 2px solid #ff897a;
+    outline: none;
+}
+
+.field .input-area input:focus {
+    border-color: #d32f2f;
+}
+
+.field .input-area i.icon {
+    position: absolute;
+    left: 15px;
+    font-size: 18px;
+    color: #d32f2f;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    font-size: 18px;
+    color: #d32f2f;
+    cursor: pointer;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+    background: #d32f2f;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background: #b71c1c;
+}
+
+/* Signup Text */
+.sign-txt {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.sign-txt a {
+    color: #d32f2f;
+    text-decoration: none;
+}
+
+.sign-txt a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 0; /* Add some padding for spacing */
+    background: #d32f2f; /* Red background for the footer */
+    color: #fff; /* White color for text */
+    font-size: 14px; /* Set text size */
+    z-index: 10; /* Ensure it stays on top of other content */
+}
+
+
+.about-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 80%;
+    margin-top: 30px;
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    border-left: 5px solid #D32F2F;
+    animation: fly-in 1s ease-out; /* Apply fly-up animation */
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    color: #D32F2F;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    color: #666666; /* Lighter gray text */
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Meet Our Team Section */
+.team-section {
+    width: 80%;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    animation: fly-in 1s ease-out; /* Apply fly-up animation */
+}
+
+.team-section h2 {
+    font-size: 2rem;
+    color: #D32F2F;
+    margin-bottom: 20px;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.member-card {
+    width: 45%;
+    background: #ffffff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+    transform: scale(1.05);
+}
+
+.member-card h3 {
+    font-size: 1.3rem;
+    color: #D32F2F;
+    margin-bottom: 10px;
+}
+
+.member-card p {
+    color: #666666;
+    font-size: 1rem;
+}
+
+.links-section {
+    width: 80%;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border-right: 5px solid #D32F2F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fly-in 1s ease-out;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px; /* Adjust this margin for spacing above */
+    margin-bottom: 1000px; /* Adjust this margin for space below */
+}
+
+
+.links-left {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.links-left h2 {
+    font-size: 1.5rem;
+    color: #D32F2F;
+    margin-bottom: 10px;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.links a {
+    color: #D32F2F;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border: 2px solid #D32F2F;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.links a:hover {
+    background-color: #D32F2F;
+    color: #ffffff;
+}
+
+
+/* Container */
+.container {
+    margin-top: 100px; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Register Box */
+.register-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif; 
+    animation: fly-in 1s ease-out;
+}
+
+/* Title */
+h1, h2 {
+    font-family: 'Poppins', sans-serif; 
+    color: #d32f2f;
+}
+
+h1 {
+    font-size: 2rem; 
+    font-weight: 600; 
+}
+
+h2 {
+    font-size: 1.2rem; 
+    font-weight: 400; 
+    margin-bottom: 30px; 
+}
+
+
+/* Form Fields */
+.field {
+    margin-bottom: 20px;
+}
+
+.input-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-area input {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px 0 40px;
+    font-size: 16px;
+    background: #fff;
+    border-radius: 8px;
+    border: 2px solid #ff897a;
+    outline: none;
+}
+
+.input-area input:focus {
+    border-color: #d32f2f;
+}
+
+/* Icons */
+.icon {
+    position: absolute;
+    left: 10px;
+    font-size: 20px;
+    color: #d32f2f;
+}
+
+/* Toggle Password Icon */
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    font-size: 18px;
+    color: #d32f2f;
+    cursor: pointer;
+}
+
+/* Error Message */
+.error-message {
+    color: red; 
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    height: 50px;
+    background: #d32f2f;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #b71c1c;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif; 
+    color: #333; 
+}
+
+p a {
+    color: #d32f2f;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red !important; 
+    font-size: 12px !important; 
+    margin-top: 5px !important;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding: 5px 0; 
+    background: #d32f2f; 
+    color: #fff; 
+    font-size: 12px; 
+    height: 30px; 
+    z-index: 100; 
+}
+
+.footer p {
+    margin: 0; 
+}
+
+/* child elements in footer */
+.footer, .footer * {
+    color: #fff !important;
+}
+.field .error-message {
+    color: red !important;
+}
+
+
+.field .error-message, .error-message {
+    color: red !important;
+}
+
+.error-message {
+    color: red; 
+    font-size: 12px; 
+    margin-top: 5px; 
+    padding-left: 10px;
+    font-weight: bold; 
+}
+
+/* Styling for the error list generated by Django */
+ul.errorlist {
+    color: red;
+    font-size: 12px;
+    list-style-type: none; 
+    padding-left: 0;
+}
+
+ul.errorlist li {
+    margin-top: 5px;
+}
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%;     
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    padding-top: 60px;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Close Button */
+.close {
+    color: #fff; 
+    background-color: #ff4d4d; 
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%; 
+    cursor: pointer;
+    position: absolute; 
+    top: 10px;
+    right: 10px;
+    z-index: 101; 
+    transition: background-color 0.3s ease;
+}
+
+.close:hover {
+    background-color: #cc0000; 
+}
+
+/* Modal Header */
+.modal-content h2 {
+    font-size: 22px;
+    color: #4CAF50; 
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Modal Text */
+.modal-content p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Spam Text */
+.modal-content .spam-text {
+    font-size: 14px;
+    color: #d9534f; 
     margin-top: 10px;
-    font-size: 14px;
 }
 
-.alert {
-    border-radius: 4px;
-    padding: 10px;
-    color: white;
-    font-size: 14px;
+/* Modal Fade-in Effect */
+@keyframes modalFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-.alert.success {
-    background-color: #4caf50;
+/* Animation of modal */
+.modal-content {
+    animation: modalFadeIn 0.5s ease-out;
 }
 
-.alert.error {
-    background-color: #f44336;
+
+.spam-check {
+    color: #ff6f6f; 
+    font-size: 10px;
+    margin-top: 10px;
+    font-weight: 400;
+    text-align: center;
 }
 
-label {
-    display: none;
+.links a {
+    font-size: 30px;
+    margin-right: 15px; 
+    color: #d32f2f;
+    text-decoration: none; 
+    display: inline-block;
+    border: none; 
+    background: none; 
 }
 
+
+.links i {
+    font-size: 35px; 
+}
+/*  Follow Us Section */
+.links-section {
+    width: 80%;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border-right: 5px solid #D32F2F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fly-in 1s ease-out;
+    margin-bottom: 50px; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+/* Style the Email Icon */
+.contact-right a {
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px;
+    color: #d32f2f;
+    text-decoration: none;
+}
+
+.contact-right a i {
+    margin-right: 8px; 
+}
+
+/* Icon Hover Effects */
+.contact-right a:hover {
+    color: #fff;
+}
+
+.links a {
+    font-size: 35px;
+    margin-right: 15px;
+    color: #d32f2f;
+    text-decoration: none;
+}
+
+.links a:hover {
+    color: #fff; 
+}
+
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.3); 
+    transition: opacity 0.5s ease; 
+    font-size: 14px
+}
+
+
+input:focus::placeholder {
+    opacity: 0; 
+}
+
+
+
+input:not(:focus)::placeholder {
+    opacity: 1; 
+
+.contact-right a {
+    color: #d32f2f; 
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease, text-decoration 0.3s ease; 
+}
+
+.contact-right a:hover {
+    text-decoration: underline; 
+    color: #ff4d4d; 
+}
+
+.contact-right a i {
+    margin-right: 8px; 
+}
+}
+
+
+
+/* Add animation to the walking cat gif */
+.walking-cat {
+    position: absolute;
+    left: 0; /* Start from the left side */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Fine-tune vertical alignment */
+    animation: walkAcross 10s linear infinite; /* Animation for walking */
+    height: 50px; /* Adjust the height of the gif */
+}
+
+/* Define the walking animation */
+@keyframes walkAcross {
+    0% {
+        left: 5.7%; 
+    }
+    100% {
+        left: 5.7%; 
+    }
+}
+
+#catGIF {
+    position: absolute;
+    bottom: -10;
+    left: 100%; 
+    animation: catRunning 5s linear infinite; 
+    width: 100px; 
+    height: auto;
+}

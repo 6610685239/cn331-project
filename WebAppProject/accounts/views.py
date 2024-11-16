@@ -8,8 +8,6 @@ from django.contrib.auth import login, authenticate, logout
 from django.urls import reverse
 import sendgrid
 from sendgrid.helpers.mail import Mail, Email, To, Content
-from tu_talk.models import Post, Comment
-from django.db.models import Prefetch
 
 
 def home(request):
@@ -17,10 +15,7 @@ def home(request):
 
 
 def user_home(request):
-    posts = Post.objects.prefetch_related(
-        Prefetch("comments", queryset=Comment.objects.order_by("-created_at"))
-    ).order_by("-created_at")
-    return render(request, "user_home.html", {"posts": posts})
+    return render(request, "user_home.html")
 
 
 def send_sendgrid_email(to_email, subject, text_content):
@@ -42,21 +37,28 @@ def send_sendgrid_email(to_email, subject, text_content):
     print(f"SendGrid Response: {response.status_code}, {response.body}")
     return response
 
-
 def login_views(request):
     if request.method == "POST":
-        form = LoginForm(data=request.POST)  # Ensure you are using your LoginForm
+        form = LoginForm(data=request.POST)
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
+            remember_me = form.cleaned_data.get("remember")  # Get the 'remember me' checkbox value
+
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                # Check if user is superuser
+                if remember_me:  # If remember me is checked
+                    request.session.set_expiry(60*60*24*30)  # Set session to last for 30 days
+                else:
+                    request.session.set_expiry(0)  # Session expires when the browser is closed
+
                 if user.is_superuser:
                     return redirect("/admin/")
                 else:
                     return redirect("user_home")
+            else:
+                form.add_error(None, "Invalid username or password")
     else:
         form = LoginForm()
 
@@ -68,16 +70,15 @@ def register(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = False
+            user.is_active = False  # Deactivate user until email is verified
             user.save()
-            # ส่ง email ยืนยัน
-            send_confirmation_email(user)
-            messages.success(request, "สมัครสมาชิกสำเร็จ! โปรดยืนยัน email ของคุณ")
-            return redirect("home")
+            send_confirmation_email(user)  # Send the confirmation email
+            messages.success(request, "Please verify your email.")
+            return render(request, "register.html", {"form": form, "show_modal": True})
     else:
         form = SignupForm()
-    return render(request, "register.html", {"form": form})
 
+    return render(request, "register.html", {"form": form, "show_modal": False})
 
 def send_confirmation_email(user):
     confirmation_url = (
@@ -97,7 +98,7 @@ def confirm_email(request, username):
     user.is_active = True  # เปิดใช้งานบัญชีผู้ใช้
     user.save()
     login(request, user)  # ล็อกอินอัตโนมัติหลังยืนยัน
-    messages.success(request, "ยืนยัน email สำเร็จ! คุณได้เข้าสู่ระบบแล้ว")
+    messages.success(request, "Verify Email Success! You have logged in")
     return redirect("home")
 
 
@@ -108,3 +109,6 @@ def user_logout(request):
 
 def about(request):
     return render(request, "about.html")
+
+def about_no_login(request):
+    return render(request, 'about_no_login.html')

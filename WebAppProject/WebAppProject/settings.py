@@ -14,7 +14,6 @@ import os
 import environ
 from pathlib import Path
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,7 +40,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "accounts",
-    "tu_talk",
 ]
 
 MIDDLEWARE = [
@@ -131,9 +129,6 @@ STATIC_ROOT = "/home/tutalk/WebAppProject/static/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 env = environ.Env()
@@ -153,3 +148,6 @@ DEFAULT_FROM_EMAIL = "tutalkofficial@gmail.com"
 DOMAIN = "https://tutalk.pythonanywhere.com/"  # ใช้ลิงก์ตามโดเมนจริงของคุณ
 
 LOGIN_REDIRECT_URL = "/accounts/user-home/"
+
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 30  # 30 days
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False 
