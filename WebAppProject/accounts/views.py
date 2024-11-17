@@ -74,7 +74,6 @@ def login_views(request):
 
     return render(request, "home.html", {"form": form})
 
-
 def register(request):
     if request.method == "POST":
         form = SignupForm(request.POST)
