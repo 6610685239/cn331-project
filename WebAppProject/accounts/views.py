@@ -49,28 +49,15 @@ def login_views(request):
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
-            remember_me = form.cleaned_data.get(
-                "remember"
-            )  # Get the 'remember me' checkbox value
-
+            
             user = authenticate(username=username, password=password)
             if user is not None:
-                login(request, user)
-                if remember_me:  # If remember me is checked
-                    request.session.set_expiry(
-                        60 * 60 * 24 * 30
-                    )  # Set session to last for 30 days
-                else:
-                    request.session.set_expiry(
-                        0
-                    )  # Session expires when the browser is closed
-
+                
                 if user.is_superuser:
                     return redirect("/admin/")
                 else:
                     return redirect("user_home")
-            else:
-                form.add_error(None, "Invalid username or password")
+            
     else:
         form = LoginForm()
 
