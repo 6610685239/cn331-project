@@ -2,14 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 
 /* General Styles */
-body {
-    font-family: 'Poppins', sans-serif; /* เปลี่ยนฟอนต์ */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    background-color: #ffeae7; /* สีพื้นหลังเหมือน style_home */
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -24,24 +16,26 @@ body {
 
 /* Navigation Bar */
 .navbar {
-    background-color: #d32f2f; /* สีแดง */
-    padding: 15px 20px;
+    background-color: #D32F2F;
+    /* สีแดง */
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     position: fixed;
     top: 0;
-    left: 0;
     z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: #fff;
 }
 
 .navbar .logo {
-    font-size: 28px;
+    font-size: 1.5rem;
     font-weight: bold;
+    text-decoration: none;
     color: #fff;
+    margin-right: auto;
 }
 
 .navbar .post-form {
@@ -113,18 +107,6 @@ body {
 }
 
 /* Left Menu */
-.left-menu {
-    position: fixed;
-    top: 60px; /* ระยะห่างจาก Navbar */
-    left: 0;
-    width: 200px; /* ความกว้างของ Sidebar */
-    height: calc(100vh - 60px); /* ความสูงเต็มจอ */
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-}
-
 .left-menu .search-bar input {
     width: 100%;
     padding: 10px;
@@ -135,34 +117,54 @@ body {
     margin-bottom: 15px;
 }
 
+.left-menu {
+    width: 200px;
+    padding: 20px;
+    background-color: #ffffff;
+    height: calc(100vh - 60px);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    color: #030303;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
 .left-menu a {
     display: block;
-    background-color: #fff; /* พื้นหลังสีขาว */
     color: #333;
     text-decoration: none;
     margin-bottom: 15px;
     font-size: 1rem;
     padding: 10px;
     border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .left-menu a:hover {
     background-color: #D32F2F;
-    color: #fff;
+    color: #ffffff;
+}
+
+/* Active State */
+.left-menu a.active {
+    background-color: #D32F2F;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 /* Right Menu */
 .right-menu {
+    width: 250px;
+    padding: 20px;
+    background-color: #ffffff;
+    height: calc(100vh - 60px);
     position: fixed;
     top: 60px;
     right: 0;
-    width: 250px; /* ความกว้างของ Right Menu */
-    height: calc(100vh - 60px); /* ความสูงเต็มจอ */
-    padding: 20px;
-    background-color: #ffffff;
+    color: #030303;
+    font-family: 'Roboto', sans-serif;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
-    z-index: 10;
 }
 
 .right-menu h2 {
@@ -210,20 +212,12 @@ body {
 }
 
 .main-content {
-    margin-top: 100px; /* ระยะห่างจาก Navbar */
-    margin-left: auto; /* จัดให้อยู่ตรงกลาง */
-    margin-right: auto; /* จัดให้อยู่ตรงกลาง */
+    margin-top: 100px;
     padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: calc(100% - 500px); /* คำนวณพื้นที่เหลือระหว่าง Sidebar และ Right Menu */
-    max-width: 800px; /* จำกัดความกว้างสูงสุด */
-    min-width: 300px; /* ขนาดเล็กสุด */
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* เพิ่มระยะห่างระหว่างคอมเมนต์ */
-    font-family: 'Poppins', sans-serif; /* ใช้ฟอนต์ Poppins */
+    flex: 1;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .main-content h1 {
@@ -301,6 +295,13 @@ body {
     right: 15px; /* ระยะห่างจากขอบด้านขวา */
     top: 15px; /* ระยะห่างจากขอบด้านบน */
 }
+
+.comment h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #d32f2f;
+}
+
 @media (max-width: 1024px) {
     .main-content {
         width: 90%; /* ใช้พื้นที่เต็มหน้าจอ */
@@ -468,7 +469,8 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px; /* ระยะห่างระหว่างปุ่ม */
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 40px;
 }
 
 .post-info {
@@ -477,10 +479,6 @@ body {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* ระยะห่างระหว่างส่วนต่างๆ */
-    position: relative;
 }
 
 .post-info h3 {
@@ -495,11 +493,11 @@ body {
 }
 
 .comment {
-    background-color: #fff; /* พื้นหลังสีขาว */
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
 }
 
@@ -533,3 +531,194 @@ body {
     line-height: 1.5;
 }
 
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    flex: 1;
+    /* Ensures the container takes up available space */
+}
+
+.links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.links a {
+    font-size: 30px;  /* Increase size of the icons */
+    margin-right: 15px; /* Space between icons */
+    color: #d32f2f; /* Red color for icons */
+    text-decoration: none; /* Remove underline */
+}
+
+.links a:hover {
+    color: #fff; /* Change icon color on hover */
+}
+
+.links i {
+    display: inline-block;
+    font-size: 35px; /* Icon size */
+}
+
+.title {
+    text-align: center;
+    color: #d32f2f;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.like-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.like-section a {
+    color: #d32f2f;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s;
+}
+
+.like-section a:hover {
+    color: #b71c1c;
+}
+
+.like-section span {
+    font-size: 14px;
+    color: #555;
+}
+
+.footer {
+    position: fixed; /* ทำให้ footer ติดอยู่ด้านล่างของหน้าจอ */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* ความกว้างเต็มหน้าจอ */
+    background-color: #d32f2f; /* สีแดง */
+    color: #ffffff; /* สีข้อความ */
+    text-align: center;
+    padding: 10px 0; /* ระยะห่างด้านบนและล่าง */
+    font-size: 14px; /* ขนาดข้อความ */
+    z-index: 1000; /* เพื่อให้ footer อยู่เหนือองค์ประกอบอื่น */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* เพิ่มเงาด้านบน */
+}
+
+
+.footer p {
+    margin: 0; 
+}
+
+/* child elements in footer */
+.footer, .footer * {
+    color: #fff !important;
+}
+
+.show-all-comments {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #d32f2f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.show-all-comments:hover {
+    background-color: #b71c1c;
+}
+
+/* ฟอร์มเพิ่มความคิดเห็น */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* ระยะห่างระหว่างส่วนในฟอร์ม */
+    width: 100%;
+    max-width: 800px; /* กำหนดความกว้างสูงสุดของฟอร์ม */
+    margin: 0 auto; /* จัดกึ่งกลางฟอร์ม */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h1 {
+    font-size: 24px;
+    color: #d32f2f;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-container form {
+    width: 100%;
+}
+
+.form-container form button {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container form button:hover {
+    background-color: #b71c1c;
+}
+
+.form-container .back-to-posts {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.form-container .back-to-posts:hover {
+    background-color: #555;
+}
+
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+textarea,
+input[type="file"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+textarea {
+    width: 100%; /* ใช้ความกว้างเต็มที่ของฟอร์ม */
+    max-width: 100%; /* ป้องกันการขยายเกินขอบฟอร์ม */
+    height: 150px; /* กำหนดความสูง */
+    border: 1px solid #ddd; /* เส้นขอบ */
+    border-radius: 5px; /* มุมโค้ง */
+    padding: 10px; /* ระยะห่างในกล่อง */
+    font-size: 16px; /* ขนาดตัวอักษร */
+    font-family: 'Poppins', sans-serif; /* ใช้ฟอนต์ Poppins */
+    background-color: #f9f9f9; /* พื้นหลังสีอ่อน */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาภายใน */
+    resize: none; /* ปิดการปรับขนาด */
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+}

@@ -9,8 +9,9 @@
 </head>
 
 <body>
+    <!-- Navigation Bar with Post Form in Center -->
     <nav class="navbar">
-        <a href="{% url 'home' %}" class="logo">TUTalk</a>
+        <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
         <div class="nav-links">
             <a href="{% url 'home' %}">My account</a>
             <a href="{% url 'home' %}">Log Out</a>
@@ -19,6 +20,9 @@
 
     <!-- Left Menu with Search Bar -->
     <div class="left-menu">
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
         <a href="{% url 'tu_talk:post_list' %}">TU Talk</a>
         <a href="{% url 'home' %}">TU Alert</a>
         <a href="{% url 'home' %}">TU Review</a>
@@ -94,6 +98,11 @@
         </div>
         
     </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>
 
 </body>
 
