@@ -1,11 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+import os
 
 
 def validate_image_extension(value):
-    if not value.name.endswith((".jpg", ".jpeg", ".png", ".JPG")):
-        raise ValidationError("Only .jpg and .png files are allowed.")
+    ext = os.path.splitext(value.name)[1].lower()
+    valid_extensions = [".jpg", ".jpeg", ".png", ".gif"]
+    if ext not in valid_extensions:
+        raise ValidationError("Only .jpg .png .gif files are allowed.")
 
 
 class Post(models.Model):
