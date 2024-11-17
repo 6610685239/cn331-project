@@ -251,16 +251,12 @@ body {
 }
 
 .comment {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* เว้นระยะห่างระหว่างเนื้อหา */
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 15px;
-    margin-bottom: 20px; /* ระยะห่างระหว่างกล่องคอมเมนต์ */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กล่อง */
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
-    position: relative;
 }
 
 .comment strong {
@@ -289,11 +285,9 @@ body {
     font-weight: bold;
 }
 .comment-header .comment-date {
-    font-size: 14px;
-    color: #888;
-    position: absolute;
-    right: 15px; /* ระยะห่างจากขอบด้านขวา */
-    top: 15px; /* ระยะห่างจากขอบด้านบน */
+    font-size: 14px; /* ขนาดตัวอักษร */
+    color: #888; /* สีข้อความสำหรับเวลา */
+    white-space: nowrap; /* ป้องกันไม่ให้เวลาขึ้นบรรทัดใหม่ */
 }
 
 .comment h4 {
@@ -492,15 +486,6 @@ body {
     color: #555; /* สีข้อความ */
 }
 
-.comment {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
-}
-
 /* ส่วนวันที่และเวลา */
 .post-date {
     position: absolute;
@@ -518,14 +503,18 @@ body {
 
 /* ส่วนรูปภาพ */
 .post-image img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block; /* แสดงรูปภาพเป็นบล็อก */
+    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+    max-width: 100%; /* จำกัดขนาดความกว้างไม่ให้เกิน container */
+    height: auto; /* ปรับความสูงตามสัดส่วน */
+    border-radius: 10px; /* มุมโค้ง */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
 }
+
 
 /* ส่วนเนื้อหา */
 .post-content h4 {
-    font-size: 30px;
+    font-size: 20px;
     margin: 0;
     color: #888; /* สีเทา */
     line-height: 1.5;
