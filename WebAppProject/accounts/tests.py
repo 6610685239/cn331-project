@@ -3,10 +3,15 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from unittest.mock import patch
 from django.contrib.messages import get_messages
+<<<<<<< HEAD
 from .forms import SignupForm
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
+=======
+from accounts.views import *
+from accounts.forms import *
+>>>>>>> abef63cecf1759d80a5ae7c37d5d09a60fde774a
 
 class AccountsViewsTest(TestCase):
     def setUp(self):
@@ -110,6 +115,7 @@ class RegisterViewGetTest(TestCase):
         # Assert that the form is in the context and is an instance of SignupForm
         self.assertIsInstance(response.context['form'], SignupForm)
 
+<<<<<<< HEAD
 
 
 
@@ -163,3 +169,38 @@ class LoginViewTests(TestCase):
 
 
 
+=======
+class LoginViewTest(TestCase):
+    def setUp(self):
+        # สร้างผู้ใช้ตัวอย่าง
+        self.user = User.objects.create_user(username="testuser", password="testpass")
+        self.admin_user = User.objects.create_superuser(username="admin331", password="admin331")
+    
+    def test_login_successful(self):
+        # ทดสอบการเข้าสู่ระบบที่ถูกต้อง
+        response = self.client.post(reverse("home"), {
+            "username": "testuser",
+            "password": "testpass",
+        })
+        self.assertRedirects(response, reverse("user_home"))
+        self.assertIn('_auth_user_id', self.client.session)
+
+ 
+
+    def test_login_admin_redirect(self):
+        # ทดสอบการเข้าสู่ระบบสำหรับผู้ใช้ admin
+        response = self.client.post(reverse("home"), {
+            "username": "admin331",
+            "password": "admin331",
+        })
+        self.assertRedirects(response, "/admin/")
+
+    def test_login_invalid_credentials(self):
+        # ทดสอบการเข้าสู่ระบบที่ไม่ถูกต้อง
+        response = self.client.post(reverse("home"), {
+            "username": "invaliduser",
+            "password": "invalidpass",
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Please enter a correct username and password. Note that both fields may be case-sensitive.")
+>>>>>>> abef63cecf1759d80a5ae7c37d5d09a60fde774a

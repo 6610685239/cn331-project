@@ -86,7 +86,19 @@ def send_confirmation_email(user):
     )
     subject = "ยืนยันการสมัครสมาชิก"
     message = (
-        f"โปรดคลิกลิงก์ต่อไปนี้เพื่อยืนยันการสมัครสมาชิกเว็บ TU talk ไม่โกงแน่นอน: {confirmation_url}"
+        f"""
+    สวัสดี {user.username},
+
+    ขอบคุณที่สมัครใช้งาน TUTalk! 
+    โปรดยืนยันที่อยู่อีเมลของคุณโดยคลิกลิงก์ด้านล่าง:
+
+    {confirmation_url}
+
+    หากคุณไม่ได้สมัครใช้งาน TUTalk กรุณาเพิกเฉยต่ออีเมลฉบับนี้
+
+    ขอบคุณ,
+    ทีมงาน TUTalk
+    """
     )
 
     # Send confirmation email using SendGrid
@@ -101,10 +113,6 @@ def confirm_email(request, username):
     messages.success(request, "Verify Email Success! You have logged in")
     return redirect("home")
 
-
-def user_logout(request):
-    logout(request)
-    return redirect("login")
 
 
 def about(request):
