@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,358 +7,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Posts - TU Talk</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Global Styles */
-        body {
-
-            font-family: 'Kanit', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .navbar {
-            background-color: #D32F2F;
-            /* สีแดง */
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            color: #fff;
-        }
-
-        .navbar .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #fff;
-            margin-right: auto;
-        }
-
-        .navbar .post-form {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex: 1;
-            justify-content: center;
-        }
-
-        .navbar .post-form input[type="text"] {
-            width: 100%;
-            max-width: 300px;
-            padding: 8px;
-            border-radius: 8px;
-            border: none;
-            outline: none;
-        }
-
-        .navbar .post-form input[type="file"] {
-            display: none;
-            /* ซ่อนช่องเลือกไฟล์จริง */
-        }
-
-        .navbar .post-form label {
-            background-color: #D32F2F;
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .navbar .post-form label:hover {
-            background-color: #B71C1C;
-        }
-
-        .navbar .post-form button {
-            padding: 8px 16px;
-            background-color: #D32F2F;
-            border: none;
-            border-radius: 8px;
-            color: #fff;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .navbar .post-form button:hover {
-            background-color: #B71C1C;
-        }
-
-        .navbar .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-left: auto;
-        }
-
-        .navbar .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .navbar .nav-links a:hover {
-            color: #ddd;
-        }
-
-        .left-menu .search-bar input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-
-        .left-menu {
-            width: 200px;
-            padding: 20px;
-            background-color: #ffffff;
-            height: calc(100vh - 60px);
-            position: fixed;
-            top: 60px;
-            left: 0;
-            color: #030303;
-            font-family: 'Roboto', sans-serif;
-            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .left-menu a {
-            display: block;
-            color: #333;
-            text-decoration: none;
-            margin-bottom: 15px;
-            font-size: 1rem;
-            padding: 10px;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-        }
-
-        .left-menu a:hover {
-            background-color: #D32F2F;
-            color: #ffffff;
-        }
-
-        /* Active State */
-        .left-menu a.active {
-            background-color: #D32F2F;
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        /* Right Menu */
-        .right-menu {
-            width: 250px;
-            padding: 20px;
-            background-color: #ffffff;
-            height: calc(100vh - 60px);
-            position: fixed;
-            top: 60px;
-            right: 0;
-            color: #030303;
-            font-family: 'Roboto', sans-serif;
-            box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .right-menu h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #D32F2F;
-        }
-
-        .right-menu .post {
-            background-color: #ffffff;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            flex: 1;
-            /* Ensures the container takes up available space */
-        }
-
-        .links {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .links a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #d32f2f;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .links a:hover {
-            background-color: #b71c1c;
-        }
-
-        .title {
-            text-align: center;
-            color: #d32f2f;
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .main-content {
-            margin-top: 20px;
-        }
-
-        .post {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            padding: 15px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .post img {
-            display: block;
-            max-width: 100%;
-            /* จำกัดขนาดรูปภาพให้ไม่เกินพื้นที่โพสต์ */
-            max-height: 400px;
-            /* กำหนดความสูงสูงสุด (ถ้าต้องการ) */
-            height: auto;
-            /* รักษาสัดส่วนของรูปภาพ */
-            margin: 15px auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .post h3 {
-            color: #d32f2f;
-            margin-bottom: 10px;
-        }
-
-        .post p {
-            margin-bottom: 10px;
-        }
-
-        footer {
-            background-color: #d32f2f;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        .comments-section {
-            margin-top: 20px;
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-
-        .comment {
-            background-color: #f4f4f4;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .comment h4 {
-            font-size: 16px;
-            margin-bottom: 5px;
-            color: #d32f2f;
-        }
-
-        .comment p {
-            margin: 0;
-        }
-
-        .like-section {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .like-section a {
-            color: #d32f2f;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.3s;
-        }
-
-        .like-section a:hover {
-            color: #b71c1c;
-        }
-
-        .like-section span {
-            font-size: 14px;
-            color: #555;
-        }
-
-        footer {
-            background-color: #d32f2f;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: auto;
-        }
-
-        .show-all-comments {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 15px;
-            background-color: #d32f2f;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 14px;
-            text-align: center;
-        }
-
-        .show-all-comments:hover {
-            background-color: #b71c1c;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/style_post_list.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
 </head>
 
 <body>
     <!-- Header Section -->
-    <header>
+    <header class="header">
         TU Talk - Your Place to Share
     </header>
 
+
     <!-- Navigation Bar with Post Form in Center -->
     <nav class="navbar">
-        <a href="{% url 'user_home' %}" class="logo">TUTalk</a>
+        <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
 
         <div class="nav-links">
-            <a href="{% url 'home' %}">My account</a>
+            <a href="{% url 'user_home' %}">My account</a>
             <a href="{% url 'home' %}">Log Out</a>
         </div>
     </nav>
@@ -371,13 +39,13 @@
             class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
             TU Talk
         </a>
-        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             TU Alert
         </a>
-        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             TU Review
         </a>
-        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             TU Party
         </a>
         <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
@@ -440,9 +108,9 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        © 2024 TU Talk - Connect & Share
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
     </footer>
 </body>
 

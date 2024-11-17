@@ -1,6 +1,8 @@
+/* This CSS base on accounts/style_user_home */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -9,9 +11,83 @@
 }
 
 body {
-    
-    background-color: #f4f5f7;
+    width: 100%;
+    height: 100vh;
+    background: #f4f5f7; /* Subtle warm tone for the background */
     display: flex;
+    flex-direction: column;
+    margin-top:70px;
+}
+/* สไตล์สำหรับ Header */
+.header {
+    width: 100%;
+    padding: 10px 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-size: 24px;
+    background: #f4f5f7; /* Subtle warm tone for the background */
+    font-weight: bold;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    flex: 1;
+    /* Ensures the container takes up available space */
+}
+
+/*Create a post and Back home */
+.links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.links a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.links a:hover {
+    background-color: #b71c1c;
+}
+
+.title {
+    text-align: center;
+    color: #d32f2f;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Navbar */
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: #fff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 
 /* Navigation Bar */
@@ -37,6 +113,7 @@ body {
     color: #fff;
     margin-right: auto;
 }
+
 .navbar .post-form {
     display: flex;
     align-items: center;
@@ -145,6 +222,13 @@ body {
     color: #ffffff;
 }
 
+/* ใช้บอกว่ากำลังอยู่หน้าไหน จะมีพื้นหลังเป็นสีแดง*/
+.left-menu a.active {
+    background-color: #D32F2F;
+    color: #ffffff;
+    font-weight: bold;
+}
+
 /* Main Content */
 .main-content {
     margin-top: 100px;
@@ -153,7 +237,9 @@ body {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
 }
+
 
 .post {
     background-color: #ffffff;
@@ -222,6 +308,8 @@ body {
     font-size: 35px; /* Icon size */
 }
 
+
+
 .footer {
     width: 100%;
     text-align: center;
@@ -256,3 +344,30 @@ body {
     color: #fff !important;
 }
 
+.links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #d32f2f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .links a:hover {
+            background-color: #b71c1c;
+        }
+
+        .title {
+            text-align: center;
+            color: #d32f2f;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
