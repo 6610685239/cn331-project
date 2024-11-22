@@ -10,6 +10,7 @@ urlpatterns = [
     path("", accounts_views.login_views, name="home"),
     path("", include("django.contrib.auth.urls")),
     path("tu_talk/", include("tu_talk.urls")),
+    path("tu_party/", include("tu_party.urls")),
 ]
 
 if settings.DEBUG:

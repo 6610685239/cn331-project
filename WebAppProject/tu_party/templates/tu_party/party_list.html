@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming TU Parties</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .party-post {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+        .party-post img {
+            display: block;
+            max-width: 300px;
+            margin: 0 auto 10px;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upcoming TU Parties</h1>
+    <a href="{% url 'tu_party:create_party' %}">+ Create a New Party</a>
+    <hr>
+    {% for party in parties %}
+    <div class="party-post">
+        {% if party.image %}
+        <img src="{{ party.image.url }}" alt="Party Image">
+        {% endif %}
+        <h2>{{ party.title }}</h2>
+        <p><strong>Date:</strong> {{ party.event_date }} <strong>Time:</strong> {{ party.event_time }}</p>
+        <p>{{ party.description }}</p>
+        <p><strong>Interested Users:</strong> {{ party.interested_users.count }}</p>
+        <a href="{% url 'tu_party:interest_party' party.id %}">I'm Interested</a>
+    </div>
+    <hr>
+    {% empty %}
+    <p>No upcoming parties. Be the first to create one!</p>
+    {% endfor %}
+    <a href="{% url 'user_home' %}">Back to Home</a>
+</body>
+</html>

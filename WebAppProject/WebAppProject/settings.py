@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "accounts",
     "tu_talk",
+    "tu_party",
 ]
 
 MIDDLEWARE = [

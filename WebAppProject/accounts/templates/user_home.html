@@ -36,7 +36,7 @@
         <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             TU Review
         </a>
-        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'party_list' %}active{% endif %}">
             TU Party
         </a>
         <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
@@ -46,6 +46,18 @@
     
         <!-- Main Content Centered -->
     <div class="main-content">
+        {% for party in parties %}
+        <div class="post">
+            {% if party.image %}
+            <img src="{{ party.image.url }}" alt="Party Image">
+            {% endif %}
+            <h3>{{ party.title }}</h3>
+            <p>{{ party.description }}</p>
+            <p>{{ party.event_date }} at {{ party.event_time }}</p>
+            <p>Interested: {{ party.interested_users.count }}</p>
+            <a href="{% url 'tu_party:interest_party' party.id %}">I'm Interested</a>
+        </div>
+        {% endfor %}
         {% for post in posts %}
         <div class="post">
             {% if post.image %}

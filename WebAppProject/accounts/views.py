@@ -10,6 +10,8 @@ import sendgrid
 from sendgrid.helpers.mail import Mail, Email, To, Content
 from tu_talk.models import Post, Comment
 from django.db.models import Prefetch
+from tu_party.models import Party
+from django.utils.timezone import now
 
 
 def home(request):
@@ -20,7 +22,8 @@ def user_home(request):
     posts = Post.objects.prefetch_related(
         Prefetch("comments", queryset=Comment.objects.order_by("-created_at"))
     ).order_by("-created_at")
-    return render(request, "user_home.html", {"posts": posts})
+    parties = Party.objects.filter(event_date__gte=now().date()).order_by("event_date")
+    return render(request, "user_home.html", {"posts": posts, "parties": parties})
 
 
 def send_sendgrid_email(to_email, subject, text_content):
@@ -74,6 +77,7 @@ def login_views(request):
 
     return render(request, "home.html", {"form": form})
 
+
 def register(request):
     if request.method == "POST":
         form = SignupForm(request.POST)
@@ -95,8 +99,7 @@ def send_confirmation_email(user):
         f"{settings.DOMAIN}{reverse('confirm_email', args=[user.username])}"
     )
     subject = "ยืนยันการสมัครสมาชิก"
-    message = (
-        f"""
+    message = f"""
     สวัสดี {user.username},
 
     ขอบคุณที่สมัครใช้งาน TUTalk! 
@@ -109,7 +112,6 @@ def send_confirmation_email(user):
     ขอบคุณ,
     ทีมงาน TUTalk
     """
-    )
 
     # Send confirmation email using SendGrid
     send_sendgrid_email(user.email, subject, message)
@@ -122,7 +124,6 @@ def confirm_email(request, username):
     login(request, user)  # ล็อกอินอัตโนมัติหลังยืนยัน
     messages.success(request, "Verify Email Success! You have logged in")
     return redirect("home")
-
 
 
 def about(request):
