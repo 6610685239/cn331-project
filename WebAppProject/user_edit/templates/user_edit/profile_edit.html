@@ -1,20 +1,110 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Profile</title>
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="{% static 'css/styleza.css' %}">
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <h1>Edit Your Profile</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <h2>Account Information</h2>
-        {{ user_form.as_p }}
-        <h2>Profile Information</h2>
-        {{ profile_form.as_p }}
-        <button type="submit">Save Changes</button>
-    </form>
-    <a href="{% url 'user_edit:profile' %}">Back to Profile</a>
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
+        <ul class="nav-links">
+            <li><a href="{% url 'user_home' %}">Home</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </header>
+
+    <!-- Page Wrapper -->
+    <div class="page-wrapper">
+        <div class="edit-profile-container">
+            <!-- Profile Picture Section -->
+            <div class="profile-picture">
+                <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="profile-imgs">
+            </div>
+
+            <!-- Form Title -->
+            <h1 class="page-title">Edit Your Profile</h1>
+
+            <!-- Edit Profile Form -->
+            <form method="POST" enctype="multipart/form-data" class="edit-profile-form">
+                {% csrf_token %}
+                
+                <!-- Profile Picture Update -->
+                <h2 class="section-title">Change Profile Picture</h2>
+                <div class="form-group">
+                    <label for="profile_picture">Upload New Profile Picture:</label>
+                    <input type="file" id="profile_picture" name="profile_picture">
+                </div>
+
+                <!-- Account Information -->
+                <h2 class="section-title">Account Information</h2>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <div class="editable-container">
+                        <input type="text" id="username" name="username" value="{{ user.username }}" readonly>
+                        <button type="button" class="edit-icon" onclick="toggleEdit('username')">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bio">Bio:</label>
+                    <div class="editable-container">
+                        <textarea id="bio" name="bio" readonly>{{ profile_form.bio.value }}</textarea>
+                        <button type="button" class="edit-icon" onclick="toggleEdit('bio')">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="faculty">Faculty:</label>
+                    <select id="faculty" name="faculty">
+                        {% for option in profile_form.fields.faculty.choices %}
+                            <option value="{{ option.0 }}" {% if profile_form.initial.faculty == option.0 %}selected{% endif %}>
+                                {{ option.1 }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="line">Line:</label>
+                    <div class="editable-container">
+                        <input type="text" id="line" name="line" value="{{ profile_form.line.value }}" readonly>
+                        <button type="button" class="edit-icon" onclick="toggleEdit('line')">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="instagram">Instagram:</label>
+                    <div class="editable-container">
+                        <input type="text" id="instagram" name="instagram" value="{{ profile_form.instagram.value }}" readonly>
+                        <button type="button" class="edit-icon" onclick="toggleEdit('instagram')">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="submit-button">Save Changes</button>
+            </form>
+            <a href="{% url 'user_edit:profile' %}" class="back-link">Back to Profile</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>       
+    <!-- Link to JavaScript -->
+    <script src="{% static 'js/scriptza.js' %}"></script>
 </body>
 </html>

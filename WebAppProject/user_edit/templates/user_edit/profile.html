@@ -1,21 +1,48 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Update the reference to the renamed CSS file -->
+    <link rel="stylesheet" href="{% static 'css/styleza.css' %}">
+    <title>User Profile</title>
 </head>
 <body>
-    <h1>Welcome, {{ user.username }}</h1>
-    <img src="{% if user.profile.profile_picture %}{{ user.profile.profile_picture.url }}{% else %}/media/profile_picture/default_profile_picture.png{% endif %}" 
-     alt="Profile Picture" width="150">
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p><strong>Bio:</strong> {{ user.profile.bio }}</p>
-    <p><strong>faculty:</strong> {{ user.profile.faculty }}</p>
-    <p><strong>line:</strong> {{ user.profile.line }}</p>
-    <p><strong>instagram:</strong> {{ user.profile.instagram }}</p>
-    
-    <a href="{% url 'user_edit:profile_edit' %}">Edit Profile</a>
-    <a href="{% url 'user_home' %}">Back to home</a>
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
+        <ul class="nav-links">
+            <li><a href="{% url 'user_home' %}">Home</a></li>
+            <li><a href="{% url 'home' %}">Logout</a></li>
+        </ul>
+    </header>
+
+    <!-- Profile Card Section -->
+    <div class="profile-container">
+        <div class="profile-card">
+            <div class="profile-header">
+                <img src="{% if user.profile.profile_picture %}{{ user.profile.profile_picture.url }}{% else %}/media/profile_picture/default_profile_picture.png{% endif %}" 
+                    alt="Profile Picture" class="profile-img">
+            </div>
+            <div class="profile-body">
+                <h1 class="profile-name">{{ user.username }}</h1>
+                <p class="profile-bio">{{ user.profile.bio }}</p>
+                <div class="profile-details">
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <p><strong>Faculty:</strong> {{ user.profile.faculty }}</p>
+                    <p><strong>Line:</strong> {{ user.profile.line }}</p>
+                    <p><strong>Instagram:</strong> {{ user.profile.instagram }}</p>
+                </div>
+                <a href="{% url 'user_edit:profile_edit' %}" class="edit-button">Edit Profile</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
