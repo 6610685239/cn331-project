@@ -22,7 +22,7 @@ def user_home(request):
     posts = Post.objects.prefetch_related(
         Prefetch("comments", queryset=Comment.objects.order_by("-created_at"))
     ).order_by("-created_at")
-    parties = Party.objects.filter(event_date__gte=now().date()).order_by("event_date")
+    parties = Party.objects.prefetch_related("interested_users").order_by("event_date")
     return render(request, "user_home.html", {"posts": posts, "parties": parties})
 
 

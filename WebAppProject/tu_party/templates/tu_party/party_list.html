@@ -35,14 +35,21 @@
     <hr>
     {% for party in parties %}
     <div class="party-post">
-        {% if party.image %}
-        <img src="{{ party.image.url }}" alt="Party Image">
-        {% endif %}
-        <h2>{{ party.title }}</h2>
-        <p><strong>Date:</strong> {{ party.event_date }} <strong>Time:</strong> {{ party.event_time }}</p>
+        <h3>{{ party.title }}</h3>
         <p>{{ party.description }}</p>
-        <p><strong>Interested Users:</strong> {{ party.interested_users.count }}</p>
-        <a href="{% url 'tu_party:interest_party' party.id %}">I'm Interested</a>
+        <p>Date: {{ party.event_date }} | Time: {{ party.event_time }}</p>
+
+        <a href="{% url 'tu_party:interest_party' party.id %}">
+            {% if party.id in user_interests %}
+                Cancel Interest
+            {% else %}
+                I'm Interested
+            {% endif %}
+        </a>
+
+        {% if user == party.user %}
+        <a href="{% url 'tu_party:interested_users' party.id %}">View Interested Users</a>
+        {% endif %}
     </div>
     <hr>
     {% empty %}
