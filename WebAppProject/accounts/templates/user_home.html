@@ -63,7 +63,9 @@
             {% if post.image %}
             <img src="{{ post.image.url }}" alt="Post Image">
             {% endif %}
-            <h3>{{ post.user.username }}</h3> <!-- Assuming post.author is a User model -->
+
+            
+            <h3>{% if post.user.profile.display_name %}{{ post.user.profile.display_name }}{% else %}{{ post.user.username}}{% endif %}</h3> <!-- Assuming post.author is a User model -->
             <p>{{ post.content }}</p>
             <p>{{ post.created_at|date:"d M Y, H:i" }}</p> <!-- Formatting the date -->
             
