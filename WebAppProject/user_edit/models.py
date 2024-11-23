@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    display_name = models.TextField(max_length=20, blank=True)
     bio = models.TextField(max_length=500, blank=True)
     FACULTY_CHOICES = [
     ("Law", "Faculty of Law"),

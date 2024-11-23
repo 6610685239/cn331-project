@@ -2,16 +2,19 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import UserEditForm, ProfileEditForm
 from .models import *
+from django.contrib.auth.models import User
 
 @login_required
 def profile(request):
     profile = request.user.profile
-    profile_picture_url = profile.profile_picture.url if profile.profile_picture else '/static/default_profile_picture.png'
+    profile_picture_url = profile.profile_picture.url if profile.profile_picture else '/static/default_profile_picture.jpg'
 
     return render(request, 'user_edit/profile.html', {
+        'user': request.user,  # Explicitly passing the user object
         'profile': profile,
         'profile_picture_url': profile_picture_url,
     })
+
 @login_required
 def profile_edit(request):
     # Skip profile logic for admin users

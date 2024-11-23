@@ -53,6 +53,16 @@
                         </button>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="display_name">Display name:</label>
+                    <div class="editable-container">
+                        <input type="text" id="display_name" name="display_name" value="{{ user.display_name }}" readonly>
+                        <button type="button" class="edit-icon" onclick="toggleEdit('display_name')">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
                 
                 <div class="form-group">
                     <label for="bio">Bio:</label>

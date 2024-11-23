@@ -10,4 +10,4 @@ class UserEditForm(forms.ModelForm):
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['bio','faculty', 'line', 'instagram', 'profile_picture']  # Ensure faculty exists
+        fields = ['bio','display_name', 'faculty', 'line', 'instagram', 'profile_picture']  # Ensure faculty exists

@@ -29,7 +29,8 @@
                 <h1 class="profile-name">{{ user.username }}</h1>
                 <p class="profile-bio">{{ user.profile.bio }}</p>
                 <div class="profile-details">
-                    <p><strong>Email:</strong> {{ user.email }}</p>
+                     <p><strong>Display_name:</strong> {{ user.profile.display_name }}</p>
+                     <p><strong>Email:</strong> {% if user.email %}{{ user.email }}{% else %}Not provided{% endif %}</p>
                     <p><strong>Faculty:</strong> {{ user.profile.faculty }}</p>
                     <p><strong>Line:</strong> {{ user.profile.line }}</p>
                     <p><strong>Instagram:</strong> {{ user.profile.instagram }}</p>
