@@ -11,6 +11,9 @@ urlpatterns = [
     path("", include("django.contrib.auth.urls")),
     path("tu_talk/", include("tu_talk.urls")),
     path("tu_party/", include("tu_party.urls")),
+    path('user/', include(('user_edit.urls'))),  # Add namespace here
+
+  
 ]
 
 if settings.DEBUG:

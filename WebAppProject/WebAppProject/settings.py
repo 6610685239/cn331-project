@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "accounts",
     "tu_talk",
     "tu_party",
+    "user_edit",
 ]
 
 MIDDLEWARE = [
