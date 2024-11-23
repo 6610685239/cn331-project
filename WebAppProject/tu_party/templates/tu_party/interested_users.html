@@ -10,7 +10,7 @@
     <ul>
         {% for interest in interested_users %}
         <li>
-            <strong>{{ interest.user.username }}</strong>
+            <strong>{% if interest.user.profile.display_name %}{{ interest.user.profile.display_name }}{% else %}{{ interest.user.username}}{% endif %}</strong>
             {% if interest.user.profile %}
                 <br>Line: {{ interest.user.profile.line }}
                 <br>Instagram: {{ interest.user.profile.instagram }}
