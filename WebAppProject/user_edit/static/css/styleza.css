@@ -398,13 +398,23 @@ h3 {
 /* Styling for readonly inputs */
 .editable-container input[readonly],
 .editable-container textarea[readonly] {
-    background-color: #e9ecef; /* Gray background for readonly */
-    cursor: not-allowed; /* Indicate non-editable field */
+    background-color: #e9ecef; 
+    cursor: not-allowed; 
 }
 
 /* Styling for editable inputs */
 .editable-container input:not([readonly]),
 .editable-container textarea:not([readonly]) {
-    background-color: #ffffff; /* White background for editable */
-    cursor: text; /* Indicate editable field */
+    background-color: #ffffff; 
+    cursor: text; 
+}
+
+.profile-bio {
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    max-width: 100%; 
+    margin: 10px 0; 
+    font-size: 16px; 
+    line-height: 1.5;
 }

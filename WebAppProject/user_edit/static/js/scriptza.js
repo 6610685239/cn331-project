@@ -17,3 +17,16 @@ function toggleEdit(fieldId) {
         console.error(`Field with ID ${fieldId} not found.`);
     }
 }
+
+
+function toggleEdit(fieldId) {
+    const field = document.getElementById(fieldId);
+    if (field.readOnly !== undefined) {
+        field.readOnly = !field.readOnly;
+    }
+    if (fieldId === 'bio') {
+        field.focus();
+        field.style.height = "auto";
+        field.style.height = field.scrollHeight + "px"; // Adjust height to content
+    }
+}
