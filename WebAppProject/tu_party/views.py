@@ -54,7 +54,7 @@ def interested_users_view(request, party_id):
     party = get_object_or_404(Party, id=party_id)
 
     # ตรวจสอบว่า user ที่ดูหน้านี้เป็นผู้สร้างโพสต์
-    if request.user != party.creator:
+    if request.user != party.user:
         return HttpResponseForbidden("You are not allowed to view this information.")
 
     interested_users = party.interested_users.all()  # ดึงข้อมูล user ทั้งหมดที่สนใจ
