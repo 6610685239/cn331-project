@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: #ffeae7; /* Subtle warm tone for the background */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Profile Container */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Adjust for navbar/footer height */
+    background-color: #ffeae7; /* Light background tone */
+}
+
+.profile-card {
+    width: 400px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.profile-header {
+    background-color: #d32f2f; /* Match navbar color */
+    padding: 20px;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    margin: 0 auto;
+}
+
+.profile-body {
+    padding: 20px;
+}
+
+.profile-name {
+    font-size: 1.8rem;
+    color: #d32f2f; /* Highlight username */
+    margin-bottom: 10px;
+}
+
+.profile-bio {
+    font-size: 1rem;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+.profile-details {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.profile-details p {
+    font-size: 1rem;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.edit-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d32f2f; /* Match theme */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: #b71c1c;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: #fff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+.navbar .nav-links li a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 0; /* Add some padding for spacing */
+    background: #d32f2f; /* Red background for the footer */
+    color: #fff; /* White color for text */
+    font-size: 14px; /* Set text size */
+    z-index: 10; /* Ensure it stays on top of other content */
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding: 5px 0; 
+    background: #d32f2f; 
+    color: #fff; 
+    font-size: 12px; 
+    height: 30px; 
+    z-index: 100; 
+}
+
+.footer p {
+    margin: 0; 
+}
+
+/* child elements in footer */
+.footer, .footer * {
+    color: #fff !important;
+}
+.edit-profile-container {
+    max-width: 600px;
+    margin: 100px auto; /* Adjust for navbar height */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-title {
+    font-size: 2rem;
+    color: #d32f2f;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #d32f2f;
+    padding-bottom: 5px;
+}
+
+.edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit-profile-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.edit-profile-form input,
+.edit-profile-form select,
+.edit-profile-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.edit-profile-form input:focus,
+.edit-profile-form select:focus,
+.edit-profile-form textarea:focus {
+    border-color: #d32f2f;
+    outline: none;
+}
+
+.submit-button {
+    background-color: #d32f2f;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #b71c1c;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #d32f2f;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+/* Align Form Fields in a Single Line */
+.edit-profile-form .form-group {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+    margin-bottom: 15px; /* Add space between rows */
+}
+
+.edit-profile-form .form-group label {
+    min-width: 100px; /* Set a fixed width for labels */
+    margin-right: 10px; /* Space between label and input */
+    font-weight: bold; /* Emphasize labels */
+    color: #333; /* Label color */
+}
+
+.edit-profile-form .form-group input,
+.edit-profile-form .form-group textarea,
+.edit-profile-form .form-group select {
+    flex: 1; /* Allow input fields to take remaining space */
+    padding: 8px; /* Add padding for usability */
+    border: 1px solid #ddd; /* Add a light border */
+    border-radius: 5px; /* Slightly rounded corners */
+    font-size: 0.9rem; /* Consistent font size */
+    box-sizing: border-box; /* Include padding in width */
+    resize: none; /* Prevent resizing */
+}
+
+.edit-profile-form .form-group textarea {
+    height: 40px; /* Force textarea to a single line */
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Dropdown Styling */
+.edit-profile-form select {
+    flex: 1; /* Same behavior as input fields */
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background-color: #fff;
+    color: #333;
+    appearance: none; /* Removes default dropdown styling */
+    cursor: pointer;
+}
+
+.edit-profile-form select:focus {
+    border-color: #d32f2f; /* Highlight border on focus */
+    outline: none;
+}
+
+/* Wrapper to Center the Container */
+.page-wrapper {
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    box-sizing: border-box; /* Include padding/margin in the box */
+    background-color: #ffeae7; /* Light background */
+    padding-top: 20px;
+    padding-bottom: 1025px;
+}
+
+/* Centered Form Container */
+.edit-profile-container {
+    width: 100%;
+    max-width: 500px; /* Form width */
+    padding: 30px;
+    background-color: #ffffff; /* White form background */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    text-align: center;
+    margin: auto; /* Center in case of extra content */
+}
+
+.change-picture-btn {
+    display: block;
+    margin: 10px auto;
+    background-color: #d32f2f;
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.change-picture-btn:hover {
+    background-color: #b71c1c;
+}
+
+.profile-picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+
+.profile-imgs {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Circular border */
+    object-fit: cover; /* Crop the image to fit within the circle */
+    border: 3px solid #d32f2f; /* Red circular border */
+    display: block;
+    margin: 0 auto 10px;
+}
+
+/* Editable Container */
+.editable-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Input and Textarea Fields */
+.editable-container input,
+.editable-container textarea {
+    flex: 1;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Edit Icon Button */
+.edit-icon {
+    background: none;
+    border: none;
+    color: #d32f2f;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.edit-icon:hover {
+    color: #b71c1c;
+}
+
+
+/* Styling for readonly inputs */
+.editable-container input[readonly],
+.editable-container textarea[readonly] {
+    background-color: #e9ecef; /* Gray background for readonly */
+    cursor: not-allowed; /* Indicate non-editable field */
+}
+
+/* Styling for editable inputs */
+.editable-container input:not([readonly]),
+.editable-container textarea:not([readonly]) {
+    background-color: #ffffff; /* White background for editable */
+    cursor: text; /* Indicate editable field */
+}
