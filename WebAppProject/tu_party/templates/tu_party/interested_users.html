@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interested Users</title>
+</head>
+<body>
+    <h1>Users Interested in "{{ party.title }}"</h1>
+    <ul>
+        {% for interest in interested_users %}
+        <li>
+            <strong>{{ interest.user.username }}</strong>
+            {% if interest.user.profile %}
+                <br>Line: {{ interest.user.profile.line }}
+                <br>Instagram: {{ interest.user.profile.instagram }}
+                <br>Bio: {{ interest.user.profile.bio }}
+            {% else %}
+                <br>No additional profile information available.
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'tu_party:party_list' %}">Back to Party List</a>
+</body>
+</html>
