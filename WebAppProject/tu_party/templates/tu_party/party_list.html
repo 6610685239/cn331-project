@@ -1,44 +1,66 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style_createparty.css' %}">
     <title>Upcoming TU Parties</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .party-post {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: #f9f9f9;
-        }
-        .party-post img {
-            display: block;
-            max-width: 300px;
-            margin: 0 auto 10px;
-        }
-        a {
-            color: blue;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 <body>
-    <h1>Upcoming TU Parties</h1>
-    <a href="{% url 'tu_party:create_party' %}">+ Create a New Party</a>
-    <hr>
+    
+    <nav class="navbar">
+        <a href="{% url 'home' %}" class="logo">TUTALK</a>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">My account</a>
+            <a href="{% url 'home' %}">Log Out</a>
+        </div>
+    </nav>
+
+    <div class="left-menu">
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <a href="{% url 'tu_talk:post_list' %}"
+            class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
+            TU Talk
+        </a>
+        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            TU Alert
+        </a>
+        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            TU Review
+        </a>
+        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            TU Party
+        </a>
+        <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+            About Us
+        </a>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>
+
+    <h2>Upcoming TU Parties</h2>
+    <div class="party-create">
+        <a href="{% url 'tu_party:create_party' %}">Create a New Party</a>
+    </div>
+
+    
     {% for party in parties %}
     <div class="party-post">
-        <h3>{{ party.title }}</h3>
-        <p>{{ party.description }}</p>
-        <p>Date: {{ party.event_date }} | Time: {{ party.event_time }}</p>
+        <div class="post">
+            {% if party.image %}
+            <img src="{{ party.image.url }}" alt="Party Image">
+            {% endif %}
+            <h3>{{ party.title }}</h3>
+            <p>{{ party.description }}</p>
+            <p>{{ party.event_date }} at {{ party.event_time }}</p>
+            <p>Interested: {{ party.interested_users.count }}</p>
 
+        </div>
         <a href="{% url 'tu_party:interest_party' party.id %}">
             {% if party.id in user_interests %}
                 Cancel Interest
@@ -51,10 +73,6 @@
         <a href="{% url 'tu_party:interested_users' party.id %}">View Interested Users</a>
         {% endif %}
     </div>
-    <hr>
-    {% empty %}
-    <p>No upcoming parties. Be the first to create one!</p>
-    {% endfor %}
-    <a href="{% url 'user_home' %}">Back to Home</a>
+    {% endfor %}    
 </body>
 </html>
