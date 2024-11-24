@@ -33,6 +33,7 @@ body {
     overflow: hidden;
     text-align: center;
     font-family: 'Poppins', sans-serif;
+    animation: flyUp 1s ease-out;
 }
 
 .profile-header {
@@ -298,6 +299,7 @@ body {
     background-color: #ffeae7; /* Light background */
     padding-top: 20px;
     padding-bottom: 1025px;
+    animation: flyUp 1s ease-out;
 }
 
 /* Centered Form Container */
@@ -417,4 +419,15 @@ h3 {
     margin: 10px 0; 
     font-size: 16px; 
     line-height: 1.5;
+}
+
+@keyframes flyUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
