@@ -73,6 +73,10 @@
         <a href="{% url 'tu_party:interested_users' party.id %}">View Interested Users</a>
         {% endif %}
     </div>
-    {% endfor %}    
+    <hr>
+    {% empty %}
+    <p>No upcoming parties. Be the first to create one!</p>
+    {% endfor %}
+    <a href="javascript:history.back()">Go Back</a>
 </body>
 </html>
