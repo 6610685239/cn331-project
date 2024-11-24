@@ -42,8 +42,9 @@
         <p>&copy; 2024 TUTALK. All rights reserved.</p>
     </footer>
     
+    <h1 class="page-title">Users Interested in "{{ party.title }}"</h1>
+
     <div class="party-create"></div>
-        <h1>Users Interested in "{{ party.title }}"</h1>
         <ul>
             {% for interest in interested_users %}
             <li>
@@ -60,7 +61,9 @@
         </ul>
 
     <div class="party-post">
-        <a href="{% url 'tu_party:party_list' %}">Back to Party List</a>
+        <a href="{% url 'tu_party:party_list' %}" class="back-button">Back to Party List</a>
     </div>
+        
 </body>
 </html>
+

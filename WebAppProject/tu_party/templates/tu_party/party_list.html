@@ -43,8 +43,8 @@
         <p>&copy; 2024 TUTALK. All rights reserved.</p>
     </footer>
 
-    <h2>Upcoming TU Parties</h2>
     <div class="party-create">
+        <h2>Upcoming TU Parties</h2>
         <a href="{% url 'tu_party:create_party' %}">Create a New Party</a>
     </div>
 
@@ -61,7 +61,7 @@
             <p>Interested: {{ party.interested_users.count }}</p>
 
         </div>
-        <a href="{% url 'tu_party:interest_party' party.id %}">
+        <a href="{% url 'tu_party:interest_party' party.id %}" class="interest-button">
             {% if party.id in user_interests %}
                 Cancel Interest
             {% else %}
