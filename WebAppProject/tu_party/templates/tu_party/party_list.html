@@ -56,6 +56,7 @@
             <img src="{{ party.image.url }}" alt="Party Image">
             {% endif %}
             <h3>{{ party.title }}</h3>
+            
             <p>{{ party.description }}</p>
             <p>{{ party.event_date }} at {{ party.event_time }}</p>
             <p>Interested: {{ party.interested_users.count }}</p>
