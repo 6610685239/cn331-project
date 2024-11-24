@@ -3,15 +3,10 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from unittest.mock import patch
 from django.contrib.messages import get_messages
-<<<<<<< HEAD
 from .forms import SignupForm
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
-=======
-from accounts.views import *
-from accounts.forms import *
->>>>>>> abef63cecf1759d80a5ae7c37d5d09a60fde774a
 
 class AccountsViewsTest(TestCase):
     def setUp(self):
