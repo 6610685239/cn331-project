@@ -71,7 +71,7 @@
             <div class="post-info">
             <!-- ส่วนของผู้ใช้งาน -->
             <div class="post-user">
-                <h3>{{ post.user.username }}</h3>
+                <h3>{% if post.user.profile.display_name %}{{ post.user.profile.display_name }}{% else %}{{ post.user.username}}{% endif %}</h3>
             </div>
             <!-- ส่วนของรูปภาพ -->
             <div class="post-image">
@@ -84,7 +84,7 @@
             </div>
         {% else %}
             <div class="post-user">
-                <h3>{{ post.user.username }}</h3>
+                <h3>{% if post.user.profile.display_name %}{{ post.user.profile.display_name }}{% else %}{{ post.user.username}}{% endif %}</h3>
             </div>
             <div class="post-content">
                 <h4>"{{ post.content }}"</h4>

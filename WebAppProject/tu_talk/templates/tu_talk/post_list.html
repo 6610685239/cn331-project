@@ -86,7 +86,8 @@
                 {% if post.image %}
                 <img src="{{ post.image.url }}" alt="Post Image">
                 {% endif %}
-                <h3>{{ post.user.username }}</h3>
+                
+                <h3>{% if post.user.profile.display_name %}{{ post.user.profile.display_name }}{% else %}{{ post.user.username}}{% endif %}</h3>
                 <p>{{ post.content }}</p>
                 <p><small>{{ post.created_at|date:"d M Y, H:i" }}</small></p>
 

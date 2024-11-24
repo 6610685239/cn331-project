@@ -36,7 +36,7 @@
                     <p><strong>Instagram:</strong> {{ user.profile.instagram }}</p>
                 </div>
                 <a href="{% url 'user_edit:profile_edit' %}" class="edit-button">Edit Profile</a>
-                <a href="javascript:history.back()"class="edit-button">Go Back</a>
+                <a href="{% url 'user_home' %}"class="edit-button">Go Back</a>
             </div>
            
         </div>
