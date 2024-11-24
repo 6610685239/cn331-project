@@ -146,7 +146,7 @@ body {
     color: #ffffff;
 }
 
-/* Active State */
+/* ใช้บอกว่ากำลังอยู่หน้าไหน จะมีพื้นหลังเป็นสีแดง*/
 .left-menu a.active {
     background-color: #D32F2F;
     color: #ffffff;

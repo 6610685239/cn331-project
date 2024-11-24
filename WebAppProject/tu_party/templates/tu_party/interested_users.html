@@ -11,7 +11,7 @@
     <nav class="navbar">
         <a href="{% url 'home' %}" class="logo">TUTALK</a>
         <div class="nav-links">
-            <a href="{% url 'home' %}">My account</a>
+            <a href="{% url 'user_edit:profile' %}">My account</a>
             <a href="{% url 'home' %}">Log Out</a>
         </div>
     </nav>
@@ -24,13 +24,13 @@
             class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
             TU Talk
         </a>
-        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             TU Alert
         </a>
-        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             TU Review
         </a>
-        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'interested_users' %}active{% endif %}">
             TU Party
         </a>
         <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">

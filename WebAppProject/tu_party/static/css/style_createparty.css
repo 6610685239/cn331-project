@@ -170,6 +170,14 @@ h2 {
     background-color: #D32F2F;
     color: #ffffff;
 }
+
+/* ใช้บอกว่ากำลังอยู่หน้าไหน จะมีพื้นหลังเป็นสีแดง*/
+.left-menu a.active {
+    background-color: #D32F2F;
+    color: #ffffff;
+    font-weight: bold;
+}
+
 .footer {
     width: 100%;
     text-align: center;
