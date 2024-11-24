@@ -48,16 +48,14 @@
                     <label for="username">Username:</label>
                     <div class="editable-container">
                         <input type="text" id="username" name="username" value="{{ user.username }}" readonly>
-                        <button type="button" class="edit-icon" onclick="toggleEdit('username')">
-                            <i class="fas fa-pen"></i>
-                        </button>
+                        
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="display_name">Display name:</label>
                     <div class="editable-container">
-                        <input type="text" id="display_name" name="display_name" value="{{ user.display_name }}" readonly>
+                        <input type="text" id="display_name" name="display_name" value="{{ profile_form.display_name.value }}" readonly>
                         <button type="button" class="edit-icon" onclick="toggleEdit('display_name')">
                             <i class="fas fa-pen"></i>
                         </button>
@@ -106,7 +104,8 @@
                 </div>
                 <button type="submit" class="submit-button">Save Changes</button>
             </form>
-            <a href="{% url 'user_edit:profile' %}" class="back-link">Back to Profile</a>
+            
+            <a href="javascript:history.back()"class="back-link">Back to Profile</a>
         </div>
     </div>
 
