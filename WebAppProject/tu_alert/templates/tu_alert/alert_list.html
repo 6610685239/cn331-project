@@ -1,0 +1,31 @@
+
+{% block content %}
+<div class="alerts">
+    {% for alert in alerts %}
+        <div class="alert-box {{ alert.post_type }}">
+            <h3>{{ alert.title }}</h3>
+            <p>{{ alert.content }}</p>
+            <span class="timestamp">Posted on {{ alert.created_at|date:"Y-m-d H:i" }}</span>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+<style>
+.alert-box {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: white;
+}
+.alert-box.caution {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+.alert-box.emergency {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+</style>

@@ -30,7 +30,7 @@
             class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
             TU Talk
         </a>
-        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a href="{% url 'tu_alert:alert_list' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             TU Alert
         </a>
         <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
