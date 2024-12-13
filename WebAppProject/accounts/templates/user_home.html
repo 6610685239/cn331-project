@@ -46,16 +46,19 @@
     
         <!-- Main Content Centered -->
     <div class="main-content">
-        {% for party in parties %}
-        <div class="post">
-            {% if party.image %}
-            <img src="{{ party.image.url }}" alt="Party Image">
+        {% for alert in alerts %}
+        <div class="alert {{ alert.post_type }}" style="border: 3px solid; padding: 15px; margin-bottom: 10px;">
+            {% if alert.post_type == "caution" %}
+                <style> .caution { border-color: yellow; } </style>
+            {% elif alert.post_type == "emergency" %}
+                <style> .emergency { border-color: red; } </style>
             {% endif %}
-            <h3>{{ party.title }}</h3>
-            <p>{{ party.description }}</p>
-            <p>{{ party.event_date }} at {{ party.event_time }}</p>
-            <p>Interested: {{ party.interested_users.count }}</p>
-            <a href="{% url 'tu_party:interest_party' party.id %}">I'm Interested</a>
+            <h3>{{ alert.title }}</h3>
+            <p>{{ alert.content }}</p>
+            {% if alert.image %}
+                <img src="{{ alert.image.url }}" alt="{{ alert.title }}" style="max-width: 100%; height: auto; margin-top: 10px;">
+            {% endif %}
+            <small>Posted on {{ alert.created_at }}</small>
         </div>
         {% endfor %}
         {% for post in posts %}

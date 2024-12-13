@@ -12,6 +12,7 @@ from tu_talk.models import Post, Comment
 from django.db.models import Prefetch
 from tu_party.models import Party
 from django.utils.timezone import now
+from tu_alert.models import AlertPost
 
 
 def home(request):
@@ -22,8 +23,8 @@ def user_home(request):
     posts = Post.objects.prefetch_related(
         Prefetch("comments", queryset=Comment.objects.order_by("-created_at"))
     ).order_by("-created_at")
-    parties = Party.objects.prefetch_related("interested_users").order_by("event_date")
-    return render(request, "user_home.html", {"posts": posts, "parties": parties})
+    alerts = AlertPost.objects.all().order_by("-created_at")
+    return render(request, "user_home.html", {"posts": posts, "alerts": alerts})
 
 
 def send_sendgrid_email(to_email, subject, text_content):
