@@ -495,26 +495,23 @@ form a:hover {
 }
 
 .footer {
-    position: fixed; /* ทำให้ footer ติดอยู่ด้านล่างของหน้าจอ */
-    bottom: 0;
-    left: 0;
-    width: 100%; /* ความกว้างเต็มหน้าจอ */
-    background-color: #d32f2f; /* สีแดง */
-    color: #ffffff; /* สีข้อความ */
+    width: 100%;
     text-align: center;
-    padding: 10px 0; /* ระยะห่างด้านบนและล่าง */
-    font-size: 14px; /* ขนาดข้อความ */
-    z-index: 1000; /* เพื่อให้ footer อยู่เหนือองค์ประกอบอื่น */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* เพิ่มเงาด้านบน */
+    position: fixed;
+    bottom: 0;
+    padding: 5px 0; 
+    background: #d32f2f; 
+    color: #fff; 
+    font-size: 12px; 
+    height: 30px; 
+    z-index: 100; 
+    margin-top: 10px;
 }
-
 
 .footer p {
     margin: 0; 
 }
 
-/* child elements in footer */
-.footer, .footer * {
+.footer, .footer {
     color: #fff !important;
 }
-
