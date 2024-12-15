@@ -1,31 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TU_ALERT</title>
+    <link rel="stylesheet" href="{% static 'css/style_alert.css' %}">
 
-{% block content %}
-<div class="alerts">
-    {% for alert in alerts %}
-        <div class="alert-box {{ alert.post_type }}">
-            <h3>{{ alert.title }}</h3>
-            <p>{{ alert.content }}</p>
-            <span class="timestamp">Posted on {{ alert.created_at|date:"Y-m-d H:i" }}</span>
+</head>
+    
+<body>
+    <nav class="navbar">
+        <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
+        <div class="nav-links">
+            <a href="{% url 'user_edit:profile' %}">My account</a>
+            <a href="{% url 'home' %}">Log Out</a>
         </div>
-    {% endfor %}
-</div>
-{% endblock %}
+    </nav>
 
-<style>
-.alert-box {
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    color: white;
-}
-.alert-box.caution {
-    background-color: #fff3cd;
-    color: #856404;
-    border: 1px solid #ffeeba;
-}
-.alert-box.emergency {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-</style>
+    <div class="container">
+        <div class="left-menu">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+            </div>
+            <a href="{% url 'tu_talk:post_list' %}"
+                class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
+                TU Talk
+            </a>
+            <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                TU Alert
+            </a>
+            <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                TU Review
+            </a>
+            <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'create_party' %}active{% endif %}">
+                TU Party
+            </a>
+            <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                About Us
+            </a>
+        </div>
+
+        <div class="alerts">
+            {% for alert in alerts %}
+                <div class="alert-box {{ alert.post_type }}">
+                    <h3> ⚠️ {{ alert.title }}</h3>
+                    <p>{{ alert.content }}</p>
+                    {% if alert.image %}
+                        <img src="{{ alert.image.url }}" alt="{{ alert.title }}" style="max-width: 100%; height: auto; margin-top: 10px;">
+                    {% endif %}
+                    <span class="timestamp">Posted on {{ alert.created_at|date:"Y-m-d H:i" }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>
+</body>
+</html>
