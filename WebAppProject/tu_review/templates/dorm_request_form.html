@@ -51,15 +51,20 @@
         <h3>Request to Add a Dorm</h3>
     </header>
 
-<form method="post" enctype="multipart/form-data" action="{% url 'tu_review:dorm_request_create' %}">
+    <div class="maindorm_review">
+    <form method="post" enctype="multipart/form-data" action="{% url 'tu_review:dorm_request_create' %}">
     {% csrf_token %}
-    <input type="text" name="name" placeholder="Dorm Name" required>
-    <textarea name="location" placeholder="Location" required></textarea>
-    <input type="file" name="image">
-    <textarea name="description" placeholder="Description" required></textarea>
+        <input type="text" name="name" placeholder="Dorm Name" required>
+        <textarea name="location" placeholder="Location" required></textarea>
+        <input type="file" name="image">
+        <textarea name="description" placeholder="Description" required></textarea>
     
-    <button type="submit">Submit</button>
-    <h2><a href="{% url 'tu_review:dorm_list' %}">Go Back</a></h2>
+        <button type="submit">Submit</button>
+    </div>
+        
+        <div class="goback">
+            <h2><a href="{% url 'tu_review:dorm_list' %}">Go Back</a></h2>
+        </div>
 </form>
 </body>
 </html>
