@@ -113,7 +113,7 @@ def add_review_view(request, faculty_id):
             review = form.save(commit=False)
             review.user = request.user
             review.save()
-            return redirect("tu_review:faculty", faculty_id=[faculty.id])
+            return redirect("tu_review:faculty", faculty_id=faculty.id)
     else:
         form = StudyReviewForm()
     return render(request, "study_add_review.html", {"form": form, "faculty": faculty})
