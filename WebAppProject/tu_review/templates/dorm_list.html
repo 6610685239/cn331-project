@@ -47,21 +47,30 @@
         <p>&copy; 2024 TUTALK. All rights reserved.</p>
     </footer>
     <header class="header">
-        Dorm Review
+        <h2>Dorm Review</h2>
     </header>
+
+    <div class="menudorm">
+        <div class="menu-item">
+            <h2><a href="{% url 'tu_review:tu_review' %}">Go Back</a></h2>
+        </div>
+        <div class="menu-item">
+            <h2><a href="{% url 'tu_review:dorm_request_create' %}">Request to add dormitory</a></h2>
+        </div>
+    </div>
+    
     
     {% for dorm in dorms %}
 <div class="maindorm">
-    <h2><a href="{% url 'tu_review:dorm_detail' dorm.id %}">{{ dorm.name }}</a></h2>
+    <h2>{{ dorm.name }}</h2>
     <p>Location: {{ dorm.location }}</p>
     <p>Average Rating: {{ dorm.average_rating }}</p>
+    <img src="{{ dorm.image.url }}" alt="Image of {{ dorm.name }}" class="dorm-image">
+    <a href="{% url 'tu_review:dorm_detail' dorm.id %}">More Details</a>
+</div>
 </div>
 {% endfor %}
 
-<div class="menudorm">
-    <h2><a href="{% url 'tu_review:tu_review' %}">Go Back</a></h2>
-    <h2><a href="{% url 'tu_review:dorm_request_create' %}">request to add dormitory</a></h2>
-</div>
 
 </body>
 </html>

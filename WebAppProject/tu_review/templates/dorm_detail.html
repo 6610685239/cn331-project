@@ -1,47 +1,93 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style_review.css' %}">
     <title>Dorm detail</title>
 </head>
 <body>
-    <h1>{{ dorm.name }}</h1>
-<img src="{{ dorm.image.url }}" alt="{{ dorm.name }}">
-<p>{{ dorm.description }}</p>
-<p>Location: {{ dorm.location }}</p>
-<p>Average Rating: {{ dorm.average_rating }}</p>
+    <!-- Navigation Bar with Post Form in Center -->
+    <nav class="navbar">
+        <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
 
-<h2>Reviews</h2>
-{% for review in reviews %}
-<div>
-    <h3>{{ review.title }}</h3>
-    <p>{{ review.content }}</p>
-    <p>Rating: {{ review.rating }}</p>
-    <p>By: {% if not review.anonymous %}{{ review.user.username }}{% else %}Anonymous{% endif %}</p>
-    <p>Date: {{ review.created_at }}</p>
-    {% if review.user == request.user %}
-        <form method="post" action="{% url 'tu_review:review_delete' review.id %}">
-            {% csrf_token %}
-            <button type="submit">Delete</button>
-        </form>
-    {% endif %}
+        <div class="nav-links">
+            <a href="{% url 'user_edit:profile' %}">My account</a>
+            <a href="{% url 'home' %}">Log Out</a>
+        </div>
+    </nav>
+
+    <!-- Left Menu with Search Bar -->
+
+    <div class="left-menu">
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <a href="{% url 'tu_talk:post_list' %}"
+            class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
+            TU Talk
+        </a>
+        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            TU Alert
+        </a>
+        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            TU Review
+        </a>
+        <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'party_list' %}active{% endif %}">
+            TU Party
+        </a>
+        <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+            About Us
+        </a>
+    </div>
+
+     <!-- Footer Section -->
+     <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>
+
+    <div class="maindorm_details">
+            <h1>{{ dorm.name }}</h1>
+        <img src="{{ dorm.image.url }}" alt="{{ dorm.name }}">
+        <p>{{ dorm.description }}</p>
+        <p>Location: {{ dorm.location }}</p>
+        <p>Average Rating: {{ dorm.average_rating }}</p>
+
+        <h2>Reviews</h2>
+        {% for review in reviews %}
+        <div>
+            <h3>{{ review.title }}</h3>
+            <p>{{ review.content }}</p>
+            <p>Rating: {{ review.rating }}</p>
+            <p>By: {% if not review.anonymous %}{{ review.user.username }}{% else %}Anonymous{% endif %}</p>
+            <p>Date: {{ review.created_at }}</p>
+            {% if review.user == request.user %}
+                <form method="post" action="{% url 'tu_review:review_delete' review.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="maindorm_review">
+        <h2>Add a Review</h2>
+        <form method="post" enctype="multipart/form-data" action="{% url 'tu_review:review_create' dorm.id %}">
+        {% csrf_token %}
+            <input type="text" name="title" placeholder="Title" required>
+            <input type="describe" name="content" placeholder="Review Content" required>
+            <input type="describe" name="recommendation" placeholder="Recommendation" required>
+            <input type="number" name="rating" min="1" max="5"placeholder="Rate 1-5" required>
+            <label><input type="checkbox" name="anonymous"> Post Anonymously</label>
+            <button type="submit">Submit</button>
+    </form>
+
 </div>
-{% endfor %}
+    <div class="goback">
+        <h2><a href="{% url 'tu_review:dorm_list' %}">Go Back</a></h2>
+    </div>
 
-<h2>Add a Review</h2>
-<form method="post" enctype="multipart/form-data" action="{% url 'tu_review:review_create' dorm.id %}">
-    {% csrf_token %}
-    <input type="text" name="title" placeholder="Title" required>
-    <textarea name="content" placeholder="Review Content" required></textarea>
-    <input type="file" name="image_or_video">
-    <textarea name="recommendation" placeholder="Recommendation" required></textarea>
-    <input type="number" name="rating" min="1" max="5" required>
-    <label><input type="checkbox" name="anonymous"> Post Anonymously</label>
-    <button type="submit">Submit</button>
-</form>
-
-
-<h2><a href="{% url 'tu_review:dorm_list' %}">Go Back</a></h2>
 </body>
 </html>
