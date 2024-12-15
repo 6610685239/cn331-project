@@ -62,7 +62,11 @@
     <h2>{{ dorm.name }}</h2>
     <p>Location: {{ dorm.location }}</p>
     <p>Average Rating: {{ dorm.average_rating }}</p>
-    <img src="{{ dorm.image.url }}" alt="Image of {{ dorm.name }}" class="dorm-image">
+    {% if dorm.image %}
+        <img src="{{ dorm.image.url }}" alt="Dorm image" class="dorm-image">
+        {% else %}
+        <p>No image available</p>
+    {% endif %}
     <a href="{% url 'tu_review:dorm_detail' dorm.id %}">More Details</a>
 </div>
 </div>

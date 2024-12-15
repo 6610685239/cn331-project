@@ -4,98 +4,133 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.views import View
 
+
 # Models
 class Dormitory(models.Model):
     name = models.CharField(max_length=255)
     location = models.TextField()
-    image = models.ImageField(upload_to='dorm_images/')
+    image = models.ImageField(
+        upload_to="dorms/images/",
+        blank=True,
+        null=True,
+    )
     description = models.TextField()
     average_rating = models.FloatField(default=0.0)
 
     def __str__(self):
         return self.name
 
+
 class DormReview(models.Model):
-    dormitory = models.ForeignKey(Dormitory, on_delete=models.CASCADE, related_name='reviews')
+    dormitory = models.ForeignKey(
+        Dormitory, on_delete=models.CASCADE, related_name="reviews"
+    )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     content = models.TextField()
     anonymous = models.BooleanField(default=False)
     rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
     created_at = models.DateTimeField(auto_now_add=True)
-    
 
     def __str__(self):
         return self.title
 
-#study 
+
+# study
 class Faculty(models.Model):
     name_th = models.CharField(max_length=255)
     name_en = models.CharField(max_length=255)
     description = models.TextField()
     established_date = models.DateField()
     color = models.CharField(max_length=7)  # Hex color code
-    logo = models.ImageField(upload_to='faculty_logos/')
+    logo = models.ImageField(upload_to="faculty_logos/")
 
     def __str__(self):
         return self.name_en
 
+
 class Course(models.Model):
     code = models.CharField(max_length=20, unique=True)
     name = models.CharField(max_length=255)
-    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE, related_name='courses')
+    faculty = models.ForeignKey(
+        Faculty, on_delete=models.CASCADE, related_name="courses"
+    )
 
     def __str__(self):
         return f"{self.code} - {self.name}"
 
+
 class StudyReview(models.Model):
     COURSE_TYPES = [
-        ('core', 'วิชาเฉพาะ'),
-        ('gen_ed', 'วิชาศึกษาทั่วไป'),
-        ('elective', 'วิชาเลือกเสรี'),
+        ("core", "วิชาเฉพาะ"),
+        ("gen_ed", "วิชาศึกษาทั่วไป"),
+        ("elective", "วิชาเลือกเสรี"),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='reviews')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="reviews")
     instructor = models.CharField(max_length=255)
-    semester = models.IntegerField(choices=[(i, i) for i in range(1, 3)])  # Rating for the restaurant (1-5)
+    semester = models.IntegerField(
+        choices=[(i, i) for i in range(1, 3)]
+    )  # Rating for the restaurant (1-5)
     details = models.TextField()
     course_type = models.CharField(max_length=10, choices=COURSE_TYPES)
-    interest = models.IntegerField(choices=[(i, i) for i in range(1, 6)])  # Rating for the restaurant (1-5)
-    practical_use = models.IntegerField(choices=[(i, i) for i in range(1, 6)])  # Rating for the restaurant (1-5)
-    future_use = models.IntegerField(choices=[(i, i) for i in range(1, 6)])  # Rating for the restaurant (1-5)
-    instructor_rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])  # Rating for the restaurant (1-5)
+    interest = models.IntegerField(
+        choices=[(i, i) for i in range(1, 6)]
+    )  # Rating for the restaurant (1-5)
+    practical_use = models.IntegerField(
+        choices=[(i, i) for i in range(1, 6)]
+    )  # Rating for the restaurant (1-5)
+    future_use = models.IntegerField(
+        choices=[(i, i) for i in range(1, 6)]
+    )  # Rating for the restaurant (1-5)
+    instructor_rating = models.IntegerField(
+        choices=[(i, i) for i in range(1, 6)]
+    )  # Rating for the restaurant (1-5)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.course.code} by {self.user.username}"
-    
-#resturant
+
+
+# resturant
 class Restaurant(models.Model):
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='reviews/', null=True, blank=True)
+    image = models.ImageField(upload_to="reviews/", null=True, blank=True)
     # Add more fields like description, etc. if needed
 
     def __str__(self):
         return self.name
 
+
 class MenuItem(models.Model):
-    restaurant = models.ForeignKey(Restaurant, related_name='menu_items', on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(
+        Restaurant, related_name="menu_items", on_delete=models.CASCADE
+    )
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.name
 
+
 class RestaurantReview(models.Model):
-    restaurant = models.ForeignKey(Restaurant, related_name='reviews', on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(
+        Restaurant, related_name="reviews", on_delete=models.CASCADE
+    )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     review_text = models.TextField()
-    rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])  # Rating for the restaurant (1-5)
-    cleanliness_rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])  # Cleanliness rating (1-5)
-    menu_rating = models.IntegerField(null=True, blank=True, choices=[(i, i) for i in range(1, 6)])  # Rating for menu item (1-5)
-    image = models.ImageField(upload_to='reviews/', null=True, blank=True)
+    rating = models.IntegerField(
+        choices=[(i, i) for i in range(1, 6)]
+    )  # Rating for the restaurant (1-5)
+    cleanliness_rating = models.IntegerField(
+        choices=[(i, i) for i in range(1, 6)]
+    )  # Cleanliness rating (1-5)
+    menu_rating = models.IntegerField(
+        null=True, blank=True, choices=[(i, i) for i in range(1, 6)]
+    )  # Rating for menu item (1-5)
+    image = models.ImageField(upload_to="reviews/", null=True, blank=True)
     posted_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
