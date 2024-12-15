@@ -7,9 +7,9 @@ class DormitoryCreateForm(forms.ModelForm):
         fields = ['name', 'location', 'image', 'description']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter dorm name'}),
-            'location': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter location'}),
+            'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter location'}),
             'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
-            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter description'}),
+            'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter description'}),
         }
 
 class DormReviewForm(forms.ModelForm):
