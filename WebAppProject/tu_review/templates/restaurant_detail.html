@@ -1,29 +1,66 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css\style_restaurant.css' %}">
     <title>Resturant details</title>
 </head>
 <body>
-    <h2>{{ restaurant.name }}</h2>
-<p>{{ restaurant.location }}</p>
-
-<h3>Reviews:</h3>
-{% for review in reviews %}
-    <div>
-        <p1>{{ review.user }}</p1>
-        <p>Rating: {{ review.rating }}</p>
-        <p>Menu Rating: {{ review.menu_rating }}</p>
-        <p>Cleanliness Rating: {{ review.cleanliness_rating }}</p>
+    <nav class="navbar">
+        <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
+        <div class="nav-links">
+            <a href="{% url 'user_edit:profile' %}">My account</a>
+            <a href="{% url 'home' %}">Log Out</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="left-menu">
+            <a href="{% url 'tu_talk:post_list' %}"
+            class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
+            TU Talk
+        </a>
+        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            TU Alert
+        </a>
+        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                TU Review
+            </a>
+            <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'create_party' %}active{% endif %}">
+                TU Party
+            </a>
+            <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                About Us
+            </a>
+        </div>
         
-        <p>{{ review.review_text }}</p>
-        <p>Date:   {{ review.posted_at }}</p>
-    </div>
-    <hr></hr>
-{% endfor %}
+        
+        <div class="headerReview">
+            <h3>Reviews</h3>
+        </div>
+        
+        {% for review in reviews %}
+        <div class="ReviewRating">
+            <p1>{{ review.user }}</p1>
+            <p>Rating: {{ review.rating }}/5</p>
+            <p>Menu Rating: {{ review.menu_rating }}/5</p>
+            <p>Cleanliness Rating: {{ review.cleanliness_rating }}/5</p>
+            <p>Comment: {{ review.review_text }}</p>
+            <p>Date:   {{ review.posted_at }}</p>
+        </div>
 
-<a href="{% url 'tu_review:post_review' restaurant.id %}">Post a Review</a>
-<a href="{% url 'tu_review:restaurant_list' %}">Go back</a>
+    {% endfor %}
+        <div class="links">
+            <a href="{% url 'tu_review:post_review' restaurant.id %}">Post a Review</a>
+            <a href="{% url 'tu_review:restaurant_list' %}">Go back</a>
+        </div>
+    </div>    
+
+    <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>

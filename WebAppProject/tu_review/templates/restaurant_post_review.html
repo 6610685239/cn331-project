@@ -1,17 +1,56 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css\style_restaurant.css' %}">
     <title>Post</title>
 </head>
 <body>
-    <h2>Post a Review for {{ restaurant.name }}</h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit Review</button>
-    </form>
-<a href="{% url 'tu_review:restaurant_list' %}">Go back</a>
+    <nav class="navbar">
+        <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
+        <div class="nav-links">
+            <a href="{% url 'user_edit:profile' %}">My account</a>
+            <a href="{% url 'home' %}">Log Out</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="left-menu">
+            <a href="{% url 'tu_talk:post_list' %}"
+                class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
+                TU Talk
+            </a>
+            <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                TU Alert
+            </a>
+            <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                TU Review
+            </a>
+            <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'create_party' %}active{% endif %}">
+                TU Party
+            </a>
+            <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                About Us
+            </a>
+        </div>
+
+
+        <div class="review-container">
+            <h2>Post a Review for {{ restaurant.name }}</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit Review</button>
+            </form>
+            <a href="{% url 'tu_review:restaurant_list' %}">Go back</a>
+        </div>
+    </div>    
+
+    <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>

@@ -1,14 +1,88 @@
-<html>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css\style_study.css' %}">
+    <title>Study Faculty</title>
+</head>
 <body>
-<h1>{{ faculty.name_en }}</h1>
-<p>{{ faculty.description }}</p>
-<a href="{% url 'tu_review:add_review' faculty.id %}">Add Review</a>
-<h2>Courses</h2>
-<ul>
-{% for course in courses %}
-    <li>{{ course.name }}</li>
-{% endfor %}
-</ul>
-<h2><a href="{% url 'tu_review:study' %}">Go Back</a></h2>
+    <nav class="navbar">
+        <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
+        <div class="nav-links">
+            <a href="{% url 'user_edit:profile' %}">My account</a>
+            <a href="{% url 'home' %}">Log Out</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="left-menu">
+            <a href="{% url 'tu_talk:post_list' %}"
+                class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
+                TU Talk
+            </a>
+            <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                TU Alert
+            </a>
+            <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                TU Review
+            </a>
+            <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'create_party' %}active{% endif %}">
+                TU Party
+            </a>
+            <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                About Us
+            </a>
+        </div>
+
+        <div class="NameFaculty">
+            <h1>{{ faculty.name_en }}</h1>
+            <p>{{ faculty.description }}</p>
+        </div>
+
+        <div class="CoursesName">
+            <h2>Courses</h2>
+            <ul>
+                <div class="CoursesContainer">
+                    {% for course in courses %}
+                    <div class="CourseBox">
+                        <h3>{{ course.code }} - {{ course.name }}</h3>
+                        {% if course.reviews.all %}
+                            <h4>Reviews</h4>
+                            <ul class="ReviewList">
+                                {% for review in course.reviews.all %}
+                                <li>
+                                    <strong>By {{ review.user.username }}</strong> ({{ review.created_at|date:"d M Y" }})<br>
+                                    <strong>Instructor:</strong> {{ review.instructor }}<br>
+                                    <strong>Semester:</strong> {{ review.semester }}<br>
+                                    <strong>Course Type:</strong> {{ review.get_course_type_display }}<br>
+                                    <strong>Interest:</strong> {{ review.interest }}<br>
+                                    <strong>Practical Use:</strong> {{ review.practical_use }}<br>
+                                    <strong>Future Use:</strong> {{ review.future_use }}<br>
+                                    <strong>Instructor Rating:</strong> {{ review.instructor_rating }}<br>
+                                    <p>Comment: {{ review.details }}</p>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No reviews for this course yet.</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                
+            </ul>
+            <div class="button-group">
+                <a href="{% url 'tu_review:add_review' faculty.id %}" class="button">Add Review</a>
+                <a href="{% url 'tu_review:study' %}" class="button back-button">Go Back</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>

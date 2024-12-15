@@ -8,63 +8,61 @@
     <title>TU REVIEW</title>
 </head>
 <body>
-    <!-- Navigation Bar with Post Form in Center -->
     <nav class="navbar">
         <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
-
         <div class="nav-links">
             <a href="{% url 'user_edit:profile' %}">My account</a>
             <a href="{% url 'home' %}">Log Out</a>
         </div>
     </nav>
 
-    <!-- Left Menu with Search Bar -->
-
-    <div class="left-menu">
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
+    <div class="container">
+        <div class="left-menu">
+            <a href="{% url 'tu_talk:post_list' %}"
+                class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
+                TU Talk
+            </a>
+            <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                TU Alert
+            </a>
+            <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                TU Review
+            </a>
+            <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'create_party' %}active{% endif %}">
+                TU Party
+            </a>
+            <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                About Us
+            </a>
         </div>
-        <a href="{% url 'tu_talk:post_list' %}"
-            class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
-            TU Talk
-        </a>
-        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
-            TU Alert
-        </a>
-        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        
+        <header class="header">
             TU Review
-        </a>
-        <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'party_list' %}active{% endif %}">
-            TU Party
-        </a>
-        <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
-            About Us
-        </a>
+        </header>
+        
+        <div class="maingate">
+            <a href="{% url 'tu_review:study' %}">
+                <img src="{% static 'images/course.png' %}" alt="Course Icon">
+                Course Review
+            </a>
+            <a href="{% url 'tu_review:dorm_list' %}">
+                <img src="{% static 'images/dorm.png' %}" alt="Dorm Icon">
+                Dorm Review
+            </a>
+            <a href="{% url 'tu_review:restaurant_list' %}">
+                <img src="{% static 'images/restaurant.png' %}" alt="Restaurant Icon">
+                Restaurant Review
+            </a>
+        </div>
     </div>
+
 
      <!-- Footer Section -->
      <footer class="footer">
         <p>&copy; 2024 TUTALK. All rights reserved.</p>
     </footer>
     
-    <header class="header">
-        TU Review
-    </header>
 
-    <div class="maingate">
-        <a href="{% url 'tu_review:study' %}">
-            <img src="{% static 'images/course.png' %}" alt="Course Icon">
-            Course Review
-        </a>
-        <a href="{% url 'tu_review:dorm_list' %}">
-            <img src="{% static 'images/dorm.png' %}" alt="Dorm Icon">
-            Dorm Review
-        </a>
-        <a href="{% url 'tu_review:restaurant_list' %}">
-            <img src="{% static 'images/restaurant.png' %}" alt="Restaurant Icon">
-            Restaurant Review
-        </a>
-    </div>
 
 </body>
 </html>

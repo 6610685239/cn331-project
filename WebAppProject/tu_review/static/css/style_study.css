@@ -1,0 +1,590 @@
+/* This CSS base on accounts/style_user_home */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 50vh;
+    background: #f4f5f7; /* Subtle warm tone for the background */
+    display: flex;
+    flex-direction: column;
+    margin-top:70px;
+    padding-bottom: 50px; /* ระยะห่างระหว่างเนื้อหากับ footer */
+    margin-bottom: 150px;
+}
+
+/* สไตล์สำหรับ Header */
+.header {
+    width: 100%;
+    padding: 10px 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-size: 24px;
+    background: #f4f5f7; /* Subtle warm tone for the background */
+    font-weight: bold;
+    margin-bottom: 5px; /* ลดระยะห่างด้านล่าง */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    flex: 1;
+    /* Ensures the container takes up available space */
+}
+
+/*Create a post and Back home */
+.links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.links a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.links a:hover {
+    background-color: #b71c1c;
+}
+
+.title {
+    text-align: center;
+    color: #d32f2f;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Navbar */
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: #fff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #D32F2F;
+    /* สีแดง */
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    margin-right: auto;
+}
+
+.navbar .post-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    justify-content: center;
+}
+
+.navbar .post-form input[type="text"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.navbar .post-form input[type="file"] {
+    display: none;
+    /* ซ่อนช่องเลือกไฟล์จริง */
+}
+
+.navbar .post-form label {
+    background-color: #D32F2F;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navbar .post-form label:hover {
+    background-color: #B71C1C;
+}
+
+.navbar .post-form button {
+    padding: 8px 16px;
+    background-color: #D32F2F;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navbar .post-form button:hover {
+    background-color: #B71C1C;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-left: auto;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: #ddd;
+}
+
+/* Left Menu */
+.left-menu {
+    width: 200px;
+    padding: 20px;
+    background-color: #ffffff;
+    height: calc(100vh - 60px);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    color: #030303;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.left-menu .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.left-menu a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.left-menu a:hover {
+    background-color: #D32F2F;
+    color: #ffffff;
+}
+
+/* ใช้บอกว่ากำลังอยู่หน้าไหน จะมีพื้นหลังเป็นสีแดง*/
+.left-menu a.active {
+    background-color: #D32F2F;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Main Content */
+.content {
+    max-width: 800px; /* กำหนดความกว้าง */
+    margin: 20px auto; /* จัดตรงกลางแนวนอน */
+    padding: 20px;
+    background-color: #fff; /* พื้นหลังสีขาว */
+    border-radius: 8px; /* มุมโค้งมน */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาเบาๆ */
+    color: #333; /* สีข้อความหลัก */
+    line-height: 1.6; /* ระยะห่างบรรทัด */
+}
+
+/* Main Heading */
+.content h1 {
+    font-size: 2rem; /* ขนาดตัวอักษรใหญ่ */
+    color: #d32f2f; /* สีแดงเข้ม */
+    text-align: center; /* จัดให้อยู่ตรงกลาง */
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+    font-weight: bold;
+}
+
+/* Sub Heading */
+.content h2 {
+    font-size: 1.5rem; /* ขนาดตัวอักษรกลาง */
+    color: #444; /* สีข้อความเข้มปานกลาง */
+    margin: 20px 0 10px; /* ระยะห่างรอบหัวข้อย่อย */
+    font-weight: bold;
+}
+
+/* List Styling */
+.content ul {
+    list-style-type: disc; /* จุดแบบดั้งเดิม */
+    padding-left: 20px; /* ระยะห่างด้านซ้าย */
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+}
+
+.content li {
+    margin-bottom: 10px; /* ระยะห่างระหว่างรายการ */
+    font-size: 1.1rem; /* ขนาดข้อความ */
+    color: #555; /* สีเทาเข้ม */
+}
+
+/* Links */
+.content a {
+    color: #6a1b9a; /* สีม่วง */
+    text-decoration: none; /* ไม่มีขีดเส้นใต้ */
+    font-weight: bold; /* ตัวหนา */
+    transition: color 0.3s ease; /* เอฟเฟกต์สีเมื่อ hover */
+}
+
+
+.content a:hover {
+    color: #9c27b0; /* สีเข้มขึ้นเมื่อ hover */
+    text-decoration: none; /* เอาเส้นใต้ hover ออก */
+}
+
+/* Back Link */
+.content > a {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #d32f2f; /* สีแดง */
+    color: #fff; /* ข้อความสีขาว */
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.content > a:hover {
+    background-color: #b71c1c; /* สีแดงเข้มเมื่อ hover */
+    color: #fff; /* ข้อความสีขาว */
+}
+
+/* Faculty Name Section */
+/* NameFaculty Section */
+.NameFaculty {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 40px 30px; /* เพิ่ม padding ให้กล่องใหญ่ขึ้น */
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px; /* เพิ่มความกว้างกล่อง */
+}
+
+.NameFaculty h1 {
+    font-size: 30px; /* เพิ่มขนาดตัวอักษร */
+    color: #d32f2f; /* สีแดง */
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.NameFaculty p {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center; /* จัดให้อยู่ตรงกลาง */
+}
+
+/* Courses Section */
+/* Course Box */
+.CoursesName {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.CoursesName h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Individual Course Box */
+.CoursesName li {
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    list-style: none;
+}
+
+.CoursesName h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.CoursesName h4 {
+    font-size: 1.1rem;
+    color: #444;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* Review Details */
+.CoursesName ul {
+    padding-left: 20px;
+}
+
+.CoursesName li p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+/* Container ที่ครอบทุกวิชา */
+.CoursesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid 2 คอลัมน์ขึ้นไป */
+    gap: 20px; /* ระยะห่างระหว่างกล่อง */
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 1000px;
+}
+
+/* กล่องของแต่ละวิชา */
+.CourseBox {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.CourseBox h3 {
+    font-size: 1.4rem;
+    color: #d32f2f;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.CourseBox h4 {
+    font-size: 1.2rem;
+    color: #444;
+    text-align: center; /* จัดข้อความให้อยู่กึ่งกลาง */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+
+.CourseBox p, .CourseBox li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.CourseBox ul.ReviewList {
+    list-style-type: none; /* เอาเครื่องหมายจุดออก */
+    padding-left: 0;
+}
+
+.CourseBox li {
+    margin-bottom: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.CourseBox:hover {
+    transform: translateY(-5px); /* ยกกล่องขึ้นเล็กน้อย */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* เงาเข้มขึ้น */
+}
+
+
+/* General Button Styles */
+.button-group {
+    display: flex;
+    gap: 15px; /* ระยะห่างระหว่างปุ่ม */
+    margin-top: 20px;
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+}
+
+.button {
+    display: inline-block;
+    background-color: #d32f2f; /* สีแดง */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #b71c1c; /* สีแดงเข้มเมื่อ hover */
+    transform: translateY(-2px); /* เอฟเฟกต์เลื่อนขึ้นเล็กน้อย */
+}
+
+.back-button {
+    background-color: #6a1b9a; /* สีม่วง */
+}
+
+.back-button:hover {
+    background-color: #5e35b1; /* สีม่วงเข้มเมื่อ hover */
+}
+
+/* AddReview Container */
+.AddReview {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 600px;
+    margin: 50px auto; /* จัดให้อยู่ตรงกลาง */
+    text-align: center;
+}
+
+.AddReview h1 {
+    font-size: 2rem;
+    color: #d32f2f; /* สีแดงเข้ม */
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+.AddReview form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* ระยะห่างระหว่าง input แต่ละตัว */
+}
+
+.AddReview form input,
+.AddReview form textarea,
+.AddReview form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.AddReview form input:focus,
+.AddReview form textarea:focus,
+.AddReview form select:focus {
+    outline: none;
+    border-color: #d32f2f; /* ขอบสีแดงเมื่อเลือก */
+}
+
+/* Submit Button */
+.AddReview button {
+    background-color: #d32f2f; /* สีแดง */
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.AddReview button:hover {
+    background-color: #b71c1c; /* สีแดงเข้มเมื่อ hover */
+    transform: translateY(-2px); /* ยกขึ้นเล็กน้อย */
+}
+
+/* Back Link */
+.AddReview a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #6a1b9a; /* สีม่วง */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.AddReview a:hover {
+    color: #5e35b1; /* สีม่วงเข้ม */
+    text-decoration: underline;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 0; /* Add some padding for spacing */
+    background: #d32f2f; /* Red background for the footer */
+    color: #fff; /* White color for text */
+    font-size: 14px; /* Set text size */
+    z-index: 10; /* Ensure it stays on top of other content */
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding: 5px 0; 
+    background: #d32f2f; 
+    color: #fff; 
+    font-size: 12px; 
+    height: 30px; 
+    z-index: 100; 
+    margin-top: 10px;
+}
+
+.footer p {
+    margin: 0; 
+}
+
+/* child elements in footer */
+.footer, .footer * {
+    color: #fff !important;
+}

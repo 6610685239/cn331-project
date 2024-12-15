@@ -18,53 +18,50 @@ body {
     margin: 0;
     padding: 0;
 }
+/* Header Section */
 .header {
-    color: #d32f2f; /* สีตัวอักษร */
-    text-align: center; /* จัดข้อความให้อยู่กลาง */
-    padding: 20px 0; /* ระยะห่างด้านบน-ล่าง */
-    font-size: 35px; /* ขนาดตัวอักษร */
-    font-weight: bold; /* ตัวหนา */
-    position: relative; /* ตำแหน่งไม่ทับกับ navbar */
-    margin: 70px auto 0; /* ระยะห่างด้านบนเพื่อให้อยู่ใต้ navbar */
-    max-width: 80%; /* ความกว้างสูงสุด */
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d32f2f; /* สีแดงเข้ม */
+    margin: 20px 0; /* ระยะห่างบนและล่างของ header */
+    text-align: center;
 }
 
-/* Links Section */
+/* Main Gate Section */
 .maingate {
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
-    align-items: center;
-    gap: 20px; /* ระยะห่างระหว่างกรอบ */
-    padding: 20px;
-    margin: 30px auto;
-    max-width: 400px;
-    overflow-x: auto; /* เพิ่ม Scroll หากลิงก์มีจำนวนมากเกินไป */
+    flex-direction: column; /* จัดให้อยู่ในแนวตั้ง */
+    align-items: center; /* จัดให้อยู่กึ่งกลาง */
+    gap: 20px; /* ระยะห่างระหว่างแต่ละกล่อง */
 }
 
 .maingate a {
-    display: flex; /* ใช้ Flexbox ภายในแต่ละลิงก์ */
-    align-items: center; /* จัดรูปภาพและข้อความให้อยู่กึ่งกลางในแนวตั้ง */
-    background-color: white; /* พื้นหลังของลิงก์ */
-    border: 2px solid #d32f2f; /* ขอบลิงก์ */
-    border-radius: 10px; /* มุมโค้ง */
-    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
-    color: #d32f2f; /* สีตัวอักษร */
-    font-size: 18px; /* ขนาดตัวอักษร */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #d32f2f; /* สีแดง */
+    font-size: 1.2rem;
     font-weight: bold;
-    padding: 10px 20px; /* ระยะห่างในลิงก์ */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
-    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-    min-width: 150px; /* กำหนดความกว้างขั้นต่ำของแต่ละลิงก์ */
-    text-align: center; /* จัดข้อความให้อยู่กลาง */
+    background-color: #fff;
+    border: 2px solid #d32f2f; /* ขอบสีแดง */
+    border-radius: 8px; /* มุมโค้งมน */
+    width: 300px; /* ความกว้างของกล่อง */
+    height: 80px; /* ความสูงของกล่อง */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เงาเบา ๆ */
+    transition: all 0.3s ease;
+}
+
+.maingate a:hover {
+    background-color: #d32f2f; /* สีพื้นหลังเปลี่ยนเป็นสีแดง */
+    color: #fff; /* สีตัวอักษรเป็นสีขาว */
+    transform: translateY(-5px); /* ยกขึ้นเล็กน้อย */
 }
 
 .maingate a img {
-    width: 50px; /* ขนาดรูปภาพ */
-    height: 50px;
-    border-radius: 50%; /* ทำให้รูปเป็นวงกลม */
-    margin-right: 10px; /* ระยะห่างระหว่างรูปกับข้อความ */
-    object-fit: cover; /* ปรับขนาดรูปให้เหมาะสม */
+    margin-right: 10px; /* ระยะห่างไอคอนกับข้อความ */
+    width: 30px; /* ปรับขนาดไอคอน */
+    height: 30px;
 }
 
 .maingate a:hover {
@@ -301,19 +298,30 @@ body {
 }
 
 .footer {
-    position: fixed; /* ทำให้ footer ติดอยู่ด้านล่างของหน้าจอ */
-    bottom: 0;
-    left: 0;
-    width: 100%; /* ความกว้างเต็มหน้าจอ */
-    background-color: #d32f2f; /* สีแดง */
-    color: #ffffff; /* สีข้อความ */
+    width: 100%;
     text-align: center;
-    padding: 10px 0; /* ระยะห่างด้านบนและล่าง */
-    font-size: 14px; /* ขนาดข้อความ */
-    z-index: 1000; /* เพื่อให้ footer อยู่เหนือองค์ประกอบอื่น */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* เพิ่มเงาด้านบน */
+    position: fixed;
+    bottom: 0;
+    padding: 10px 0; /* Add some padding for spacing */
+    background: #d32f2f; /* Red background for the footer */
+    color: #fff; /* White color for text */
+    font-size: 14px; /* Set text size */
+    z-index: 10; /* Ensure it stays on top of other content */
 }
 
+.footer {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding: 5px 0; 
+    background: #d32f2f; 
+    color: #fff; 
+    font-size: 12px; 
+    height: 30px; 
+    z-index: 100; 
+    margin-top: 10px;
+}
 
 .footer p {
     margin: 0; 

@@ -1,18 +1,62 @@
-<html>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css\style_study.css' %}">
+    <title>Review Study</title>
+</head>
 <body>
-<h1>Welcome</h1>
-<h2>Top Courses</h2>
-<ul>
-{% for course in top_courses %}
-    <li>{{ course.name }} - Avg Rating: {{ course.avg_rating }}</li>
-{% endfor %}
-</ul>
-<h2>Faculties</h2>
-<ul>
-{% for faculty in faculties %}
-    <li><a href="{% url 'tu_review:faculty' faculty.id %}">{{ faculty.name_en }}</a></li>
-{% endfor %}
-</ul>
-<a href="{% url 'tu_review:tu_review' %}">Go back</a>
+    <nav class="navbar">
+        <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
+        <div class="nav-links">
+            <a href="{% url 'user_edit:profile' %}">My account</a>
+            <a href="{% url 'home' %}">Log Out</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="left-menu">
+            <a href="{% url 'tu_talk:post_list' %}"
+                class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
+                TU Talk
+            </a>
+            <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                TU Alert
+            </a>
+            <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                TU Review
+            </a>
+            <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'create_party' %}active{% endif %}">
+                TU Party
+            </a>
+            <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                About Us
+            </a>
+        </div>
+
+        <div class="content">
+            <h1>Welcome</h1>
+            <h2>Top Courses</h2>
+            <ul>
+            {% for course in top_courses %}
+                <li>{{ course.name }} - Avg Rating: {{ course.avg_rating }}</li>
+            {% endfor %}
+            </ul>
+            <h2>Faculties</h2>
+            <ul>
+            {% for faculty in faculties %}
+                <li><a href="{% url 'tu_review:faculty' faculty.id %}">{{ faculty.name_en }}</a></li>
+            {% endfor %}
+            </ul>
+            <a href="{% url 'tu_review:tu_review' %}">Go back</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
