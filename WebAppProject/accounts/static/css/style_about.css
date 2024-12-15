@@ -20,42 +20,96 @@ header, h1, h2, h3 {
     font-family: 'Roboto', sans-serif;
 }
 
-/* แถบเมนู */
+/* Navigation Bar */
 .navbar {
-    width: 100%;
-    background: #D32F2F; /* ไล่สีแดงเข้มไปสีเทาอ่อน */
-    color: #ffffff;
-    padding: 20px;
+    background-color: #D32F2F;
+    /* สีแดง */
+    padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
 }
 
-.logo {
-    font-size: 1.8rem;
-    color: #ffffff;
+.navbar .logo {
+    font-size: 1.5rem;
     font-weight: bold;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin-left: 20px;
-}
-
-.nav-links a {
-    color: #ffffff;
     text-decoration: none;
-    font-size: 1rem;
+    color: #fff;
+    margin-right: auto;
+}
+
+.navbar .post-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    justify-content: center;
+}
+
+.navbar .post-form input[type="text"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.navbar .post-form input[type="file"] {
+    display: none;
+    /* ซ่อนช่องเลือกไฟล์จริง */
+}
+
+.navbar .post-form label {
+    background-color: #D32F2F;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navbar .post-form label:hover {
+    background-color: #B71C1C;
+}
+
+.navbar .post-form button {
+    padding: 8px 16px;
+    background-color: #D32F2F;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navbar .post-form button:hover {
+    background-color: #B71C1C;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-left: auto;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
-    color: #D32F2F; /* สีแดงธรรมศาสตร์ */
+.navbar .nav-links a:hover {
+    color: #ddd;
 }
 
 /* ส่วนเกี่ยวกับเรา */

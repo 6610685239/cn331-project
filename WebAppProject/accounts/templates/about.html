@@ -8,16 +8,13 @@
     <link rel="stylesheet" href="{% static 'css/style_about.css' %}">
 </head>
 <body>
-    <!-- ส่วนแถบเมนู -->
+    <!-- Navigation Bar with Post Form in Center -->
     <header class="navbar">
-        <h1 class="logo">TUTALK</h1>
-        <ul class="nav-links">
-            <li><a href="{% url 'user_home' %}">Home</a></li>
-            <li><a href="#">Alert</a></li>
-            <li><a href="#">Review</a></li>
-            <li><a href="{% url 'tu_party:party_list' %}">Party</a></li>
-           
-        </ul>
+        <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
+        <div class="nav-links">
+            <a href="{% url 'user_edit:profile' %}">My account</a>
+            <a href="{% url 'home' %}">Log Out</a>
+        </div>
     </header>
 
     <!-- ส่วนเกี่ยวกับเรา -->

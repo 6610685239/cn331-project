@@ -15,29 +15,15 @@ class Dormitory(models.Model):
     def __str__(self):
         return self.name
 
-class DormRequest(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
-    location = models.TextField()
-    image = models.ImageField(upload_to='dorm_request_images/', blank=True, null=True)
-    description = models.TextField()
-    recommendation = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=50, choices=[('Pending', 'Pending'), ('Approved', 'Approved'), ('Rejected', 'Rejected')], default='Pending')
-
-    def __str__(self):
-        return f"{self.name} by {self.user.username}"
-
 class DormReview(models.Model):
     dormitory = models.ForeignKey(Dormitory, on_delete=models.CASCADE, related_name='reviews')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     content = models.TextField()
-    image_or_video = models.FileField(upload_to='review_media/', blank=True, null=True)
     anonymous = models.BooleanField(default=False)
     rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
     created_at = models.DateTimeField(auto_now_add=True)
-    comment = models.TextField() 
+    
 
     def __str__(self):
         return self.title
@@ -70,7 +56,6 @@ class StudyReview(models.Model):
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-   
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='reviews')
     instructor = models.CharField(max_length=255)
     semester = models.IntegerField(choices=[(i, i) for i in range(1, 3)])  # Rating for the restaurant (1-5)
@@ -89,6 +74,7 @@ class StudyReview(models.Model):
 class Restaurant(models.Model):
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='reviews/', null=True, blank=True)
     # Add more fields like description, etc. if needed
 
     def __str__(self):

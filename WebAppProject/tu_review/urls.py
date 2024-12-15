@@ -10,7 +10,7 @@ urlpatterns = [
     path('dorm/<int:dorm_id>/', DormDetailView.as_view(), name='dorm_detail'),
     path('dorm/<int:dorm_id>/review/', DormReviewCreateView.as_view(), name='review_create'),
     path('review/<int:review_id>/delete/', ReviewDeleteView.as_view(), name='review_delete'),
-    path('dorm_request/', DormRequestCreateView.as_view(), name='dorm_request_create'),
+    path('dorm_create/', DormCreateView.as_view(), name='dorm_create_form'),
 
     path('study/', study, name='study'),
     path('faculty/<int:faculty_id>/', faculty_view, name='faculty'),

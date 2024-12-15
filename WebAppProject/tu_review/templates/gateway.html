@@ -22,13 +22,13 @@
                 class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
                 TU Talk
             </a>
-            <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            <a href="{% url 'tu_alert:alert_list' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
                 TU Alert
             </a>
-            <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            <a href="{% url 'tu_review:tu_review' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
                 TU Review
             </a>
-            <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'create_party' %}active{% endif %}">
+            <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'party_list' %}active{% endif %}">
                 TU Party
             </a>
             <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
@@ -42,16 +42,16 @@
         
         <div class="maingate">
             <a href="{% url 'tu_review:study' %}">
-                <img src="{% static 'images/course.png' %}" alt="Course Icon">
-                Course Review
+                <img src="{% static 'images/book-pile-of-must-read-books-scaled1.jpeg' %}" alt="Course Icon">
+                <span>course</span>
             </a>
             <a href="{% url 'tu_review:dorm_list' %}">
-                <img src="{% static 'images/dorm.png' %}" alt="Dorm Icon">
-                Dorm Review
+                <img src="{% static 'images/dorm1.jpg' %}" alt="Dorm Icon">
+                <span>dorm</span>
             </a>
             <a href="{% url 'tu_review:restaurant_list' %}">
-                <img src="{% static 'images/restaurant.png' %}" alt="Restaurant Icon">
-                Restaurant Review
+                <img src="{% static 'images/blog-top13-pic-01.png' %}" alt="Restaurant Icon">
+                <span>restaurant</span>
             </a>
         </div>
     </div>

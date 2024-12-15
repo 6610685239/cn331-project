@@ -1,21 +1,67 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style_review.css' %}">
     <title>Dorm request</title>
 </head>
 <body>
-    <h1>Request to Add a Dorm</h1>
-<form method="post" enctype="multipart/form-data" action="{% url 'tu_review:dorm_request_create' %}">
+     <!-- Navigation Bar with Post Form in Center -->
+     <nav class="navbar">
+        <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
+
+        <div class="nav-links">
+            <a href="{% url 'user_edit:profile' %}">My account</a>
+            <a href="{% url 'home' %}">Log Out</a>
+        </div>
+    </nav>
+
+    <!-- Left Menu with Search Bar -->
+
+    <div class="left-menu">
+        <a href="{% url 'tu_talk:post_list' %}"
+            class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
+            TU Talk
+        </a>
+        <a href="{% url 'tu_alert:alert_list' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            TU Alert
+        </a>
+        <a href="{% url 'tu_review:tu_review' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            TU Review
+        </a>
+        <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'party_list' %}active{% endif %}">
+            TU Party
+        </a>
+        <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+            About Us
+        </a>
+    </div>
+
+     <!-- Footer Section -->
+     <footer class="footer">
+        <p>&copy; 2024 TUTALK. All rights reserved.</p>
+    </footer>
+
+    <header class="header">
+        <h3>Request to Add a Dorm</h3>
+    </header>
+
+    <div class="maindorm_review">
+    <form method="post" enctype="multipart/form-data" action="{% url 'tu_review:dorm_request_create' %}">
     {% csrf_token %}
-    <input type="text" name="name" placeholder="Dorm Name" required>
-    <textarea name="location" placeholder="Location" required></textarea>
-    <input type="file" name="image">
-    <textarea name="description" placeholder="Description" required></textarea>
+        <input type="text" name="name" placeholder="Dorm Name" required>
+        <textarea name="location" placeholder="Location" required></textarea>
+        <input type="file" name="image">
+        <textarea name="description" placeholder="Description" required></textarea>
     
-    <button type="submit">Submit</button>
-    <h2><a href="{% url 'tu_review:dorm_list' %}">Go Back</a></h2>
+        <button type="submit">Submit</button>
+    </div>
+        
+        <div class="goback">
+            <h2><a href="{% url 'tu_review:dorm_list' %}">Go Back</a></h2>
+        </div>
 </form>
 </body>
 </html>

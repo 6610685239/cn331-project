@@ -31,17 +31,14 @@
     <!-- Left Menu with Search Bar -->
 
     <div class="left-menu">
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
-        </div>
         <a href="{% url 'tu_talk:post_list' %}"
             class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
             TU Talk
         </a>
-        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a href="{% url 'tu_alert:alert_list' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             TU Alert
         </a>
-        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a href="{% url 'tu_review:tu_review' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             TU Review
         </a>
         <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'party_list' %}active{% endif %}">
@@ -50,23 +47,6 @@
         <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
             About Us
         </a>
-    </div>
-
-    <!-- Right Menu with Trending Posts -->
-    <div class="right-menu">
-        <h2>🔥 Trending</h2>
-        <div class="post">
-            <img src="https://today-obs.line-scdn.net/0hiswXR52lNlxKISaBryBJC3J3Oi15RyxVaE5wbjwoP2xuDSQMfkdlP2opOnBvQnheahJ-aTp1P2xhQXQMcw/w1200"
-                alt="Trending Post Image">
-            <h3>Ms. Popular</h3>
-            <p>Just shared amazing tips for freshmen!</p>
-        </div>
-        <div class="post">
-            <img src="https://s.isanook.com/ca/0/ud/277/1388245/tushirt.jpg?ip/resize/w728/q80/jpg"
-                alt="Trending Post Image">
-            <h3>Mr. Trend</h3>
-            <p>Check out the new TU event!</p>
-        </div>
     </div>
 
     <!-- Container for Content -->
