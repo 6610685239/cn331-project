@@ -8,7 +8,6 @@
     <title>Add your review</title>
 </head>
 <body>
-<<<<<<< HEAD
     <nav class="navbar">
         <a href="{% url 'user_home' %}" class="logo">TUTALK</a>
         <div class="nav-links">
@@ -36,8 +35,8 @@
                 About Us
             </a>
         </div>
-        
-        <div class="AddReview">  
+
+        <div class="AddReview">
             <h1>Add Review</h1>
             <form method="post">
                 {% csrf_token %}
@@ -51,15 +50,6 @@
     <footer class="footer">
         <p>&copy; 2024 TUTALK. All rights reserved.</p>
     </footer>
-=======
-    <h2><a href="{% url 'tu_review:study' %}">Go Back</a></h2>
-        <h1>Add Review</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Submit</button>
-        </form>
->>>>>>> 658d36a78838af496800e7d55cb580826231cfbc
-        
+
 </body>
 </html>

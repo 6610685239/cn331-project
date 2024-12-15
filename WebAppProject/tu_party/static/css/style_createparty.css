@@ -13,11 +13,13 @@
 body {
     width: 100%;
     height: 100vh;
-    background: #f4f5f7; /* Subtle warm tone for the background */
+    background: #f4f5f7;
+    /* Subtle warm tone for the background */
     display: flex;
     flex-direction: column;
-    margin-top:70px;
-    padding-bottom: 50px; /* ระยะห่างระหว่างเนื้อหากับ footer */
+    margin-top: 70px;
+    padding-bottom: 50px;
+    /* ระยะห่างระหว่างเนื้อหากับ footer */
     margin-bottom: 150px;
 }
 
@@ -29,7 +31,8 @@ body {
     position: relative;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     font-size: 24px;
-    background: #f4f5f7; /* Subtle warm tone for the background */
+    background: #f4f5f7;
+    /* Subtle warm tone for the background */
     font-weight: bold;
 }
 
@@ -234,102 +237,153 @@ body {
 
 .party-create {
     margin-top: 20px;
-    display: flex; /* ใช้ Flexbox เพื่อจัดวาง */
-    flex-direction: column; /* จัดเรียงองค์ประกอบในแนวตั้ง */
-    align-items: center; /* จัดให้อยู่ตรงกลางแนวนอน */
-    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    display: flex;
+    /* ใช้ Flexbox เพื่อจัดวาง */
+    flex-direction: column;
+    /* จัดเรียงองค์ประกอบในแนวตั้ง */
+    align-items: center;
+    /* จัดให้อยู่ตรงกลางแนวนอน */
+    text-align: center;
+    /* จัดข้อความให้อยู่ตรงกลาง */
 }
 
 .party-create h2 {
-    font-size: 24px; /* ขนาดตัวอักษร */
+    font-size: 24px;
+    /* ขนาดตัวอักษร */
     font-weight: bold;
-    color: #d32f2f; /* สีแดง */
-    margin-bottom: 15px; /* เพิ่มระยะห่างระหว่างข้อความกับปุ่ม */
+    color: #d32f2f;
+    /* สีแดง */
+    margin-bottom: 15px;
+    /* เพิ่มระยะห่างระหว่างข้อความกับปุ่ม */
 }
 
 .party-create a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #d32f2f; /* สีพื้นหลังปุ่ม */
-    color: #ffffff; /* สีข้อความ */
-    text-decoration: none; /* ลบเส้นใต้ */
-    border-radius: 8px; /* ขอบมน */
+    background-color: #d32f2f;
+    /* สีพื้นหลังปุ่ม */
+    color: #ffffff;
+    /* สีข้อความ */
+    text-decoration: none;
+    /* ลบเส้นใต้ */
+    border-radius: 8px;
+    /* ขอบมน */
     font-size: 16px;
     font-weight: bold;
-    transition: background-color 0.3s, transform 0.2s; /* เพิ่มแอนิเมชัน */
+    transition: background-color 0.3s, transform 0.2s;
+    /* เพิ่มแอนิเมชัน */
 }
 
 .party-create a:hover {
-    background-color: #b71c1c; /* สีเข้มขึ้นเมื่อ Hover */
-    transform: scale(1.05); /* ขยายเล็กน้อยเมื่อ Hover */
+    background-color: #b71c1c;
+    /* สีเข้มขึ้นเมื่อ Hover */
+    transform: scale(1.05);
+    /* ขยายเล็กน้อยเมื่อ Hover */
 }
 
 .party-post {
     margin: 10px auto;
     padding: 15px;
-    background-color: #ffffff; /* พื้นหลังสีขาว */
-    border-radius: 8px; /* ขอบมนเล็กลง */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* เงา */
-    max-width: 600px; /* จำกัดความกว้าง */
-    width: calc(100% - 260px); /* ลดความกว้างเพื่อหลีกเลี่ยงการชน */
-    transition: transform 0.2s, box-shadow 0.2s; /* แอนิเมชันเวลาโฮเวอร์ */
-    text-align: center; /* จัดให้อยู่ตรงกลาง */
+    background-color: #ffffff;
+    /* พื้นหลังสีขาว */
+    border-radius: 8px;
+    /* ขอบมนเล็กลง */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    /* เงา */
+    max-width: 600px;
+    /* จำกัดความกว้าง */
+    width: calc(100% - 260px);
+    /* ลดความกว้างเพื่อหลีกเลี่ยงการชน */
+    transition: transform 0.2s, box-shadow 0.2s;
+    /* แอนิเมชันเวลาโฮเวอร์ */
+    text-align: center;
+    /* จัดให้อยู่ตรงกลาง */
     margin-bottom: 20px;
-    
+
 }
 
 .party-post:hover {
-    transform: scale(1.02); /* ขยายเล็กน้อยเวลาโฮเวอร์ */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* เงาเพิ่มเวลาโฮเวอร์ */
+    transform: scale(1.02);
+    /* ขยายเล็กน้อยเวลาโฮเวอร์ */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* เงาเพิ่มเวลาโฮเวอร์ */
 }
 
 .party-post .post img {
-    width: 100%; /* ปรับให้ภาพขยายเต็มพื้นที่ */
-    border-radius: 8px; /* ขอบมน */
-    margin-bottom: 10px; /* ระยะห่างระหว่างภาพกับเนื้อหา */
+    width: 100%;
+    /* ปรับให้ภาพขยายเต็มพื้นที่ */
+    border-radius: 8px;
+    /* ขอบมน */
+    margin-bottom: 10px;
+    /* ระยะห่างระหว่างภาพกับเนื้อหา */
 }
 
 .party-post .post h3 {
-    font-size: 1.2rem; /* ขนาดตัวอักษรเล็กลง */
-    color: #d32f2f; /* สีแดง */
-    margin-bottom: 8px; /* เพิ่มช่องว่างด้านล่าง */
+    font-size: 1.2rem;
+    /* ขนาดตัวอักษรเล็กลง */
+    color: #d32f2f;
+    /* สีแดง */
+    margin-bottom: 8px;
+    /* เพิ่มช่องว่างด้านล่าง */
 }
 
 .party-post .post p {
-    font-size: 0.9rem; /* ขนาดตัวอักษรเล็กลง */
-    color: #6b7280; /* สีเทาเข้ม */
-    line-height: 1.4; /* ระยะห่างระหว่างบรรทัด */
+    font-size: 0.9rem;
+    /* ขนาดตัวอักษรเล็กลง */
+    color: #6b7280;
+    /* สีเทาเข้ม */
+    line-height: 1.4;
+    /* ระยะห่างระหว่างบรรทัด */
 }
 
 .party-post:last-child {
-    margin-bottom: 100px; /* ระยะห่างระหว่างโพสต์สุดท้ายกับ footer */
+    margin-bottom: 100px;
+    /* ระยะห่างระหว่างโพสต์สุดท้ายกับ footer */
 }
 
 .party-post a:hover {
-    background-color: #b71c1c; /* สีเข้มขึ้นเมื่อ Hover */
-    transform: scale(1.05); /* ขยายเล็กน้อยเมื่อ Hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเมื่อ Hover */
+    background-color: #b71c1c;
+    /* สีเข้มขึ้นเมื่อ Hover */
+    transform: scale(1.05);
+    /* ขยายเล็กน้อยเมื่อ Hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* เพิ่มเงาเมื่อ Hover */
 }
 
 .party-post a {
-    display: inline-block; /* ทำให้ปุ่มเป็นบล็อกแบบอินไลน์ */
-    padding: 12px 20px; /* ระยะห่างภายในปุ่ม */
-    background-color: #d32f2f; /* สีพื้นหลังปุ่ม */
-    color: #ffffff; /* สีข้อความ */
-    text-decoration: none; /* ลบเส้นใต้ */
-    border-radius: 8px; /* ทำมุมปุ่มให้โค้งมน */
-    font-size: 1rem; /* ขนาดตัวอักษร */
-    font-weight: bold; /* ทำข้อความหนา */
-    text-align: center; /* จัดข้อความในปุ่มให้อยู่ตรงกลาง */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้ปุ่ม */
-    transition: all 0.3s ease; /* เพิ่มแอนิเมชัน */
-    margin: 20px auto; /* จัดปุ่มให้อยู่ตรงกลาง และเพิ่มระยะห่างรอบ */
+    display: inline-block;
+    /* ทำให้ปุ่มเป็นบล็อกแบบอินไลน์ */
+    padding: 12px 20px;
+    /* ระยะห่างภายในปุ่ม */
+    background-color: #d32f2f;
+    /* สีพื้นหลังปุ่ม */
+    color: #ffffff;
+    /* สีข้อความ */
+    text-decoration: none;
+    /* ลบเส้นใต้ */
+    border-radius: 8px;
+    /* ทำมุมปุ่มให้โค้งมน */
+    font-size: 1rem;
+    /* ขนาดตัวอักษร */
+    font-weight: bold;
+    /* ทำข้อความหนา */
+    text-align: center;
+    /* จัดข้อความในปุ่มให้อยู่ตรงกลาง */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* เพิ่มเงาให้ปุ่ม */
+    transition: all 0.3s ease;
+    /* เพิ่มแอนิเมชัน */
+    margin: 20px auto;
+    /* จัดปุ่มให้อยู่ตรงกลาง และเพิ่มระยะห่างรอบ */
 }
 
 .party-post a:hover {
-    background-color: #b71c1c; /* เปลี่ยนสีปุ่มเมื่อ Hover */
-    transform: scale(1.05); /* เพิ่มขนาดเล็กน้อยเมื่อ Hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเมื่อ Hover */
+    background-color: #b71c1c;
+    /* เปลี่ยนสีปุ่มเมื่อ Hover */
+    transform: scale(1.05);
+    /* เพิ่มขนาดเล็กน้อยเมื่อ Hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* เพิ่มเงาเมื่อ Hover */
 }
 
 /* Right Menu */
@@ -363,19 +417,25 @@ body {
 
 /*back to create_party*/
 .links a {
-    font-size: 30px;  /* Increase size of the icons */
-    margin-right: 15px; /* Space between icons */
-    color: #d32f2f; /* Red color for icons */
-    text-decoration: none; /* Remove underline */
+    font-size: 30px;
+    /* Increase size of the icons */
+    margin-right: 15px;
+    /* Space between icons */
+    color: #d32f2f;
+    /* Red color for icons */
+    text-decoration: none;
+    /* Remove underline */
 }
 
 .links a:hover {
-    color: #fff; /* Change icon color on hover */
+    color: #fff;
+    /* Change icon color on hover */
 }
 
 .links i {
     display: inline-block;
-    font-size: 35px; /* Icon size */
+    font-size: 35px;
+    /* Icon size */
 }
 
 
@@ -385,11 +445,16 @@ body {
     text-align: center;
     position: fixed;
     bottom: 0;
-    padding: 10px 0; /* Add some padding for spacing */
-    background: #d32f2f; /* Red background for the footer */
-    color: #fff; /* White color for text */
-    font-size: 14px; /* Set text size */
-    z-index: 10; /* Ensure it stays on top of other content */
+    padding: 10px 0;
+    /* Add some padding for spacing */
+    background: #d32f2f;
+    /* Red background for the footer */
+    color: #fff;
+    /* White color for text */
+    font-size: 14px;
+    /* Set text size */
+    z-index: 10;
+    /* Ensure it stays on top of other content */
 }
 
 .footer {
@@ -397,28 +462,29 @@ body {
     text-align: center;
     position: fixed;
     bottom: 0;
-    padding: 5px 0; 
-    background: #d32f2f; 
-    color: #fff; 
-    font-size: 12px; 
-    height: 30px; 
-    z-index: 100; 
+    padding: 5px 0;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 12px;
+    height: 30px;
+    z-index: 100;
     margin-top: 10px;
 }
 
 .footer p {
-    margin: 0; 
+    margin: 0;
 }
 
 /* child elements in footer */
-.footer, .footer * {
+.footer,
+.footer * {
     color: #fff !important;
 }
 
 .links {
-            text-align: center;
-            margin-top: 20px;
-        }
+    text-align: center;
+    margin-top: 20px;
+}
 
 .links a {
     display: inline-block;
@@ -444,59 +510,92 @@ body {
 }
 
 form {
-    margin-top: 20px; /* เพิ่มระยะห่างด้านบนของฟอร์ม */
-    background: #ffffff; /* สีพื้นหลังฟอร์ม */
-    border-radius: 10px; /* ขอบมน */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
-    padding: 20px; /* ระยะห่างภายใน */
-    max-width: 600px; /* จำกัดความกว้าง */
-    margin-left: auto; /* จัดฟอร์มให้อยู่กึ่งกลาง */
-    margin-right: auto; /* จัดฟอร์มให้อยู่กึ่งกลาง */
+    margin-top: 20px;
+    /* เพิ่มระยะห่างด้านบนของฟอร์ม */
+    background: #ffffff;
+    /* สีพื้นหลังฟอร์ม */
+    border-radius: 10px;
+    /* ขอบมน */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* เพิ่มเงา */
+    padding: 20px;
+    /* ระยะห่างภายใน */
+    max-width: 600px;
+    /* จำกัดความกว้าง */
+    margin-left: auto;
+    /* จัดฟอร์มให้อยู่กึ่งกลาง */
+    margin-right: auto;
+    /* จัดฟอร์มให้อยู่กึ่งกลาง */
 }
 
 form label {
-    font-size: 1rem; /* ขนาดตัวอักษร */
-    color: #333; /* สีข้อความ */
-    margin-bottom: 5px; /* ระยะห่างจากองค์ประกอบด้านบน */
-    display: block; /* ให้ label เป็นบล็อก */
+    font-size: 1rem;
+    /* ขนาดตัวอักษร */
+    color: #333;
+    /* สีข้อความ */
+    margin-bottom: 5px;
+    /* ระยะห่างจากองค์ประกอบด้านบน */
+    display: block;
+    /* ให้ label เป็นบล็อก */
 }
 
-form input, form textarea, form button {
-    width: 100%; /* ความกว้างเต็ม */
-    padding: 10px; /* ระยะห่างภายใน */
-    margin-bottom: 15px; /* ระยะห่างระหว่างองค์ประกอบ */
-    border: 1px solid #ccc; /* เส้นขอบสีเทา */
-    border-radius: 5px; /* ขอบมน */
-    font-size: 1rem; /* ขนาดตัวอักษร */
+form input,
+form textarea,
+form button {
+    width: 100%;
+    /* ความกว้างเต็ม */
+    padding: 10px;
+    /* ระยะห่างภายใน */
+    margin-bottom: 15px;
+    /* ระยะห่างระหว่างองค์ประกอบ */
+    border: 1px solid #ccc;
+    /* เส้นขอบสีเทา */
+    border-radius: 5px;
+    /* ขอบมน */
+    font-size: 1rem;
+    /* ขนาดตัวอักษร */
     font-family: 'Poppins', sans-serif;
 }
 
-form input:focus, form textarea:focus {
-    outline: none; /* ลบกรอบ focus */
-    border-color: #d32f2f; /* เปลี่ยนสีขอบเมื่อเลือก */
-    box-shadow: 0 0 5px rgba(211, 47, 47, 0.5); /* เงาเมื่อเลือก */
+form input:focus,
+form textarea:focus {
+    outline: none;
+    /* ลบกรอบ focus */
+    border-color: #d32f2f;
+    /* เปลี่ยนสีขอบเมื่อเลือก */
+    box-shadow: 0 0 5px rgba(211, 47, 47, 0.5);
+    /* เงาเมื่อเลือก */
 }
 
 form button {
-    background-color: #d32f2f; /* สีพื้นหลังปุ่ม */
-    color: #fff; /* สีข้อความปุ่ม */
+    background-color: #d32f2f;
+    /* สีพื้นหลังปุ่ม */
+    color: #fff;
+    /* สีข้อความปุ่ม */
     font-weight: bold;
-    border: none; /* ลบขอบ */
-    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer */
-    transition: background-color 0.3s, transform 0.2s; /* เพิ่มแอนิเมชัน */
+    border: none;
+    /* ลบขอบ */
+    cursor: pointer;
+    /* เปลี่ยนเคอร์เซอร์เป็น pointer */
+    transition: background-color 0.3s, transform 0.2s;
+    /* เพิ่มแอนิเมชัน */
 }
 
 form button:hover {
-    background-color: #b71c1c; /* สีเข้มขึ้นเมื่อ hover */
-    transform: scale(1.02); /* ขยายเล็กน้อยเมื่อ hover */
+    background-color: #b71c1c;
+    /* สีเข้มขึ้นเมื่อ hover */
+    transform: scale(1.02);
+    /* ขยายเล็กน้อยเมื่อ hover */
 }
 
 form input[type="file"] {
-    padding: 5px; /* ลด padding สำหรับ file input */
+    padding: 5px;
+    /* ลด padding สำหรับ file input */
 }
 
 form textarea {
-    resize: none; /* ปิดการปรับขนาด */
+    resize: none;
+    /* ปิดการปรับขนาด */
 }
 
 /* Back to Home Link */
@@ -504,116 +603,180 @@ a[href="{% url 'user_home' %}"] {
     display: block;
     text-align: center;
     margin-top: 20px;
-    color: #d32f2f; /* สีแดง */
-    text-decoration: none; /* ลบเส้นใต้ */
+    color: #d32f2f;
+    /* สีแดง */
+    text-decoration: none;
+    /* ลบเส้นใต้ */
     font-weight: bold;
     transition: color 0.3s;
 }
 
 a[href="{% url 'user_home' %}"]:hover {
-    color: #b71c1c; /* สีเข้มขึ้นเมื่อ hover */
+    color: #b71c1c;
+    /* สีเข้มขึ้นเมื่อ hover */
 }
 
 form h1 {
-    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
-    font-size: 2rem; /* ขนาดตัวอักษร */
-    color: #d32f2f; /* สีแดง */
-    margin-bottom: 20px; /* ระยะห่างจากเนื้อหา */
+    text-align: center;
+    /* จัดข้อความให้อยู่ตรงกลาง */
+    font-size: 2rem;
+    /* ขนาดตัวอักษร */
+    color: #d32f2f;
+    /* สีแดง */
+    margin-bottom: 20px;
+    /* ระยะห่างจากเนื้อหา */
     font-weight: bold;
 }
 
 ul {
-    list-style: none; /* ลบ Bullet Points */
-    padding: 0; /* ลบ Padding ภายใน */
-    margin: 20px auto; /* จัดให้อยู่ตรงกลาง */
-    width: 90%; /* กำหนดความกว้าง */
-    max-width: 700px; /* จำกัดความกว้าง */
+    list-style: none;
+    /* ลบ Bullet Points */
+    padding: 0;
+    /* ลบ Padding ภายใน */
+    margin: 20px auto;
+    /* จัดให้อยู่ตรงกลาง */
+    width: 90%;
+    /* กำหนดความกว้าง */
+    max-width: 700px;
+    /* จำกัดความกว้าง */
 }
 
 ul li {
-    background-color: #ffffff; /* พื้นหลังสีขาว */
-    border: 1px solid #e0e0e0; /* เส้นขอบบาง */
-    border-radius: 8px; /* ขอบมน */
-    padding: 20px; /* ระยะห่างภายใน */
-    margin-bottom: 10px; /* ระยะห่างระหว่างรายการ */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* เงาอ่อน */
-    display: flex; /* ใช้ Flexbox */
-    flex-direction: column; /* เรียงแนวตั้ง */
-    gap: 5px; /* ระยะห่างระหว่างบรรทัด */
-    transition: transform 0.2s, box-shadow 0.2s; /* เพิ่มแอนิเมชัน */
+    background-color: #ffffff;
+    /* พื้นหลังสีขาว */
+    border: 1px solid #e0e0e0;
+    /* เส้นขอบบาง */
+    border-radius: 8px;
+    /* ขอบมน */
+    padding: 20px;
+    /* ระยะห่างภายใน */
+    margin-bottom: 10px;
+    /* ระยะห่างระหว่างรายการ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    /* เงาอ่อน */
+    display: flex;
+    /* ใช้ Flexbox */
+    flex-direction: column;
+    /* เรียงแนวตั้ง */
+    gap: 5px;
+    /* ระยะห่างระหว่างบรรทัด */
+    transition: transform 0.2s, box-shadow 0.2s;
+    /* เพิ่มแอนิเมชัน */
 }
 
 ul li:hover {
-    transform: translateY(-2px); /* ขยับขึ้นเล็กน้อย */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* เงาชัดขึ้น */
+    transform: translateY(-2px);
+    /* ขยับขึ้นเล็กน้อย */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* เงาชัดขึ้น */
 }
 
 ul li strong {
-    font-size: 1.2rem; /* ขนาดตัวอักษรของชื่อ */
-    font-weight: 600; /* ตัวหนา */
-    color: #333; /* สีเทาเข้ม */
+    font-size: 1.2rem;
+    /* ขนาดตัวอักษรของชื่อ */
+    font-weight: 600;
+    /* ตัวหนา */
+    color: #333;
+    /* สีเทาเข้ม */
 }
 
 ul li span {
-    font-size: 1rem; /* ขนาดตัวอักษรปกติ */
-    color: #666; /* สีเทาอ่อน */
+    font-size: 1rem;
+    /* ขนาดตัวอักษรปกติ */
+    color: #666;
+    /* สีเทาอ่อน */
 }
 
 .page-title {
-    text-align: center; /* จัดให้อยู่ตรงกลาง */
-    font-size: 2.5rem; /* ขนาดตัวอักษรใหญ่ */
-    color: #ffffff; /* สีตัวอักษรขาว */
-    background-color: #d32f2f; /* แถบสีแดง */
-    padding: 20px; /* ระยะห่างภายใน */
-    margin: 20px auto; /* ระยะห่างรอบตัว */
-    border-radius: 8px; /* ขอบมน */
-    width: 90%; /* ความกว้างของแถบ */
-    max-width: 700px; /* จำกัดความกว้าง */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
-    text-transform: uppercase; /* ตัวพิมพ์ใหญ่ */
-    letter-spacing: 1.5px; /* เพิ่มระยะห่างระหว่างตัวอักษร */
+    text-align: center;
+    /* จัดให้อยู่ตรงกลาง */
+    font-size: 2.5rem;
+    /* ขนาดตัวอักษรใหญ่ */
+    color: #ffffff;
+    /* สีตัวอักษรขาว */
+    background-color: #d32f2f;
+    /* แถบสีแดง */
+    padding: 20px;
+    /* ระยะห่างภายใน */
+    margin: 20px auto;
+    /* ระยะห่างรอบตัว */
+    border-radius: 8px;
+    /* ขอบมน */
+    width: 90%;
+    /* ความกว้างของแถบ */
+    max-width: 700px;
+    /* จำกัดความกว้าง */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* เพิ่มเงา */
+    text-transform: uppercase;
+    /* ตัวพิมพ์ใหญ่ */
+    letter-spacing: 1.5px;
+    /* เพิ่มระยะห่างระหว่างตัวอักษร */
 }
 
 .back-button {
     display: inline-block;
-    padding: 12px 20px; /* ระยะห่างภายในปุ่ม */
-    background-color: #d32f2f; /* สีพื้นหลังปุ่ม */
-    color: #ffffff; /* สีข้อความ */
-    text-decoration: none; /* ลบเส้นใต้ */
-    border-radius: 8px; /* ขอบมน */
-    font-size: 1rem; /* ขนาดตัวอักษร */
-    font-weight: bold; /* น้ำหนักตัวอักษร */
-    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงาปุ่ม */
-    transition: all 0.3s ease; /* เพิ่มแอนิเมชัน */
-    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อ Hover */
-    margin: 0 auto; /* จัดปุ่มให้อยู่ตรงกลาง */
-    border: none; /* ลบเส้นขอบรอบปุ่ม */
+    padding: 12px 20px;
+    /* ระยะห่างภายในปุ่ม */
+    background-color: #d32f2f;
+    /* สีพื้นหลังปุ่ม */
+    color: #ffffff;
+    /* สีข้อความ */
+    text-decoration: none;
+    /* ลบเส้นใต้ */
+    border-radius: 8px;
+    /* ขอบมน */
+    font-size: 1rem;
+    /* ขนาดตัวอักษร */
+    font-weight: bold;
+    /* น้ำหนักตัวอักษร */
+    text-align: center;
+    /* จัดข้อความให้อยู่ตรงกลาง */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* เพิ่มเงาปุ่ม */
+    transition: all 0.3s ease;
+    /* เพิ่มแอนิเมชัน */
+    cursor: pointer;
+    /* เปลี่ยนเคอร์เซอร์เมื่อ Hover */
+    margin: 0 auto;
+    /* จัดปุ่มให้อยู่ตรงกลาง */
+    border: none;
+    /* ลบเส้นขอบรอบปุ่ม */
 }
 
 .back-button:hover {
-    background-color: #b71c1c; /* สีเข้มขึ้นเมื่อ Hover */
-    transform: scale(1.05); /* เพิ่มขนาดเล็กน้อยเมื่อ Hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเมื่อ Hover */
+    background-color: #b71c1c;
+    /* สีเข้มขึ้นเมื่อ Hover */
+    transform: scale(1.05);
+    /* เพิ่มขนาดเล็กน้อยเมื่อ Hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* เพิ่มเงาเมื่อ Hover */
 }
 
 .interest-button {
     display: inline-block;
     padding: 10px 15px;
-    background-color: #4caf50; /* สีเขียว */
-    color: #ffffff; /* สีข้อความ */
+    background-color: #4caf50;
+    /* สีเขียว */
+    color: #ffffff;
+    /* สีข้อความ */
     text-decoration: none;
-    border-radius: 5px; /* ขอบมน */
+    border-radius: 5px;
+    /* ขอบมน */
     font-size: 0.9rem;
     font-weight: bold;
     text-align: center;
-    margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+    margin-top: 10px;
+    /* เพิ่มระยะห่างด้านบน */
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .interest-button:hover {
-    background-color: #388e3c; /* สีเขียวเข้มขึ้นเมื่อ Hover */
-    transform: scale(1.05); /* ขยายเล็กน้อย */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+    background-color: #388e3c;
+    /* สีเขียวเข้มขึ้นเมื่อ Hover */
+    transform: scale(1.05);
+    /* ขยายเล็กน้อย */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    /* เพิ่มเงา */
 }
