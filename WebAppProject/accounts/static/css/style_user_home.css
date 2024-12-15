@@ -257,3 +257,59 @@ body {
     color: #fff !important;
 }
 
+/* alert */
+
+.alert-box {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    color: white;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+}
+
+.alert-box.caution {
+    background-color: #fff8c4; /* Light yellow */
+    color: #856404; /* Dark yellow for text */
+    border: 2px solid #ffeeba; /* Slightly darker yellow for the border */
+    box-shadow: 0 4px 8px rgba(255, 255, 0, 0.2); /* Yellow shadow for prominence */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.alert-box.emergency {
+    background-color: #ffcccc; /* Light red */
+    color: #721c24; /* Dark red for text */
+    border: 2px solid #f5c6cb; /* Slightly darker red for the border */
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2); /* Red shadow for prominence */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.alert-box h3 {
+    font-size: 30px; /* Larger heading size */
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid currentColor; /* Uses text color for divider */
+    text-transform: uppercase; /* Makes heading stand out */
+}
+
+.alert-box p {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #000000;
+}
+
+/* Add hover effect for better user experience */
+.alert-box:hover {
+    transform: scale(1.02); /* Slightly enlarges on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+}
+
+/* Timestamp Styling */
+.alert-box .timestamp {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6); /* Subtle timestamp color */
+}
