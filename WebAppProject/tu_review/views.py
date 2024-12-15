@@ -31,16 +31,13 @@ class DormReviewCreateView(View):
         dorm = get_object_or_404(Dormitory, id=dorm_id)
         title = request.POST['title']
         content = request.POST['content']
-        image_or_video = request.FILES.get('image_or_video')
         rating = int(request.POST['rating'])
         anonymous = 'anonymous' in request.POST
-
         review = DormReview.objects.create(
             dormitory=dorm,
             user=request.user,
             title=title,
             content=content,
-            image_or_video=image_or_video,
             rating=rating,
             anonymous=anonymous
         )
@@ -65,27 +62,17 @@ class ReviewDeleteView(View):
 
         return redirect('tu_review:dorm_detail', dorm_id=dorm.id)
 
-class DormRequestCreateView(View):
+class DormCreateView(View):
     def get(self, request):
-        return render(request, 'dorm_request_form.html')
+        form = DormitoryCreateForm()
+        return render(request, 'dorm_create_form.html', {'form': form})
 
     def post(self, request):
-        name = request.POST['name']
-        location = request.POST['location']
-        image = request.FILES.get('image')
-        description = request.POST['description']
-        recommendation = request.POST['recommendation']
-
-        DormRequest.objects.create(
-            user=request.user,
-            name=name,
-            location=location,
-            image=image,
-            description=description,
-            recommendation=recommendation
-        )
-
-        return HttpResponse("Request submitted successfully.")
+        form = DormitoryCreateForm(request.POST, request.FILES)
+        if form.is_valid():
+            dorm = form.save()
+            return redirect('tu_review:dorm_list')  # Redirect ไปยังหน้ารายการหอพัก
+        return render(request, 'dorm_create_form.html', {'form': form})
 
 #study
 
