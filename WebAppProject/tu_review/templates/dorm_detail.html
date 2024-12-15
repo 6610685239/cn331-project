@@ -49,7 +49,11 @@
 
     <div class="maindorm_details">
             <h1>{{ dorm.name }}</h1>
-        <img src="{{ dorm.image.url }}" alt="{{ dorm.name }}">
+        {% if dorm.image %}
+            <img src="{{ dorm.image.url }}" alt="Dorm image" class="dorm-image">
+            {% else %}
+            <p>No image available</p>
+        {% endif %}
         <p>{{ dorm.description }}</p>
         <p>Location: {{ dorm.location }}</p>
         <p>Average Rating: {{ dorm.average_rating }}</p>
