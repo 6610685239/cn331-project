@@ -38,7 +38,11 @@
 
         {% for restaurant in top_restaurants %}
         <div class="ReviewRestaurant">
-            <h3>{{ restaurant.name }}</h3>            
+            <h3>{{ restaurant.name }}</h3>
+            {% if restaurant.image %}
+                <img src="{{ restaurant.image.url }}" alt="{{ restaurant.name }}" style="max-width: 200px; height: auto;" class="imgRES">
+            {% else %}
+            {% endif %}
             <p>Location: {{ restaurant.location }}</p>
             <p>Average Rating: {{ restaurant.avg_rating }}</p>
             <a href="{% url 'tu_review:restaurant_detail' restaurant.id %}">View Details</a>

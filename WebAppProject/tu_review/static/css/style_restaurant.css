@@ -236,27 +236,42 @@ body {
 .ReviewRestaurant {
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 10px; /* มุมโค้งมน */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเบา ๆ */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin: 20px auto; /* ระยะห่างด้านบนและล่าง */
-    width: 300px; /* ความกว้างของกล่อง */
-    min-height: 200px; /* เพิ่มความสูงขั้นต่ำของกล่อง */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* จัดให้เนื้อหาอยู่ด้านบนและล่าง */
+    margin: 20px auto;
+    text-align: center; /* จัดเนื้อหาทั้งหมดในกล่องกึ่งกลาง */
+    width: 300px; /* กำหนดความกว้างกล่อง */
 }
+
+.imgRES {
+    display: block; /* ทำให้รูปเป็น block element */
+    margin: 10px auto; /* จัดให้อยู่ตรงกลางแนวนอน */
+    border-radius: 8px; /* ทำมุมโค้งมนให้รูปภาพ */
+    max-width: 100%; /* ทำให้ภาพไม่เกินขอบเขตของกล่อง */
+    height: auto; /* รักษาสัดส่วนของรูปภาพ */
+}
+
+.ReviewRestaurant img {
+    display: block; /* ทำให้รูปภาพเป็นบล็อก */
+    margin: 0 auto; /* จัดให้อยู่กึ่งกลางแนวนอน */
+    border-radius: 8px; /* มุมโค้งมน */
+    max-width: 100%; /* ป้องกันไม่ให้ภาพล้นออกจากกล่อง */
+    height: auto; /* ให้คงอัตราส่วนเดิม */
+    object-fit: cover; /* ทำให้ภาพปรับสัดส่วนไม่ผิดเพี้ยน */
+}
+
+
 
 .ReviewRestaurant h3 {
     font-size: 1.4rem;
     margin-bottom: 10px;
-    color: #333;
     font-weight: bold;
 }
 
 .ReviewRestaurant p {
     font-size: 1rem;
-    color: #666;
+    color: #555;
     margin: 5px 0;
 }
 
@@ -264,12 +279,12 @@ body {
     color: #d32f2f;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
 }
 
 .ReviewRestaurant a:hover {
-    color: #b71c1c; /* สีแดงเข้มเมื่อ hover */
+    text-decoration: underline;
 }
+
 
 /* Review Section */
 .headerReview {
