@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorm list</title>
+</head>
+<body>
+    {% for dorm in dorms %}
+<div>
+    <h2><a href="{% url 'tu_review:dorm_detail' dorm.id %}">{{ dorm.name }}</a></h2>
+    <p>Location: {{ dorm.location }}</p>
+    <p>Average Rating: {{ dorm.average_rating }}</p>
+</div>
+{% endfor %}
+<h2><a href="{% url 'tu_review:tu_review' %}">Go Back</a></h2>
+<h2><a href="{% url 'tu_review:dorm_request_create' %}">request to add dormitory</a></h2>
+</body>
+</html>

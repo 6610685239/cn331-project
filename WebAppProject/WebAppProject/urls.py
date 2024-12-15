@@ -13,6 +13,7 @@ urlpatterns = [
     path("tu_party/", include("tu_party.urls")),
     path("user/", include(("user_edit.urls"))),
     path("tu_alert/", include("tu_alert.urls")),
+    path('tu_review/', include(('tu_review.urls'))),  
 ]
 
 if settings.DEBUG:

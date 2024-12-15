@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "tu_party",
     "user_edit",
     "tu_alert",
+    "tu_review",
 ]
 
 MIDDLEWARE = [

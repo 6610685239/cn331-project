@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add your review</title>
+</head>
+<body>
+    <h2><a href="{% url 'tu_review:dorm_list' %}">Go Back</a></h2>
+        <h1>Add Review</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+        
+</body>
+</html>

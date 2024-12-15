@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resturant details</title>
+</head>
+<body>
+    <h2>{{ restaurant.name }}</h2>
+<p>{{ restaurant.location }}</p>
+
+<h3>Reviews:</h3>
+{% for review in reviews %}
+    <div>
+        <p1>{{ review.user }}</p1>
+        <p>Rating: {{ review.rating }}</p>
+        <p>Menu Rating: {{ review.menu_rating }}</p>
+        <p>Cleanliness Rating: {{ review.cleanliness_rating }}</p>
+        
+        <p>{{ review.review_text }}</p>
+        <p>Date:   {{ review.posted_at }}</p>
+    </div>
+    <hr></hr>
+{% endfor %}
+
+<a href="{% url 'tu_review:post_review' restaurant.id %}">Post a Review</a>
+<a href="{% url 'tu_review:restaurant_list' %}">Go back</a>
+</body>
+</html>

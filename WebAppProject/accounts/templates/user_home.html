@@ -33,7 +33,7 @@
         <a href="{% url 'tu_alert:alert_list' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             TU Alert
         </a>
-        <a href="{% url 'user_home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a href="{% url 'tu_review:tu_review' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             TU Review
         </a>
         <a href="{% url 'tu_party:party_list' %}" class="{% if request.resolver_match.url_name == 'party_list' %}active{% endif %}">

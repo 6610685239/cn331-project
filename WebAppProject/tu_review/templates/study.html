@@ -1,0 +1,18 @@
+<html>
+<body>
+<h1>Welcome</h1>
+<h2>Top Courses</h2>
+<ul>
+{% for course in top_courses %}
+    <li>{{ course.name }} - Avg Rating: {{ course.avg_rating }}</li>
+{% endfor %}
+</ul>
+<h2>Faculties</h2>
+<ul>
+{% for faculty in faculties %}
+    <li><a href="{% url 'tu_review:faculty' faculty.id %}">{{ faculty.name_en }}</a></li>
+{% endfor %}
+</ul>
+<a href="{% url 'tu_review:tu_review' %}">Go back</a>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+<h1>{{ faculty.name_en }}</h1>
+<p>{{ faculty.description }}</p>
+<a href="{% url 'tu_review:add_review' faculty.id %}">Add Review</a>
+<h2>Courses</h2>
+<ul>
+{% for course in courses %}
+    <li>{{ course.name }}</li>
+{% endfor %}
+</ul>
+<h2><a href="{% url 'tu_review:study' %}">Go Back</a></h2>
+</body>
+</html>

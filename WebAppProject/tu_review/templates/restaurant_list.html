@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resturant</title>
+</head>
+<body>
+    {% for restaurant in top_restaurants %}
+    <div>
+        <h3>{{ restaurant.name }}</h3>
+        <p>Location: {{ restaurant.location }}</p>
+        <p>Average Rating: {{ restaurant.avg_rating }}</p>
+        <a href="{% url 'tu_review:restaurant_detail' restaurant.id %}">View Details</a>
+    </div>
+{% endfor %}
+<a href="{% url 'tu_review:tu_review' %}">Go back</a>
+</body>
+</html>
